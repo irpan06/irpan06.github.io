@@ -43,7 +43,7 @@
 
     <div class="skill-categories-container">
         <div class="skill-category-box">
-            <h3>🔧 Programming & Tools</h3>
+            <h3>Programming & Tools</h3>
             <div class="tags-container">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">SQL</span>
@@ -59,7 +59,7 @@
         </div>
 
         <div class="skill-category-box">
-            <h3>📊 Data Analysis & Visualization</h3>
+            <h3>Data Analysis & Visualization</h3>
             <div class="tags-container">
                 <span class="skill-tag">Data Cleaning</span>
                 <span class="skill-tag">Preprocessing</span>
@@ -74,7 +74,7 @@
         </div>
 
         <div class="skill-category-box">
-            <h3>🤖 Machine Learning & AI</h3>
+            <h3>ML & AI</h3>
             <div class="tags-container">
                 <span class="skill-tag">Supervised Learning</span>
                 <span class="skill-tag">Unsupervised Learning</span>
@@ -127,6 +127,9 @@
     <div class="projects-container">
     <a href="https://github.com/irpan06/Deep-Learning-For-CWDOT-Reconstruction" target="_blank" class="experience-card">
             <div class="experience-content">
+                <div class="project-thumbnail">
+                    <img src="assets/model-predict.png" alt="CWDOT Project Thumbnail">
+                </div>
                 <p class="experience-date">August 2025</p>
                 <h3>CNN-UNET for CWDOT Reconstruction</h3>
                 <p class="experience-company">Academic Project</p>
@@ -143,6 +146,9 @@
         
         <a href="https://github.com/irpan06/Dashboard-Nilai" target="_blank" class="experience-card">
             <div class="experience-content">
+                <div class="project-thumbnail">
+                    <img src="assets/overview-ipk.png" alt="Dashboard Thumbnail">
+                </div>
                 <p class="experience-date">August 2025</p>
                 <h3>Academic Performance Analysis Dashboard</h3>
                 <p class="experience-company">Personal Project</p>
@@ -156,9 +162,12 @@
                 </div>
             </div>
         </a>
-
+        
         <a href="https://github.com/irpan06/KRS-Automation" target="_blank" class="experience-card">
             <div class="experience-content">
+                <div class="project-thumbnail">
+                    <img src="assets/tampilan-awal.jpg" alt="KRS Automation Thumbnail">
+                </div>
                 <p class="experience-date">August 2023</p>
                 <h3>KRS Course Enrollment Automation</h3>
                 <p class="experience-company">Personal Project</p>
@@ -179,7 +188,7 @@
             <a href="https://github.com/irpan06" target="_blank"><i class="fa-brands fa-github"></i></a>
             <a href="https://wa.me/6283849288147" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
-        <p class="copyright">&copy; 2025 Alex. All Rights Reserved.</p>
+        <p class="copyright">&copy; 2025 Irvan. All Rights Reserved.</p>
     </footer>
 <script>
     // --- 1. Sticky Header and Active Link Scrolling ---
@@ -238,9 +247,9 @@
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 textIndex = (textIndex + 1) % textsToType.length;
-                setTimeout(type, 500);
+                setTimeout(type, 50);
             } else {
-                const typingSpeed = isDeleting ? 100 : 200;
+                const typingSpeed = isDeleting ? 50 : 50;
                 setTimeout(type, typingSpeed);
             }
         }
