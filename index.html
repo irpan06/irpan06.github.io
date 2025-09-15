@@ -279,6 +279,27 @@
         }
     });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector(".projects-container");
+    if (!container) return;
+
+    // Ambil semua project card
+    const projects = Array.from(container.querySelectorAll(".experience-card"));
+
+    // Parse tanggal dari elemen .experience-date
+    projects.sort((a, b) => {
+        const dateA = new Date(a.querySelector(".experience-date").innerText);
+        const dateB = new Date(b.querySelector(".experience-date").innerText);
+        return dateB - dateA; // terbaru ke lama
+    });
+
+    // Hapus isi container dan tambahkan kembali sesuai urutan
+    container.innerHTML = "";
+    projects.forEach(p => container.appendChild(p));
+});
+</script>
+
 </body>
 
 </html>
