@@ -371,25 +371,26 @@ span{
 }
 
 /* Experience & Projects Section */
+/* Experience Section */
 .experience {
     background-color: #080808;
 }
 
-.experience-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
+.experience-wrapper {
+    display: flex;
+    justify-content: center;
+    max-width: 70rem; /* Sedikit lebih lebar */
+    margin: 0 auto;
 }
 
-/* Updated to style the <a> tag as the card */
 .experience-card {
     background-color: #161616;
     border-radius: 1.5rem;
     border: 2px solid transparent;
     transition: all 0.4s ease;
     display: flex;
-    text-decoration: none; /* Removes underline from link */
-    color: inherit; /* Makes text inside inherit its color */
+    text-decoration: none;
+    color: inherit;
 }
 
 .experience-card:hover {
@@ -399,7 +400,7 @@ span{
 }
 
 .experience-content {
-    padding: 2.5rem;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
 }
@@ -426,7 +427,6 @@ span{
 .experience-content .experience-details {
     font-size: 1.5rem;
     line-height: 1.6;
-    flex-grow: 1;
     margin-bottom: 2rem;
 }
 
@@ -447,6 +447,85 @@ span{
     font-weight: 500;
 }
 
+
+/* Projects Section */
+.projects {
+    background-color: black;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.project-card {
+    background-color: #161616;
+    border-radius: 1.5rem;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+
+.project-card:hover {
+    border-color: #b74b4b;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(183, 75, 75, 0.3);
+}
+
+.card-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content .card-date {
+    font-size: 1.4rem;
+    color: #b74b4b;
+    margin-bottom: 0.5rem;
+}
+
+.card-content h3 {
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.card-content .card-company {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.card-content .card-details {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 2rem;
+}
+
+/* Menggunakan kembali style tech-tags dari experience */
+.card-content .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: auto;
+}
+
+.card-content .tech-tag {
+    background-color: #080808;
+    border: 1px solid #b74b4b;
+    color: #b74b4b;
+    padding: 0.5rem 1.2rem;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
 /* Penyesuaian untuk layar kecil */
 @media (max-width: 768px){
     .education-card {
@@ -458,47 +537,6 @@ span{
     }
 }
 
-/* Contact Section */
-.contact{
-    background-color: black;
-}
-
-.contact form{
-    max-width: 70rem;
-    margin: 1rem auto;
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.contact form .input-box{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.contact form input,
-.contact form textarea{
-    width: 100%;
-    padding: 1.5rem;
-    font-size: 1.6rem;
-    color: white;
-    background-color: #161616;
-    border-radius: 0.8rem;
-    margin: 0.7rem 0;
-    border: 2px solid #b74b4b;
-}
-
-.contact form .input-box input{
-    width: 49%;
-}
-
-.contact form textarea{
-    resize: none;
-}
-
-.contact form .btn{
-    margin-top: 2rem;
-}
 
 /* Footer */
 .footer{
@@ -541,9 +579,6 @@ span{
         left: 15px;
     }
 
-    .contact form .input-box input{
-        width: 100%;
-    }
 }
 /* Style for sticky header on scroll */
 header.sticky {

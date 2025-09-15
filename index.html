@@ -18,7 +18,7 @@
             <a href="#skills">Skills</a>
             <a href="#education">Education</a>
             <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
+            <a href="#projects">Projects</a>
         </nav>
     </header>
 
@@ -35,7 +35,6 @@
                 <a href="https://github.com/irpan06" target="_blank"><i class="fa-brands fa-github"></i></a>
                 <a href="https://wa.me/6283849288147" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
-            <a href="#contact" class="btn">Contact Me</a>
         </div>
     </section>
 
@@ -107,26 +106,26 @@
 </section>
 
 <section class="experience" id="experience">
-    <h2 class="heading">Experience & <span>Projects</span></h2>
+    <h2 class="heading">My <span>Experience</span></h2>
 
-    <div class="experience-container">
-        <div class="experience-card">
-            <div class="experience-content">
-                <p class="experience-date">Februari 2024 - Juni 2024</p>
+    <div class="education-container">
+        <div class="education-card">
+            <div class="education-content">
+                <p class="education-year">February 2024 - June 2024</p>
                 <h3>Machine Learning Cohort</h3>
-                <p class="experience-company">Bangkit Academy</p>
-                <p class="experience-details">
-                    Mendalami konsep machine learning, termasuk supervised/unsupervised learning, deep learning, dan reinforcement learning. Mengimplementasikan model menggunakan Python, TensorFlow, dan Scikit-learn.
+                <p class="university-name">Bangkit Academy</p>
+                <p class="education-details">
+                    Gained a solid understanding of machine learning, including supervised & unsupervised learning, deep learning, and implemented models using Python, TensorFlow, and scikit-learn.
                 </p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">TensorFlow</span>
-                    <span class="tech-tag">Scikit-learn</span>
-                </div>
             </div>
-        </div>
-
-        <a href="https://github.com/irpan06/Deep-Learning-For-CWDOT-Reconstruction" target="_blank" class="experience-card">
+        </a>
+    </div>
+</section>
+            
+<section class="projects" id="projects">
+    <h2 class="heading">Latest <span>Projects</span></h2>
+    <div class="projects-container">
+    <a href="https://github.com/irpan06/Deep-Learning-For-CWDOT-Reconstruction" target="_blank" class="experience-card">
             <div class="experience-content">
                 <p class="experience-date">August 2025</p>
                 <h3>CNN-UNET for CWDOT Reconstruction</h3>
@@ -174,19 +173,6 @@
         </a>
     </div>
 </section>
-
-    <section class="contact" id="contact">
-        <h2 class="heading">Contact <span>Me</span></h2>
-        <form action="#">
-            <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
-            </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send Message" class="btn">
-        </form>
-    </section>
-
     <footer class="footer">
         <div class="social-icons">
             <a href="https://linkedin.com/in/irvandddi/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
@@ -195,13 +181,10 @@
         </div>
         <p class="copyright">&copy; 2025 Alex. All Rights Reserved.</p>
     </footer>
-
 <script>
-    // Active Link Scrolling
+    // --- 1. Sticky Header and Active Link Scrolling ---
     let sections = document.querySelectorAll('section');
     let navLinks = document.querySelectorAll('header nav a');
-    
-    // Sticky Header
     let header = document.querySelector('header');
 
     window.onscroll = () => {
@@ -211,62 +194,63 @@
             let offset = sec.offsetTop - 150;
             let height = sec.offsetHeight;
             let id = sec.getAttribute('id');
+            
             if (top >= offset && top < offset + height) {
-                navLinks.forEach(links => {
-                    links.classList.remove('active');
-                    document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
                 });
+                
+                // Menambahkan sorotan ke link yang cocok
+                let activeLink = document.querySelector('header nav a[href="#' + id + '"]');
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
             };
         });
 
         // Sticky header logic
         header.classList.toggle('sticky', window.scrollY > 0);
     };
-        const typingSpan = document.getElementById('typing-span');
-    const textsToType = ["Data Enthusiast", "ML Enthusiast", "Problem Solver", "Analyst"];
+
+    // --- 2. Typing Animation Logic ---
+    const typingSpan = document.getElementById('typing-span');
+    const textsToType = ["Data Enthusiast", "ML Enthusiast", "Problem Solver", "Analyst", "Script Writer"];
     
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
 
     function type() {
-        const currentText = textsToType[textIndex];
-        
-        if (isDeleting) {
-            // Hapus karakter
-            typingSpan.textContent = currentText.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            // Tambah karakter
-            typingSpan.textContent = currentText.substring(0, charIndex + 1);
-            charIndex++;
-        }
+        if (typingSpan) {
+            const currentText = textsToType[textIndex];
+            
+            if (isDeleting) {
+                typingSpan.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingSpan.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
 
-        // Jika kalimat selesai diketik
-        if (!isDeleting && charIndex === currentText.length) {
-            isDeleting = true;
-            // Jeda sebelum mulai menghapus
-            setTimeout(type, 2000); 
-        } 
-        // Jika kalimat selesai dihapus
-        else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            // Ganti ke kalimat berikutnya
-            textIndex = (textIndex + 1) % textsToType.length;
-            setTimeout(type, 50);
-        } 
-        // Lanjutkan mengetik/menghapus
-        else {
-            const typingSpeed = isDeleting ? 50 : 50;
-            setTimeout(type, typingSpeed);
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(type, 2000); 
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textsToType.length;
+                setTimeout(type, 500);
+            } else {
+                const typingSpeed = isDeleting ? 100 : 200;
+                setTimeout(type, typingSpeed);
+            }
         }
     }
 
-    // Mulai animasi ketika halaman dimuat
     document.addEventListener("DOMContentLoaded", function() {
-        setTimeout(type, 50);
+        if (typingSpan) {
+            setTimeout(type, 200);
+        }
     });
-
 </script>
 </body>
 
