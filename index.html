@@ -1,133 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+    
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Muhamad Irvandi — Projects</title>
-  <meta name="description" content="Portfolio — Muhamad Irvandi (irpan06) — projects: CW-DOT CNN-UNET, Academic Dashboard, KRS Automation" />
-  <style>
-    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#7dd3fc;--glass: rgba(255,255,255,0.03)}
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
-    body{background:linear-gradient(180deg,#071021 0%, #081226 100%);color:#e6eef8;line-height:1.45}
-    .wrap{max-width:980px;margin:36px auto;padding:28px}
-    header{display:flex;align-items:center;gap:18px}
-    .avatar{width:88px;height:88px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#022;background:#fff}
-    h1{margin:0;font-size:1.6rem}
-    p.lead{margin:6px 0 18px;color:var(--muted)}
-    nav{display:flex;gap:10px;margin-top:6px}
-    a.button{background:var(--glass);padding:8px 12px;border-radius:10px;color:var(--accent);text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,0.04)}
-
-    /* grid */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:22px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-    .card h3{margin:0 0 8px}
-    .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-    .badge{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;color:var(--muted);font-size:0.85rem}
-    .screenshot{width:100%;height:160px;border-radius:8px;background:#041024;display:flex;align-items:center;justify-content:center;color:var(--muted);margin-bottom:10px}
-    .card p{margin:0 0 12px;color:var(--muted)}
-    .links{display:flex;gap:8px}
-    .links a{padding:8px 10px;border-radius:8px;text-decoration:none;background:rgba(255,255,255,0.02);color:var(--accent);font-weight:600;border:1px solid rgba(255,255,255,0.03)}
-
-    footer{margin-top:28px;color:var(--muted);font-size:0.9rem}
-
-    /* responsive tweaks */
-    @media (max-width:520px){.wrap{padding:16px}.avatar{width:64px;height:64px}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio Website</title>
 </head>
 <body>
-  <main class="wrap">
     <header>
-      <div>
-        <h1>Muhamad Irvandi</h1>
-        <p class="lead">This is my personal portfolio showcasing various projects I have worked on and will continue to develop. Click on a project card to view details.</p>
+        <a href="#" class="logo">Alex</a>
+
         <nav>
-          <a class="button" href="#projects">Projects</a>
-          <a class="button" href="#about">About</a>
-          <a class="button" href="https://github.com/irpan06" target="_blank" rel="noopener">GitHub</a>
+            <a href="#" class="active"> Home</a>
+            <a href="#" >Services</a>
+            <a href="#" >Skills</a>
+            <a href="#" >Education</a>
+            <a href="#" >Experience</a>
+            <a href="#" >Contact</a>
         </nav>
-      </div>
     </header>
-
-    <section id="projects">
-      <h2 style="margin-top:22px">Projects</h2>
-      <div class="grid">
-
-        <!-- Project 1: CW-DOT CNN-UNET -->
-        <article class="card">
-          <div class="screenshot">
-           <img src="assets/model-predict.png" alt="CNN-UNET Reconstruction Results" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" /> 
-          </div>
-          <h3>CNN‑UNET for CW‑DOT Reconstruction</h3>
-          <div class="meta">
-            <span class="badge">Python</span>
-            <span class="badge">Deep Learning</span>
-            <span class="badge">Jupyter Notebook</span>
-            <span class="badge">MAE / DSC</span>
-          </div>
-          <p>A CNN‑UNET model trained to reconstruct objects from intensity distribution in Continuous‑Wave Diffuse Optical Tomography (CW‑DOT) system. Featured as an academic thesis project.</p>
-          <div class="links">
-            <a href="https://github.com/irpan06/Deep-Learning-For-CWDOT-Reconstruction" target="_blank" rel="noopener">View repo</a>
-            <a href="#" onclick="openLightbox('outputs/figures/model-predict.png')">View result</a>
-          </div>
-        </article>
-
-        <!-- Project 2: UNAIR Dashboard -->
-        <article class="card">
-          <div class="screenshot">
-            <img src="assets/overview-ipk.png" alt="Streamlit Dashboard" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" /> 
-          </div>
-          <h3>Academic Performance Analysis Dashboard</h3>
-          <div class="meta">
-            <span class="badge">Streamlit</span>
-            <span class="badge">Pandas</span>
-            <span class="badge">Plotly</span>
-            <span class="badge">Scraping</span>
-          </div>
-          <p>An interactive application to calculate and visualize GPA, grade distribution, credit progress, and grade simulation based on UNAIR transcript data. Includes an online demo.</p>
-          <div class="links">
-            <a href="https://github.com/irpan06/Dashboard-Nilai" target="_blank" rel="noopener">View repo</a>
-            <a href="https://dashboard-nilai.streamlit.app" target="_blank" rel="noopener">Open demo</a>
-          </div>
-        </article>
-        
-        <!-- Project 3: KRS Automation -->
-        <article class="card">
-          <div class="screenshot">
-            <img src="assets/tampilan-awal.jpg" alt="KRS Automation Script" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" /> 
-          </div>
-          <h3>KRS Course Enrollment Automation</h3>
-          <div class="meta">
-            <span class="badge">Python</span>
-            <span class="badge">Selenium</span>
-            <span class="badge">Automation</span>
-            <span class="badge">YouTube demo</span>
-          </div>
-          <p>An automation script to help UNAIR students register for courses (KRS) using Selenium. Supports manual and automatic modes with status output for each attempt.</p>
-          <div class="links">
-            <a href="https://github.com/irpan06/KRS-Automation" target="_blank" rel="noopener">View repo</a>
-            <a href="https://www.youtube.com/watch?v=vcDb0vNcduY" target="_blank" rel="noopener">Video demo</a>
-          </div>
-        </article>
-
-      </div>
+    <section class="home">
+        <div class="home-img">
+            <img src="main.jpg" alt="">
+        </div>
+        <div class="home-content">
+            <h1>Hi, It's <span>Alex</span></h1>
+            <h3 class="typing-text">I'm a <span></span></h3>
+            <p>Physics graduate from Airlangga University with strong interest in computational methods and IT. Skilled in analysis and problem-solving, eager to contribute to innovative and interdisciplinary projects.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <a href="#" class="btn">Hire me</a>
+        </div>
     </section>
-
-    <section id="about">
-      <h2 style="margin-top:28px">About</h2>
-      <p style="color:var(--muted)">Physics graduate from Airlangga University with strong interest in computational methods and IT. Skilled in analysis and problem-solving, eager to contribute to innovative and interdisciplinary projects.</p>
-    </section>
-
-    <footer>
-      <p><a href="https://github.com/irpan06" target="_blank" rel="noopener" style="color:var(--accent)">github.com/irpan06</a> · Hosted on GitHub Pages</p>
-    </footer>
-  </main>
-
-  <script>
-    function openLightbox(url){
-      const w = window.open(url, '_blank');
-      if(!w) alert('Popup blocked — open the image directly: ' + url);
-    }
-  </script>
 </body>
 </html>
