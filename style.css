@@ -191,54 +191,31 @@ span{
     box-shadow: 0 0 25px #b74b4b;
 }
 
-.typing-text{
+.typing-text {
     font-size: 34px;
     font-weight: 600;
     min-width: 280px;
 }
 
-.typing-text span{
+.typing-text span {
+    color: #b74b4b;
     position: relative;
 }
 
-.typing-text span::before{
-    content: "software Developer";
-    color: #b74b4b;
-    animation: words 20s infinite;
-}
-
-.typing-text span::after{
+/* Membuat kursor berkedip dengan CSS */
+.typing-text span::after {
     content: "";
-    background-color: black;
     position: absolute;
-    width: calc(100% + 8px);
+    width: 3px;
     height: 100%;
-    border-left: 3px solid black;
-    right: -8;
-    animation: cursor 0.6s infinite;
+    background-color: #b74b4b;
+    animation: blink 0.7s infinite;
+    right: -5px;
 }
 
-@keyframes cursor{
-    to{
-        border-left: 3px solid #b74b4b;
-    }
-}
-
-@keyframes words{
-    0%, 20%{
-        content: "Web Developer";
-    }
-    21%, 40%{
-        content: "Developer";
-    }
-    41%, 60%{
-        content: "Web Designer";
-    }
-    61%, 80%{
-        content: "Youtuber";
-    }
-    81%, 100%{
-        content: "Script Writer";
+@keyframes blink {
+    50% {
+        opacity: 0;
     }
 }
 
@@ -267,4 +244,311 @@ span{
         margin-top: 4rem;
     }
 }
+/*==================================
+    NEW CSS FOR ADDITIONAL SECTIONS
+====================================*/
 
+/* General Heading Style */
+.heading{
+    text-align: center;
+    font-size: 4.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Skills Section */
+/* Skills Section */
+.skills {
+    background-color: #080808; /* Sedikit berbeda agar kontras */
+    padding-bottom: 7rem;
+}
+
+/* Kontainer utama untuk semua kotak kategori */
+.skills .skill-categories-container {
+    display: grid;
+    /* Membuat grid responsif, 2 kolom di layar sedang, 1 di layar kecil */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Style untuk setiap kotak kategori skill */
+.skills .skill-category-box {
+    background-color: #161616;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+}
+
+.skills .skill-category-box:hover {
+    border-color: #b74b4b;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(183, 75, 75, 0.3);
+}
+
+/* Judul setiap kategori */
+.skills .skill-category-box h3 {
+    font-size: 2.2rem;
+    color: #b74b4b;
+    margin-bottom: 2rem;
+}
+
+/* Kontainer untuk tags di dalam setiap kotak */
+.skills .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
+
+/* Style untuk setiap tag skill */
+.skills .skill-tag {
+    background-color: #080808;
+    border: 1px solid #b74b4b;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 20px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+.skills .skill-tag:hover {
+    background-color: #b74b4b;
+    color: black;
+    transform: scale(1.05);
+}
+
+/* Education & Experience Section (Timeline) */
+/* Education Section */
+.education {
+    background-color: black;
+}
+
+.education-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.education-card {
+    background-color: #161616;
+    border-radius: 1.5rem;
+    padding: 3rem 4rem;
+    width: 100%;
+    max-width: 70rem; /* Atur lebar maksimum kartu */
+    border-left: 5px solid #b74b4b;
+    transition: all 0.4s ease;
+}
+
+.education-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(183, 75, 75, 0.4);
+}
+
+.education-content .education-year {
+    font-size: 1.5rem;
+    color: #b74b4b;
+    margin-bottom: 0.5rem;
+}
+
+.education-content h3 {
+    font-size: 2.6rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.education-content .university-name {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #ccc; /* Sedikit lebih redup */
+    margin-bottom: 1.5rem;
+}
+
+.education-content .education-details {
+    font-size: 1.6rem;
+    line-height: 1.7;
+}
+
+/* Experience & Projects Section */
+.experience {
+    background-color: #080808;
+}
+
+.experience-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Updated to style the <a> tag as the card */
+.experience-card {
+    background-color: #161616;
+    border-radius: 1.5rem;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    display: flex;
+    text-decoration: none; /* Removes underline from link */
+    color: inherit; /* Makes text inside inherit its color */
+}
+
+.experience-card:hover {
+    border-color: #b74b4b;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(183, 75, 75, 0.3);
+}
+
+.experience-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-content .experience-date {
+    font-size: 1.4rem;
+    color: #b74b4b;
+    margin-bottom: 0.5rem;
+}
+
+.experience-content h3 {
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.experience-content .experience-company {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.experience-content .experience-details {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 2rem;
+}
+
+.experience-content .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: auto;
+}
+
+.experience-content .tech-tag {
+    background-color: #080808;
+    border: 1px solid #b74b4b;
+    color: #b74b4b;
+    padding: 0.5rem 1.2rem;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Penyesuaian untuk layar kecil */
+@media (max-width: 768px){
+    .education-card {
+        padding: 2.5rem 3rem;
+    }
+
+    .education-content h3 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Contact Section */
+.contact{
+    background-color: black;
+}
+
+.contact form{
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact form .input-box{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form input,
+.contact form textarea{
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: white;
+    background-color: #161616;
+    border-radius: 0.8rem;
+    margin: 0.7rem 0;
+    border: 2px solid #b74b4b;
+}
+
+.contact form .input-box input{
+    width: 49%;
+}
+
+.contact form textarea{
+    resize: none;
+}
+
+.contact form .btn{
+    margin-top: 2rem;
+}
+
+/* Footer */
+.footer{
+    padding: 2rem 9%;
+    background-color: #161616;
+    text-align: center;
+}
+
+.footer .social-icons a{
+    margin: 1rem;
+}
+
+.footer .copyright{
+    font-size: 1.4rem;
+    color: white;
+    margin-top: 1.5rem;
+}
+
+/* Responsive Design Adjustments for New Sections */
+@media (max-width: 768px){
+    .heading{
+        font-size: 3.5rem;
+    }
+
+    .timeline::after{
+        left: 31px;
+    }
+
+    .timeline-item{
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item:nth-child(even){
+        left: 0%;
+    }
+
+    .timeline-item::after{
+        left: 15px;
+    }
+
+    .contact form .input-box input{
+        width: 100%;
+    }
+}
+/* Style for sticky header on scroll */
+header.sticky {
+    background-color: black;
+    padding: 1rem 9%;
+    margin-top: 0;
+    box-shadow: 0 .2rem .5rem rgba(0,0,0,0.2);
+}
