@@ -18,8 +18,8 @@ body{
     width: 100%;
     height: 100vh;
     overflow-x: hidden;
-    background-color: black;
-    color: white;
+    background-color: #1a1a1a;
+    color: #d0d0d0;
 }
 
 header{
@@ -39,7 +39,7 @@ header{
 
 .logo{
     font-size: 3rem;
-    color: #3498db;
+    color: #b8b8b8;
     font-weight: 800;
     cursor: pointer;
     transition: 0.5s ease;
@@ -51,7 +51,7 @@ header{
 
 nav a{
     font-size: 1.8rem;
-    color: white;
+    color: #888888;
     margin-left: 4rem;
     font-weight: 500;
     transition: 0.3s ease;
@@ -60,8 +60,8 @@ nav a{
 
 nav a:hover,
 nav a.active{
-    color: #3498db;
-    border-bottom: 3px solid #3498db;
+    color: #b8b8b8;
+    border-bottom: 3px solid #b8b8b8;
 }
 
 @media(max-width:995px){
@@ -71,12 +71,12 @@ nav a.active{
         top: 0;
         right: 0;
         width: 40%;
-        border-left: 3px solid #3498db;
-        border-bottom: 3px solid #3498db;
+        border-left: 3px solid #b8b8b8;
+        border-bottom: 3px solid #b8b8b8;
         border-bottom-left-radius: 2rem;
         padding: 1rem solid;
-        background-color: #161616;
-        border-top: 0.1rem solid rgba(0,0,0,0.1);
+        background-color: #1a1a1a;
+        border-top: 0.1rem solid rgba(184,184,184,0.05);
     }
 
     nav.active{
@@ -93,7 +93,7 @@ nav a.active{
     nav a.active{
         padding: 1rem;
         border-radius: 0.5rem;
-        border-bottom: 0.5rem solid #3498db;
+        border-bottom: 0.5rem solid #b8b8b8;
     }
 }
 
@@ -107,7 +107,7 @@ section{
     justify-content: center;
     align-items: center;
     gap: 8rem;
-    background-color: black;
+    background-color: #1a1a1a;
 }
 
 .home .home-content h1{
@@ -117,7 +117,7 @@ section{
 }
 
 span{
-    color: #3498db;
+    color: #b8b8b8;
 }
 
 .home-content h3{
@@ -138,7 +138,7 @@ span{
     position: relative;
     width: 32vw;
     border-radius: 50%;
-    box-shadow: 0 0 25px solid #3498db;
+    box-shadow: 0 0 25px rgba(184,184,184,0.15);
     cursor: pointer;
     transition: 0.2s linear;
 }
@@ -155,40 +155,40 @@ span{
     width: 4rem;
     height: 4rem;
     background-color: transparent;
-    border: 0.2rem solid #3498db;
+    border: 0.2rem solid #b8b8b8;
     font-size: 2rem;
     border-radius: 50%;
     margin: 3rem 1.5rem 3rem 0;
     transition: 0.3s ease;
-    color: #3498db;
+    color: #b8b8b8;
 }
 
 .social-icons a:hover{
-    color: black;
+    color: #0a0a0a;
     transform: scale(1.3) translateY(-5px);
-    background-color: #3498db;
-    box-shadow: 0  0 25px #3498db;
+    background-color: #b8b8b8;
+    box-shadow: 0 0 25px rgba(184,184,184,0.5);
 }
 
 .btn{
     display: inline-block;
     padding: 1rem 2.8rem;
-    background-color: black;
+    background-color: #0a0a0a;
     border-radius: 4rem;
     font-size: 1.6rem;
-    color: #3498db;
+    color: #b8b8b8;
     letter-spacing: 0.3rem;
     font-weight: 600;
-    border: 2px solid #3498db;
+    border: 2px solid #b8b8b8;
     transition: 0.3s ease;
     cursor: pointer;
 }
 
 .btn:hover{
     transform: scale3d(1.03);
-    background-color: #3498db;
-    color: black;
-    box-shadow: 0 0 25px #3498db;
+    background-color: #b8b8b8;
+    color: #0a0a0a;
+    box-shadow: 0 0 25px rgba(184,184,184,0.3);
 }
 
 .typing-text {
@@ -198,17 +198,16 @@ span{
 }
 
 .typing-text span {
-    color: #3498db;
+    color: #b8b8b8;
     position: relative;
 }
 
-/* Membuat kursor berkedip dengan CSS */
 .typing-text span::after {
     content: "";
     position: absolute;
     width: 3px;
     height: 100%;
-    background-color: #3498db;
+    background-color: #b8b8b8;
     animation: blink 0.7s infinite;
     right: -5px;
 }
@@ -244,35 +243,26 @@ span{
         margin-top: 4rem;
     }
 }
-/*==================================
-    NEW CSS FOR ADDITIONAL SECTIONS
-====================================*/
 
-/* General Heading Style */
 .heading{
     text-align: center;
     font-size: 4.5rem;
     margin-bottom: 3rem;
 }
 
-/* Skills Section */
-/* Skills Section */
 .skills {
-    background-color: #080808; /* Sedikit berbeda agar kontras */
+    background-color: #222222;
     padding-bottom: 7rem;
 }
 
-/* Kontainer utama untuk semua kotak kategori */
 .skills .skill-categories-container {
     display: grid;
-    /* Membuat grid responsif, 2 kolom di layar sedang, 1 di layar kecil */
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.5rem;
 }
 
-/* Style untuk setiap kotak kategori skill */
 .skills .skill-category-box {
-    background-color: #161616;
+    background-color: #2a2a2a;
     padding: 2.5rem;
     border-radius: 1.5rem;
     border: 2px solid transparent;
@@ -281,30 +271,27 @@ span{
 }
 
 .skills .skill-category-box:hover {
-    border-color: #3498db;
+    border-color: #b8b8b8;
     transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(183, 75, 75, 0.3);
+    box-shadow: 0 0 25px rgba(184,184,184,0.1);
 }
 
-/* Judul setiap kategori */
 .skills .skill-category-box h3 {
     font-size: 2.2rem;
-    color: #3498db;
+    color: #b8b8b8;
     margin-bottom: 2rem;
 }
 
-/* Kontainer untuk tags di dalam setiap kotak */
 .skills .tags-container {
     display: flex;
     flex-wrap: wrap;
     gap: 1.2rem;
 }
 
-/* Style untuk setiap tag skill */
 .skills .skill-tag {
-    background-color: #080808;
-    border: 1px solid #3498db;
-    color: white;
+    background-color: #0f0f0f;
+    border: 1px solid #b8b8b8;
+    color: #d0d0d0;
     padding: 0.7rem 1.5rem;
     border-radius: 20px;
     font-size: 1.4rem;
@@ -314,15 +301,13 @@ span{
 }
 
 .skills .skill-tag:hover {
-    background-color: #3498db;
-    color: black;
+    background-color: #b8b8b8;
+    color: #0a0a0a;
     transform: scale(1.05);
 }
 
-/* Education & Experience Section (Timeline) */
-/* Education Section */
 .education {
-    background-color: black;
+    background-color: #1a1a1a;
 }
 
 .education-container {
@@ -333,36 +318,36 @@ span{
 }
 
 .education-card {
-    background-color: #161616;
+    background-color: #2a2a2a;
     border-radius: 1.5rem;
     padding: 3rem 4rem;
     width: 100%;
-    max-width: 70rem; /* Atur lebar maksimum kartu */
-    border-left: 5px solid #3498db;
+    max-width: 70rem;
+    border-left: 5px solid #b8b8b8;
     transition: all 0.4s ease;
 }
 
 .education-card:hover {
     transform: scale(1.03);
-    box-shadow: 0 0 25px rgba(183, 75, 75, 0.4);
+    box-shadow: 0 0 25px rgba(184,184,184,0.1);
 }
 
 .education-content .education-year {
     font-size: 1.5rem;
-    color: #3498db;
+    color: #b8b8b8;
     margin-bottom: 0.5rem;
 }
 
 .education-content h3 {
     font-size: 2.6rem;
-    color: white;
+    color: #d0d0d0;
     margin-bottom: 0.5rem;
 }
 
 .education-content .university-name {
     font-size: 1.8rem;
     font-weight: 500;
-    color: #ccc; /* Sedikit lebih redup */
+    color: #888888;
     margin-bottom: 1.5rem;
 }
 
@@ -371,21 +356,19 @@ span{
     line-height: 1.7;
 }
 
-/* Experience & Projects Section */
-/* Experience Section */
 .experience {
-    background-color: #080808;
+    background-color: #222222;
 }
 
 .experience-wrapper {
     display: flex;
     justify-content: center;
-    max-width: 70rem; /* Sedikit lebih lebar */
+    max-width: 70rem;
     margin: 0 auto;
 }
 
 .experience-card {
-    background-color: #161616;
+    background-color: #2a2a2a;
     border-radius: 1.5rem;
     border: 2px solid transparent;
     transition: all 0.4s ease;
@@ -395,9 +378,9 @@ span{
 }
 
 .experience-card:hover {
-    border-color: #3498db;
+    border-color: #b8b8b8;
     transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(183, 75, 75, 0.3);
+    box-shadow: 0 0 25px rgba(184,184,184,0.1);
 }
 
 .experience-content {
@@ -408,20 +391,20 @@ span{
 
 .experience-content .experience-date {
     font-size: 1.4rem;
-    color: #3498db;
+    color: #b8b8b8;
     margin-bottom: 0.5rem;
 }
 
 .experience-content h3 {
     font-size: 2.2rem;
-    color: white;
+    color: #d0d0d0;
     margin-bottom: 0.5rem;
 }
 
 .experience-content .experience-company {
     font-size: 1.6rem;
     font-weight: 500;
-    color: #ccc;
+    color: #888888;
     margin-bottom: 1.5rem;
 }
 
@@ -439,19 +422,17 @@ span{
 }
 
 .experience-content .tech-tag {
-    background-color: #080808;
-    border: 1px solid #3498db;
-    color: #3498db;
+    background-color: #0f0f0f;
+    border: 1px solid #b8b8b8;
+    color: #b8b8b8;
     padding: 0.5rem 1.2rem;
     border-radius: 15px;
     font-size: 1.2rem;
     font-weight: 500;
 }
 
-
-/* Projects Section */
 .projects {
-    background-color: black;
+    background-color: #1a1a1a;
 }
 
 .projects-container {
@@ -461,7 +442,7 @@ span{
 }
 
 .project-card {
-    background-color: #161616;
+    background-color: #2a2a2a;
     border-radius: 1.5rem;
     border: 2px solid transparent;
     transition: all 0.4s ease;
@@ -472,14 +453,14 @@ span{
 }
 
 .project-card:hover {
-    border-color: #3498db;
+    border-color: #b8b8b8;
     transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(183, 75, 75, 0.3);
+    box-shadow: 0 0 25px rgba(184,184,184,0.1);
 }
 
 .project-thumbnail {
     width: 100%;
-    height: 180px; /* sesuaikan tinggi */
+    height: 180px;
     overflow: hidden;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -488,10 +469,9 @@ span{
 .project-thumbnail img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* supaya gambar crop rapi */
+    object-fit: cover;
     display: block;
 }
-
 
 .card-content {
     padding: 2.5rem;
@@ -501,20 +481,20 @@ span{
 
 .card-content .card-date {
     font-size: 1.4rem;
-    color: #3498db;
+    color: #b8b8b8;
     margin-bottom: 0.5rem;
 }
 
 .card-content h3 {
     font-size: 2.2rem;
-    color: white;
+    color: #d0d0d0;
     margin-bottom: 0.5rem;
 }
 
 .card-content .card-company {
     font-size: 1.6rem;
     font-weight: 500;
-    color: #ccc;
+    color: #888888;
     margin-bottom: 1.5rem;
 }
 
@@ -525,7 +505,6 @@ span{
     margin-bottom: 2rem;
 }
 
-/* Menggunakan kembali style tech-tags dari experience */
 .card-content .tech-tags {
     display: flex;
     flex-wrap: wrap;
@@ -534,16 +513,15 @@ span{
 }
 
 .card-content .tech-tag {
-    background-color: #080808;
-    border: 1px solid #3498db;
-    color: #3498db;
+    background-color: #0f0f0f;
+    border: 1px solid #b8b8b8;
+    color: #b8b8b8;
     padding: 0.5rem 1.2rem;
     border-radius: 15px;
     font-size: 1.2rem;
     font-weight: 500;
 }
 
-/* Penyesuaian untuk layar kecil */
 @media (max-width: 768px){
     .education-card {
         padding: 2.5rem 3rem;
@@ -554,11 +532,9 @@ span{
     }
 }
 
-
-/* Footer */
 .footer{
     padding: 2rem 9%;
-    background-color: #161616;
+    background-color: #1a1a1a;
     text-align: center;
 }
 
@@ -568,11 +544,10 @@ span{
 
 .footer .copyright{
     font-size: 1.4rem;
-    color: white;
+    color: #888888;
     margin-top: 1.5rem;
 }
 
-/* Responsive Design Adjustments for New Sections */
 @media (max-width: 768px){
     .heading{
         font-size: 3.5rem;
@@ -595,12 +570,11 @@ span{
     .timeline-item::after{
         left: 15px;
     }
-
 }
-/* Style for sticky header on scroll */
+
 header.sticky {
-    background-color: black;
+    background-color: #1a1a1a;
     padding: 1rem 9%;
     margin-top: 0;
-    box-shadow: 0 .2rem .5rem rgba(0,0,0,0.2);
+    box-shadow: 0 .2rem .5rem rgba(0,0,0,0.4);
 }
