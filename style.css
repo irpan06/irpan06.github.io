@@ -348,7 +348,7 @@ p.bio {
 
 .info-meta {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--text-main);
 }
 
 .info-desc {
