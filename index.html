@@ -42,10 +42,9 @@
         <!-- TAB 0: HOME -->
         <header id="tab-0" class="tab-section active-tab">
             <h1>Muhamad Irvandi</h1>
-            <div class="subtitle" id="subtitleText"
-                 data-en="Data Enthusiast | Systems Thinker"
-                 data-id="Data Enthusiast | Systems Thinker">
-                Data Enthusiast | Systems Thinker
+            <div class="subtitle" style="display: flex; align-items: center; margin-bottom: 20px;">
+                <span id="subtitleText" data-en="Data Enthusiast | Systems Thinker" data-id="Data Enthusiast | Systems Thinker"></span>
+                <span class="blinking-cursor" style="margin-left: 8px;">█</span>
             </div>
             
             <p class="bio" id="bioText" 
@@ -136,6 +135,7 @@
                         Gained a solid understanding of machine learning, including supervised & unsupervised learning, deep learning, and implemented models using Python, TensorFlow, and scikit-learn.
                     </div>
                 </div>
+                </div>
             </div>
         </section>
 
@@ -153,6 +153,7 @@
                         Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects.
                     </div>
                 </div>
+                </div>
             </div>
         </section>
         <!-- TAB: SKILLS (REPO STRUCTURE) -->
@@ -161,6 +162,15 @@
             
             <!-- CSS Khusus untuk meratakan Tree Structure -->
             <style>
+                .blinking-cursor {
+                    font-weight: bold;
+                    color: var(--text-main);
+                    animation: blink 1s step-end infinite;
+                }
+                @keyframes blink {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0; }
+                }
                 .tree-row {
                     display: flex;
                     flex-wrap: wrap;
@@ -182,9 +192,10 @@
             </style>
 
             <div class="list-container" style="font-size: 0.88rem; line-height: 1.8;">
-                <p style="color: var(--text-muted); margin-bottom: 15px;">root@irvan:~/portfolio/skills$ tree -a</p>
+                <p style="color: var(--text-muted); margin-bottom: 15px;">root@irvan:~/portfolio/skills$ <span id="typewriter-text" style="color: var(--text-main);"></span><span class="blinking-cursor">█</span></p>
                 
-                <div style="color: var(--text-title); font-weight: bold;">skills</div>
+                <div id="tree-content" style="opacity: 0; transition: opacity 0.4s ease;">
+                    <div style="color: var(--text-title); font-weight: bold;">skills</div>
                 <div style="padding-left: 20px;">
                     
                     <div class="tree-row">
@@ -263,6 +274,24 @@
             setTimeout(() => {
                 const introScreen = document.getElementById('intro-screen');
                 introScreen.classList.add('hidden');
+                
+                // Animasi ngetik subtitle di tab /info
+                setTimeout(() => {
+                    const subtitleEl = document.getElementById('subtitleText');
+                    // Ambil teks sesuai bahasa yang aktif
+                    const textToType = subtitleEl.getAttribute('data-' + currentLang);
+                    let i = 0;
+                    
+                    function typeSubtitle() {
+                        if (i < textToType.length) {
+                            subtitleEl.innerHTML += textToType.charAt(i);
+                            i++;
+                            setTimeout(typeSubtitle, 70); // Kecepatan ketikan
+                        }
+                    }
+                    typeSubtitle();
+                }, 600); // Jeda setelah splash screen memudar
+
             }, 3000); 
         });
 
@@ -270,6 +299,7 @@
         const totalTabs = 5;
         let isAnimating = false;
         let projectAnimated = false;
+        let skillsAnimated = false;
 
         function openTab(index) {
             if (index < 0 || index >= totalTabs || isAnimating) return;
@@ -295,6 +325,31 @@
                 const totalProjects = document.querySelectorAll('#tab-1 .list-item').length;
                 animateValue("project-counter", 0, totalProjects, 1000); 
                 projectAnimated = true; 
+            }
+
+            // Animasi ngetik di tab skills (indeks 4)
+            if (index === 4 && !skillsAnimated) {
+                skillsAnimated = true;
+                const textToType = "tree -a";
+                const typingElement = document.getElementById("typewriter-text");
+                const treeContent = document.getElementById("tree-content");
+                let charIndex = 0;
+                
+                function typeWriter() {
+                    if (charIndex < textToType.length) {
+                        typingElement.innerHTML += textToType.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeWriter, 120); // Kecepatan ngetik
+                    } else {
+                        // Munculkan hasil tree setelah ngetik selesai
+                        setTimeout(() => {
+                            treeContent.style.opacity = "1";
+                        }, 300);
+                    }
+                }
+                
+                // Mulai ngetik setelah delay transisi tab
+                setTimeout(typeWriter, 400);
             }
 
             setTimeout(() => {
