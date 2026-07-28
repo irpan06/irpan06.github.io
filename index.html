@@ -307,6 +307,10 @@
             isAnimating = true;
             currentTabIndex = index;
 
+            const listContainer = document.querySelector("#tab-" + index + " .list-container");
+            if (listContainer) {
+                listContainer.scrollTop = 0;
+            }
             const tabContents = document.getElementsByClassName("tab-section");
             for (let i = 0; i < tabContents.length; i++) {
                 tabContents[i].classList.remove("active-tab");
