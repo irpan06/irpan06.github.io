@@ -27,6 +27,7 @@
             <a onclick="openTab(1)" class="nav-link" id="btn-1" data-en="/projects" data-id="/proyek">/projects</a>
             <a onclick="openTab(2)" class="nav-link" id="btn-2" data-en="/experience" data-id="/pengalaman">/experience</a>
             <a onclick="openTab(3)" class="nav-link" id="btn-3" data-en="/education" data-id="/pendidikan">/education</a>
+            <a onclick="openTab(4)" class="nav-link" id="btn-4" data-en="/skills" data-id="/keahlian">/skills</a>
         </nav>
         
         <div class="controls">
@@ -150,6 +151,28 @@
                 </div>
             </div>
         </section>
+        <!-- TAB: SKILLS (REPO STRUCTURE) -->
+        <section id="tab-4" class="tab-section">
+            <div class="section-title" data-en="Skill Repositories" data-id="Repositori Keahlian">Skill Repositories</div>
+            
+            <div class="list-container" style="font-size: 0.9rem; line-height: 1.8;">
+                <p style="color: var(--text-muted); margin-bottom: 15px;">root@irvan-pc:~/portfolio/skills$ tree -a</p>
+                
+                <div style="color: var(--text-title); font-weight: bold;">.</div>
+                <div style="padding-left: 20px; color: var(--text-main);">
+                    ├── <span style="color: #888;">data-engineering/</span><br>
+                    │   ├── python.py <span style="color: var(--text-muted); font-size: 0.8rem;"># Data manipulation, cleaning, scripting</span><br>
+                    │   ├── sql-database.sql <span style="color: var(--text-muted); font-size: 0.8rem;"># EDA, ADA, complex querying</span><br>
+                    │   └── visualization/ <span style="color: var(--text-muted); font-size: 0.8rem;"># Streamlit, Plotly, Dashboard</span><br>
+                    ├── <span style="color: #888;">automation/</span><br>
+                    │   ├── web-scraping.py <span style="color: var(--text-muted); font-size: 0.8rem;"># Selenium</span><br>
+                    │   └── ai-workflows/ <span style="color: var(--text-muted); font-size: 0.8rem;"># Groq API, Anki Automation</span><br>
+                    └── <span style="color: #888;">exploration/</span><br>
+                        ├── cybersecurity/ <span style="color: var(--text-muted); font-size: 0.8rem;"># Network analysis, vulnerability logs</span><br>
+                        └── machine-learning/ <span style="color: var(--text-muted); font-size: 0.8rem;"># TensorFlow, CNN-UNET</span>
+                </div>
+            </div>
+        </section>
 
         <!-- Footer -->
         <div class="footer-container">
@@ -167,7 +190,7 @@
         });
 
         let currentTabIndex = 0;
-        const totalTabs = 4;
+        const totalTabs = 5;
         let isAnimating = false;
 
         function openTab(index) {
