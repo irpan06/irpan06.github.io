@@ -34,17 +34,129 @@ body {
     color: var(--text-main);
     font-family: 'JetBrains Mono', monospace;
     line-height: 1.6;
-    padding: 60px 20px;
-    max-width: 800px;
-    margin: 0 auto;
     transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    overflow: hidden; 
+}
+
+/* --- INTRO SCREEN (SPLASH SCREEN) --- */
+#intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    overflow: hidden;
+}
+
+#intro-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.intro-text {
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.intro-name {
+    font-weight: 700;
+    color: var(--text-title);
+    display: inline-block;
+    transform: translateX(0);
+    animation: slideOutLeft 1.5s ease-in-out forwards;
+    animation-delay: 1.5s;
+}
+
+.intro-portfolio {
+    font-weight: 400;
+    color: var(--text-muted);
+    display: inline-block;
+    transform: translateX(0);
+    animation: slideOutRight 1.5s ease-in-out forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes slideOutLeft {
+    0% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(-100vw); opacity: 0; }
+}
+
+@keyframes slideOutRight {
+    0% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(100vw); opacity: 0; }
+}
+/* ------------------------------------ */
+
+/* --- SIDEBAR KIRI TETAP (FIXED) --- */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    padding: 80px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sidebar-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    position: relative;
+    padding-left: 25px;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebar-nav a::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--text-main);
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateX(-10px);
+}
+
+.sidebar-nav a:hover, .sidebar-nav a.active {
+    color: var(--text-main);
+}
+
+.sidebar-nav a:hover::before, .sidebar-nav a.active::before {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .controls {
     display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    margin-bottom: 40px;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
 }
 
 .toggle-btn {
@@ -64,9 +176,38 @@ body {
     color: var(--bg-color);
     border-color: var(--text-main);
 }
+/* ------------------------------------ */
+
+/* --- AREA KONTEN UTAMA --- */
+#content {
+    margin-left: 280px;
+    width: calc(100vw - 280px);
+    height: 100vh;
+    position: relative;
+    overflow: hidden; 
+}
+
+.tab-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 80px 40px;
+    max-width: 800px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s;
+}
+
+.tab-section.active-tab {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
 
 header {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 h1 {
@@ -93,7 +234,6 @@ p.bio {
 .social-icons {
     display: flex;
     gap: 15px;
-    margin-bottom: 30px;
 }
 
 .social-icons a {
@@ -106,34 +246,38 @@ p.bio {
     color: var(--text-title);
 }
 
-.nav-links a {
-    color: var(--text-main);
-    text-decoration: none;
-    margin-right: 25px;
-    font-size: 0.9rem;
-    padding-bottom: 2px;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.3s;
-}
-
-.nav-links a:hover, .nav-links a.active {
-    border-bottom: 1px solid var(--text-main);
-}
-
 .section-title {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--text-muted);
     margin-bottom: 10px;
-    margin-top: 40px;
+    margin-top: 10px; 
     border-bottom: 1px solid var(--border-light);
     padding-bottom: 10px;
 }
 
+/* --- LIST/TABLE CONTAINER --- */
 .list-container {
     display: flex;
     flex-direction: column;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.list-container::-webkit-scrollbar {
+    width: 6px;
+}
+.list-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+.list-container::-webkit-scrollbar-thumb {
+    background: var(--border-light);
+    border-radius: 3px;
+}
+.list-container::-webkit-scrollbar-thumb:hover {
+    background: var(--hover-border);
 }
 
 .list-item {
@@ -145,6 +289,7 @@ p.bio {
     text-decoration: none;
     color: inherit;
     transition: padding-left 0.3s ease, background-color 0.3s, border-bottom 0.3s;
+    flex-shrink: 0; 
 }
 
 .list-item:hover {
@@ -209,19 +354,114 @@ p.bio {
     color: var(--text-muted);
 }
 
-@media (max-width: 600px) {
+.footer-container {
+    position: absolute;
+    bottom: 0;
+    left: 40px;
+    width: calc(100% - 80px);
+    max-width: 720px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-main);
+    padding: 20px 0;
+    background-color: var(--bg-color);
+    z-index: 20;
+}
+
+@media (max-width: 900px) {
+    body {
+        flex-direction: column;
+        overflow: auto;
+    }
+    
+    #sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border-main);
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .sidebar-nav a {
+        padding-left: 0;
+        font-size: 0.95rem;
+    }
+
+    .sidebar-nav a::before {
+        display: none;
+    }
+
+    .controls {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #content {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+    }
+    
+    .tab-section {
+        position: relative;
+        height: auto;
+        padding: 40px 20px;
+        transform: none;
+    }
+
+    .list-container {
+        max-height: none;
+        overflow-y: visible;
+    }
+    
+    .footer-container {
+        position: relative;
+        left: 0;
+        width: 100%;
+        margin-top: 50px;
+    }
+
     .item-left { flex-direction: column; align-items: flex-start; gap: 8px; }
     .item-date { width: auto; }
     .item-category { display: none; }
     .info-header { flex-direction: column; gap: 4px; }
 }
 
-footer {
-    margin-top: 100px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+/* --- PERBAIKAN FILTER PROYEK (MENJADI TAMPILAN TERMINAL BERSIH) --- */
+.project-filters {
     display: flex;
-    justify-content: space-between;
-    border-top: 1px solid var(--border-main);
-    padding-top: 20px;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background: transparent !important; /* Menghilangkan background abu-abu terang */
+    border: none !important;           /* Menghilangkan kotak border bawaan tombol */
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active-filter {
+    color: var(--text-main);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.list-item.hidden-project {
+    display: none !important;
 }

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Irvan - Data Enthusiast</title>
+    <title>Muhamad Irvandi</title>
+    <link rel="icon" type="image/x-icon" href="assets/icon.png">
     <!-- Font Awesome untuk ikon sosial media -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Menautkan file CSS eksternal -->
@@ -11,125 +12,215 @@
 </head>
 <body>
 
-    <div class="controls">
-        <button class="toggle-btn" id="langToggle">[ Lang: EN ]</button>
-        <button class="toggle-btn" id="themeToggle">[ Theme: Dark ]</button>
+    <!-- Intro Screen / Splash Screen -->
+    <div id="intro-screen">
+        <div class="intro-text">
+            <span class="intro-name">Muhamad Irvandi</span>
+            <span class="intro-portfolio">Portfolio</span>
+        </div>
     </div>
 
-    <header id="home">
-        <h1>Irvan</h1>
-        <div class="subtitle" id="subtitleText"
-             data-en="Data Enthusiast / Problem Solver"
-             data-id="Penggiat Data / Problem Solver">
-            Data Enthusiast / Problem Solver
-        </div>
+    <!-- Sidebar Kiri Tetap -->
+    <aside id="sidebar">
+        <nav class="sidebar-nav">
+            <a onclick="openTab(0)" class="nav-link active" id="btn-0" data-en="/home" data-id="/beranda">/home</a>
+            <a onclick="openTab(1)" class="nav-link" id="btn-1" data-en="/projects" data-id="/proyek">/projects</a>
+            <a onclick="openTab(2)" class="nav-link" id="btn-2" data-en="/experience" data-id="/pengalaman">/experience</a>
+            <a onclick="openTab(3)" class="nav-link" id="btn-3" data-en="/education" data-id="/pendidikan">/education</a>
+        </nav>
         
-        <p class="bio" id="bioText" 
-           data-en="An individual with a background in Physics (Airlangga University), skilled in processing, analyzing, and visualizing data to generate valuable insights. I am deeply interested in exploring IT fields, occasionally delving into cybersecurity and developing automation programs."
-           data-id="Individu dengan latar belakang Fisika (Universitas Airlangga), memiliki keahlian dalam memproses, menganalisis, dan memvisualisasikan data untuk menghasilkan wawasan yang berharga. Saya sangat tertarik mengeksplorasi bidang IT, sesekali mendalami keamanan siber dan mengembangkan program otomasi.">
-            An individual with a background in Physics (Airlangga University), skilled in processing, analyzing, and visualizing data to generate valuable insights. I am deeply interested in exploring IT fields, occasionally delving into cybersecurity and developing automation programs.
-        </p>
-
-        <div class="social-icons">
-            <a href="https://linkedin.com/in/irvandddi/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/irpan06" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://wa.me/6283849288147" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        <div class="controls">
+            <button class="toggle-btn" id="langToggle">[ Lang: EN ]</button>
+            <button class="toggle-btn" id="themeToggle">[ Theme: Dark ]</button>
         </div>
+    </aside>
 
-        <div class="nav-links">
-            <a href="#projects" data-en="/projects" data-id="/proyek">/projects</a>
-            <a href="#experience" data-en="/experience" data-id="/pengalaman">/experience</a>
-            <a href="#education" data-en="/education" data-id="/pendidikan">/education</a>
-        </div>
-    </header>
-
-    <section id="projects">
-        <div class="section-title" data-en="Latest Projects" data-id="Proyek Terbaru">Latest Projects</div>
-        <div class="list-container">
+    <!-- Area Konten Utama -->
+    <main id="content">
+        
+        <!-- TAB 0: HOME -->
+        <header id="tab-0" class="tab-section active-tab">
+            <h1>Muhamad Irvandi</h1>
+            <div class="subtitle" id="subtitleText"
+                 data-en="Data Enthusiast / Problem Solver"
+                 data-id="Penggiat Data / Problem Solver">
+                Data Enthusiast / Problem Solver
+            </div>
             
-            <a href="https://github.com/irpan06/RetailSales-Analysis" target="_blank" class="list-item">
-                <div class="item-left">
-                    <span class="item-date">Sep.2025</span>
-                    <span class="item-title">Retail Sales Analysis</span>
-                </div>
-                <span class="item-category">SQL / Data Analysis</span>
-            </a>
+            <p class="bio" id="bioText" 
+               data-en="An individual with a background in Physics (Airlangga University), skilled in processing, analyzing, and visualizing data to generate valuable insights. I am deeply interested in exploring IT fields, occasionally delving into cybersecurity and developing automation programs."
+               data-id="Individu dengan latar belakang Fisika (Universitas Airlangga), memiliki keahlian dalam memproses, menganalisis, dan memvisualisasikan data untuk menghasilkan wawasan yang berharga. Saya sangat tertarik mengeksplorasi bidang IT, sesekali mendalami keamanan siber dan mengembangkan program otomasi.">
+                An individual with a background in Physics (Airlangga University), skilled in processing, analyzing, and visualizing data to generate valuable insights. I am deeply interested in exploring IT fields, occasionally delving into cybersecurity and developing automation programs.
+            </p>
 
-            <a href="https://github.com/irpan06/anki-note-converter" target="_blank" class="list-item">
-                <div class="item-left">
-                    <span class="item-date">Sep.2025</span>
-                    <span class="item-title">Anki Note Converter (AI-driven)</span>
-                </div>
-                <span class="item-category">Python / Automation</span>
-            </a>
+            <div class="social-icons">
+                <a href="https://github.com/irpan06" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://wa.me/6283849288147" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </header>
 
-            <a href="https://github.com/irpan06/Deep-Learning-For-CWDOT-Reconstruction" target="_blank" class="list-item">
-                <div class="item-left">
-                    <span class="item-date">Aug.2025</span>
-                    <span class="item-title">CNN-UNET for CWDOT Reconstruction</span>
-                </div>
-                <span class="item-category">Deep Learning</span>
-            </a>
-
-            <a href="https://github.com/irpan06/Dashboard-Nilai" target="_blank" class="list-item">
-                <div class="item-left">
-                    <span class="item-date">Aug.2025</span>
-                    <span class="item-title">Academic Performance Analysis Dashboard</span>
-                </div>
-                <span class="item-category">Streamlit / Python</span>
-            </a>
+        <!-- TAB 1: PROJECTS (Dikelompokkan dengan Kategori Data & Automation) -->
+        <section id="tab-1" class="tab-section">
+            <div class="section-title" data-en="Projects" data-id="Projects">Projects</div>
             
-            <a href="https://github.com/irpan06/KRS-Automation" target="_blank" class="list-item">
-                <div class="item-left">
-                    <span class="item-date">Aug.2023</span>
-                    <span class="item-title">KRS Course Enrollment Automation</span>
-                </div>
-                <span class="item-category">Selenium / Automation</span>
-            </a>
+            <!-- Tombol Filter bergaya terminal murni tanpa kotak abu-abu -->
+            <div class="project-filters">
+                <button class="filter-btn active-filter" onclick="filterProjects('all')">[all]</button>
+                <button class="filter-btn" onclick="filterProjects('data')">[data]</button>
+                <button class="filter-btn" onclick="filterProjects('automation')">[automation]</button>
+            </div>
+            
+            <div class="list-container">
+                
+                <!-- Kategori: Data & ML -->
+                <a href="https://github.com/irpan06/RetailSales-Analysis" target="_blank" class="list-item" data-category="data">
+                    <div class="item-left">
+                        <span class="item-date">Sep.2025</span>
+                        <span class="item-title">Retail Sales Analysis</span>
+                    </div>
+                    <span class="item-category">SQL / Data Analysis</span>
+                </a>
 
-        </div>
-    </section>
+                <a href="https://github.com/irpan06/Deep-Learning-For-CWDOT-Reconstruction" target="_blank" class="list-item" data-category="data">
+                    <div class="item-left">
+                        <span class="item-date">Aug.2025</span>
+                        <span class="item-title">CNN-UNET for CWDOT Reconstruction</span>
+                    </div>
+                    <span class="item-category">Deep Learning</span>
+                </a>
 
-    <section id="experience">
-        <div class="section-title" data-en="Experience" data-id="Pengalaman">Experience</div>
-        <div class="list-container">
-            <div class="info-block">
-                <div class="info-header">
-                    <div class="info-title">Machine Learning Cohort</div>
-                    <div class="info-meta">Feb.2024 - Jun.2024</div>
-                </div>
-                <div class="info-meta" style="margin-bottom: 8px;">Bangkit Academy</div>
-                <div class="info-desc" data-en="Gained a solid understanding of machine learning, including supervised & unsupervised learning, deep learning, and implemented models using Python, TensorFlow, and scikit-learn." data-id="Memperoleh pemahaman kuat tentang machine learning, termasuk supervised & unsupervised learning, deep learning, serta mengimplementasikan model menggunakan Python, TensorFlow, dan scikit-learn.">
-                    Gained a solid understanding of machine learning, including supervised & unsupervised learning, deep learning, and implemented models using Python, TensorFlow, and scikit-learn.
+                <a href="https://github.com/irpan06/Dashboard-Nilai" target="_blank" class="list-item" data-category="data">
+                    <div class="item-left">
+                        <span class="item-date">Aug.2025</span>
+                        <span class="item-title">Academic Performance Analysis Dashboard</span>
+                    </div>
+                    <span class="item-category">Streamlit / Python</span>
+                </a>
+
+                <!-- Kategori: Automation -->
+                <a href="https://github.com/irpan06/anki-note-converter" target="_blank" class="list-item" data-category="automation">
+                    <div class="item-left">
+                        <span class="item-date">Sep.2025</span>
+                        <span class="item-title">Anki Note Converter (AI-driven)</span>
+                    </div>
+                    <span class="item-category">Python / Automation</span>
+                </a>
+                
+                <a href="https://github.com/irpan06/KRS-Automation" target="_blank" class="list-item" data-category="automation">
+                    <div class="item-left">
+                        <span class="item-date">Aug.2023</span>
+                        <span class="item-title">KRS Course Enrollment Automation</span>
+                    </div>
+                    <span class="item-category">Selenium / Automation</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- TAB 2: EXPERIENCE -->
+        <section id="tab-2" class="tab-section">
+            <div class="section-title" data-en="Experience" data-id="Pengalaman">Experience</div>
+            <div class="list-container">
+                <div class="info-block">
+                    <div class="info-header">
+                        <div class="info-title">Machine Learning Cohort</div>
+                        <div class="info-meta">Feb.2024 - Jun.2024</div>
+                    </div>
+                    <div class="info-meta" style="margin-bottom: 8px;">Bangkit Academy</div>
+                    <div class="info-desc" data-en="Gained a solid understanding of machine learning, including supervised & unsupervised learning, deep learning, and implemented models using Python, TensorFlow, and scikit-learn." data-id="Memperoleh pemahaman kuat tentang machine learning, termasuk supervised & unsupervised learning, deep learning, serta mengimplementasikan model menggunakan Python, TensorFlow, dan scikit-learn.">
+                        Gained a solid understanding of machine learning, including supervised & unsupervised learning, deep learning, and implemented models using Python, TensorFlow, and scikit-learn.
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="education">
-        <div class="section-title" data-en="Education" data-id="Pendidikan">Education</div>
-        <div class="list-container">
-            <div class="info-block">
-                <div class="info-header">
-                    <div class="info-title">Bachelor of Physics</div>
-                    <div class="info-meta">2021 - 2025</div>
-                </div>
-                <div class="info-meta" style="margin-bottom: 8px;">Airlangga University, Surabaya</div>
-                <div class="info-desc" data-en="Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects." data-id="Mengembangkan kemampuan pemecahan masalah dan analitis yang kuat melalui pendekatan kuantitatif, pemodelan matematika, dan eksperimen komputasional dalam penelitian dan proyek akademik.">
-                    Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects.
+        <!-- TAB 3: EDUCATION -->
+        <section id="tab-3" class="tab-section">
+            <div class="section-title" data-en="Education" data-id="Pendidikan">Education</div>
+            <div class="list-container">
+                <div class="info-block">
+                    <div class="info-header">
+                        <div class="info-title">Bachelor of Physics</div>
+                        <div class="info-meta">2021 - 2025</div>
+                    </div>
+                    <div class="info-meta" style="margin-bottom: 8px;">Airlangga University, Surabaya</div>
+                    <div class="info-desc" data-en="Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects." data-id="Mengembangkan kemampuan pemecahan masalah dan analitis yang kuat melalui pendekatan kuantitatif, pemodelan matematika, dan eksperimen komputasional dalam penelitian dan proyek akademik.">
+                        Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects.
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer-container">
+            <div id="footerText1">© 2026 Muhamad Irvandi</div>
         </div>
-    </section>
 
-    <footer>
-        <div id="footerText1">© 2026 Irvan</div>
-        <div id="footerText2" data-en="Minimalist Log." data-id="Log Minimalis.">Minimalist Log.</div>
-    </footer>
+    </main>
 
-    <!-- Logika Interaksi tetap berada di HTML -->
     <script>
-        // Logika Toggle Tema
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const introScreen = document.getElementById('intro-screen');
+                introScreen.classList.add('hidden');
+            }, 3000); 
+        });
+
+        let currentTabIndex = 0;
+        const totalTabs = 4;
+        let isAnimating = false;
+
+        function openTab(index) {
+            if (index < 0 || index >= totalTabs || isAnimating) return;
+            
+            isAnimating = true;
+            currentTabIndex = index;
+
+            const tabContents = document.getElementsByClassName("tab-section");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active-tab");
+            }
+
+            const navLinks = document.getElementsByClassName("nav-link");
+            for (let i = 0; i < navLinks.length; i++) {
+                navLinks[i].classList.remove("active");
+            }
+
+            document.getElementById("tab-" + index).classList.add("active-tab");
+            document.getElementById("btn-" + index).classList.add("active");
+            
+            setTimeout(() => {
+                isAnimating = false;
+            }, 300); 
+        }
+
+        window.addEventListener('wheel', (event) => {
+            if (isAnimating) return;
+
+            const activeTabElement = document.getElementById("tab-" + currentTabIndex);
+            const listContainer = activeTabElement.querySelector('.list-container');
+            
+            let isAtTop = true;
+            let isAtBottom = true;
+            let isScrollingInsideTab = false;
+
+            if (listContainer) {
+                isScrollingInsideTab = listContainer.scrollHeight > listContainer.clientHeight;
+                isAtTop = listContainer.scrollTop === 0;
+                isAtBottom = listContainer.scrollHeight - listContainer.scrollTop <= listContainer.clientHeight + 1;
+            }
+
+            if (event.deltaY > 0) {
+                if (!isScrollingInsideTab || isAtBottom) {
+                    openTab(currentTabIndex + 1);
+                }
+            } else if (event.deltaY < 0) {
+                if (!isScrollingInsideTab || isAtTop) {
+                    openTab(currentTabIndex - 1);
+                }
+            }
+        });
+
         const themeToggleBtn = document.getElementById('themeToggle');
         let isDark = true;
         
@@ -139,7 +230,6 @@
             themeToggleBtn.textContent = isDark ? '[ Theme: Dark ]' : '[ Theme: Light ]';
         });
 
-        // Logika Toggle Bahasa
         const langToggleBtn = document.getElementById('langToggle');
         let currentLang = 'en'; 
         const translatableElements = document.querySelectorAll('[data-id][data-en]');
@@ -152,6 +242,22 @@
                 el.textContent = el.getAttribute(`data-${currentLang}`);
             });
         });
+
+        // --- Logika Filter Proyek ---
+        function filterProjects(category) {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => btn.classList.remove('active-filter'));
+            event.target.classList.add('active-filter');
+
+            const projects = document.querySelectorAll('.list-item');
+            projects.forEach(project => {
+                if (category === 'all' || project.getAttribute('data-category') === category) {
+                    project.classList.remove('hidden-project');
+                } else {
+                    project.classList.add('hidden-project');
+                }
+            });
+        }
     </script>
 </body>
 </html>
