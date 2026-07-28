@@ -479,3 +479,8 @@ p.bio {
 .list-item.hidden-project {
     display: none !important;
 }
+
+/* Mengunci tinggi khusus untuk tab proyek agar memuat presisi ~5 baris */
+#tab-1 .list-container {
+    max-height: 325px; 
+}
