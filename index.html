@@ -31,8 +31,8 @@
         </nav>
         
         <div class="controls">
-            <button class="toggle-btn" id="langToggle">[ Lang: EN ]</button>
-            <button class="toggle-btn" id="themeToggle">[ Theme: Dark ]</button>
+            <button class="toggle-btn" id="langToggle">[EN]</button>
+            <button class="toggle-btn" id="themeToggle">[Dark]</button>
         </div>
     </aside>
 
@@ -250,7 +250,7 @@
         themeToggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('light-theme');
             isDark = !isDark;
-            themeToggleBtn.textContent = isDark ? '[ Theme: Dark ]' : '[ Theme: Light ]';
+            themeToggleBtn.textContent = isDark ? '[Dark]' : '[Light]';
         });
 
         const langToggleBtn = document.getElementById('langToggle');
@@ -259,7 +259,7 @@
 
         langToggleBtn.addEventListener('click', () => {
             currentLang = currentLang === 'en' ? 'id' : 'en';
-            langToggleBtn.textContent = currentLang === 'en' ? '[ Lang: EN ]' : '[ Lang: ID ]';
+            langToggleBtn.textContent = currentLang === 'en' ? '[EN]' : '[ID]';
             
             translatableElements.forEach(el => {
                 el.textContent = el.getAttribute(`data-${currentLang}`);
