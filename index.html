@@ -27,7 +27,7 @@
             <a onclick="openTab(1)" class="nav-link" id="btn-1" data-en="/project" data-id="/proyek">/project</a>
             <a onclick="openTab(2)" class="nav-link" id="btn-2" data-en="/experience" data-id="/pengalaman">/experience</a>
             <a onclick="openTab(3)" class="nav-link" id="btn-3" data-en="/education" data-id="/pendidikan">/education</a>
-            <a onclick="openTab(4)" class="nav-link" id="btn-4" data-en="/skill" data-id="/keahlian">/skills</a>
+            <a onclick="openTab(4)" class="nav-link" id="btn-4" data-en="/skill" data-id="/keahlian">/skill</a>
         </nav>
         
         <div class="controls">
@@ -153,23 +153,96 @@
         </section>
         <!-- TAB: SKILLS (REPO STRUCTURE) -->
         <section id="tab-4" class="tab-section">
-            <div class="section-title" data-en="Skill" data-id="Keahlian">Skill</div>
+            <div class="section-title" data-en="Skills" data-id="Keahlian">Skills</div>
             
-            <div class="list-container" style="font-size: 0.9rem; line-height: 1.8;">
+            <!-- CSS Khusus untuk meratakan Tree Structure -->
+            <style>
+                .tree-row {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                }
+                .tree-node {
+                    width: 270px; /* Lebar dikunci agar komentar sejajar */
+                    flex-shrink: 0;
+                    color: var(--text-main);
+                }
+                .tree-comment {
+                    color: var(--text-muted);
+                    font-size: 0.8rem;
+                }
+                @media (max-width: 600px) {
+                    .tree-node { width: 100%; }
+                    .tree-comment { padding-left: 45px; margin-bottom: 5px; }
+                }
+            </style>
+
+            <div class="list-container" style="font-size: 0.88rem; line-height: 1.8;">
                 <p style="color: var(--text-muted); margin-bottom: 15px;">root@irvan:~/portfolio/skills$ tree -a</p>
                 
                 <div style="color: var(--text-title); font-weight: bold;">skills</div>
-                <div style="padding-left: 20px; color: var(--text-main);">
-                    ├── <span style="color: #888;">data-engineering/</span><br>
-                    │   ├── python.py <span style="color: var(--text-muted); font-size: 0.8rem;"># Data manipulation, cleaning, scripting</span><br>
-                    │   ├── sql-database.sql <span style="color: var(--text-muted); font-size: 0.8rem;"># EDA, ADA, complex querying</span><br>
-                    │   └── visualization/ <span style="color: var(--text-muted); font-size: 0.8rem;"># Streamlit, Plotly, Dashboard</span><br>
-                    ├── <span style="color: #888;">automation/</span><br>
-                    │   ├── web-scraping.py <span style="color: var(--text-muted); font-size: 0.8rem;"># Selenium</span><br>
-                    │   └── ai-workflows/ <span style="color: var(--text-muted); font-size: 0.8rem;"># Groq API, Anki Automation</span><br>
-                    └── <span style="color: #888;">exploration/</span><br>
-                        ├── cybersecurity/ <span style="color: var(--text-muted); font-size: 0.8rem;"># Network analysis, vulnerability logs</span><br>
-                        └── machine-learning/ <span style="color: var(--text-muted); font-size: 0.8rem;"># TensorFlow, CNN-UNET</span>
+                <div style="padding-left: 20px;">
+                    
+                    <div class="tree-row">
+                        <span class="tree-node">├── <span style="color: #888;">data-engineering/</span></span>
+                    </div>
+                    <div class="tree-row">
+                        <span class="tree-node">│   ├── databases/</span>
+                        <span class="tree-comment"># PostgreSQL, MySQL, ClickHouse</span>
+                    </div>
+                    <div class="tree-row">
+                        <span class="tree-node">│   ├── data-warehouse/</span>
+                        <span class="tree-comment"># Google BigQuery</span>
+                    </div>
+                    <div class="tree-row">
+                        <span class="tree-node">│   └── transformation/</span>
+                        <span class="tree-comment"># dbt, SQL</span>
+                    </div>
+
+                    <div class="tree-row">
+                        <span class="tree-node">├── <span style="color: #888;">analytics-and-bi/</span></span>
+                    </div>
+                    <div class="tree-row">
+                        <span class="tree-node">│   ├── data-wrangling.py</span>
+                        <span class="tree-comment"># Pandas, NumPy, Excel</span>
+                    </div>
+                    <div class="tree-row">
+                        <span class="tree-node">│   ├── visualization.py</span>
+                        <span class="tree-comment"># Matplotlib, Seaborn</span>
+                    </div>
+                    <div class="tree-row">
+                        <span class="tree-node">│   └── dashboards/</span>
+                        <span class="tree-comment"># Power BI, Looker Studio</span>
+                    </div>
+
+                    <div class="tree-row">
+                        <span class="tree-node">├── <span style="color: #888;">machine-learning/</span></span>
+                    </div>
+                    <div class="tree-row">
+                        <span class="tree-node">│   └── deep-learning.py</span>
+                        <span class="tree-comment"># TensorFlow</span>
+                    </div>
+
+                    <div class="tree-row">
+                        <span class="tree-node">├── <span style="color: #888;">automation/</span></span>
+                    </div>
+                    <div class="tree-row">
+                        <span class="tree-node">│   └── web-scraping.py</span>
+                        <span class="tree-comment"># Selenium</span>
+                    </div>
+
+                    <div class="tree-row">
+                        <span class="tree-node">└── <span style="color: #888;">foundations/</span></span>
+                    </div>
+                    <div class="tree-row">
+                        <span class="tree-node">    ├── core-script.py</span>
+                        <span class="tree-comment"># Python</span>
+                    </div>
+                    <div class="tree-row">
+                        <span class="tree-node">    └── computational.m</span>
+                        <span class="tree-comment"># MATLAB</span>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -217,30 +290,25 @@
             }, 300); 
         }
 
+        // --- Logika Pindah Tab via Scroll (Anti-Bablas) ---
         window.addEventListener('wheel', (event) => {
-            if (isAnimating) return;
+            if (isAnimating) return; // Abaikan scroll jika animasi transisi sedang berjalan
 
-            const activeTabElement = document.getElementById("tab-" + currentTabIndex);
-            const listContainer = activeTabElement.querySelector('.list-container');
-            
-            let isAtTop = true;
-            let isAtBottom = true;
-            let isScrollingInsideTab = false;
+            // Cek apakah kursor mouse sedang berada di atas area daftar/tabel
+            const isHoveringList = event.target.closest('.list-container');
 
-            if (listContainer) {
-                isScrollingInsideTab = listContainer.scrollHeight > listContainer.clientHeight;
-                isAtTop = listContainer.scrollTop === 0;
-                isAtBottom = listContainer.scrollHeight - listContainer.scrollTop <= listContainer.clientHeight + 1;
+            // Jika kursor berada di dalam kotak tabel/tree, MATIKAN fitur pindah tab.
+            // Ini membuat scroll mouse hanya berfungsi untuk menggulir isi tabel.
+            if (isHoveringList) {
+                return; 
             }
 
+            // Jika kursor berada di LUAR tabel (misal di sidebar, header, atau area kosong), 
+            // barulah scroll mouse akan memicu perpindahan tab.
             if (event.deltaY > 0) {
-                if (!isScrollingInsideTab || isAtBottom) {
-                    openTab(currentTabIndex + 1);
-                }
+                openTab(currentTabIndex + 1); // Scroll bawah = Next Tab
             } else if (event.deltaY < 0) {
-                if (!isScrollingInsideTab || isAtTop) {
-                    openTab(currentTabIndex - 1);
-                }
+                openTab(currentTabIndex - 1); // Scroll atas = Prev Tab
             }
         });
 
