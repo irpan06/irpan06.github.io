@@ -1,323 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irvan - Data Enthusiast</title>
+    <!-- Font Awesome untuk ikon sosial media -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Menautkan file CSS eksternal -->
     <link rel="stylesheet" href="style.css">
-    <title>Portfolio Website</title>
 </head>
-
 <body>
-    <header>
-        <a href="#" class="logo"></a>
 
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
-            <a href="#experience">Experience</a>
-        </nav>
-    </header>
-
-    <section class="home" id="home">
-        <div class="home-img">
-            <img src="assets/main.jpg" alt="">
-        </div>
-        <div class="home-content">
-            <h1>Hi, It's <span>Irvan</span></h1>
-            <h3 class="typing-text">I'm a <span id="typing-span"></span></h3>
-            <p>An individual with a background in computing and data, skilled in processing, analyzing, and visualizing data to generate valuable insights. Proficient in Python, SQL, and various analytical tools to support data-driven decision-making. Possesses strong problem-solving abilities and a keen interest in applying data to enhance business strategies and organizational performance.</p>
-            <div class="social-icons">
-                <a href="https://linkedin.com/in/irvandddi/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/irpan06" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://wa.me/6283849288147" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </section>
-    
-    <section class="projects" id="projects">
-        <h2 class="heading">Latest <span>Projects</span></h2>
-        <div class="projects-container">
-        <a href="https://github.com/irpan06/RetailSales-Analysis" target="_blank" class="experience-card">
-                <div class="experience-content">
-                    <div class="project-thumbnail">
-                        <img src="assets/sql.jpeg" alt="SQl Project Thumbnail">
-                    </div>
-                    <p class="experience-date">September 2025</p>
-                    <h3>Retail Sales Analysis</h3>
-                    <p class="experience-company">Personal Project</p>
-                    <p class="experience-details">
-                        A SQL project analyzing retail sales data through EDA and ADA, uncovering insights on customer behavior, product performance, and profitability while demonstrating strong SQL skills in data analytics and business intelligence.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">MySQL</span>
-                        <span class="tech-tag">Analysis Data</span>
-                    </div>
-                </div>
-            </a>
-        <a href="https://github.com/irpan06/Deep-Learning-For-CWDOT-Reconstruction" target="_blank" class="experience-card">
-                <div class="experience-content">
-                    <div class="project-thumbnail">
-                        <img src="assets/model-predict.png" alt="CWDOT Project Thumbnail">
-                    </div>
-                    <p class="experience-date">August 2025</p>
-                    <h3>CNN-UNET for CWDOT Reconstruction</h3>
-                    <p class="experience-company">Academic Project</p>
-                    <p class="experience-details">
-                        Designed and implemented a CNN-UNET architecture to map intensity distributions into reconstructed images in the CWDOT system.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">Numpy</span>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="https://github.com/irpan06/Dashboard-Nilai" target="_blank" class="experience-card">
-                <div class="experience-content">
-                    <div class="project-thumbnail">
-                        <img src="assets/academic.png" alt="Dashboard Thumbnail">
-                    </div>
-                    <p class="experience-date">August 2025</p>
-                    <h3>Academic Performance Analysis Dashboard</h3>
-                    <p class="experience-company">Personal Project</p>
-                    <p class="experience-details">
-                        Developed an interactive web-based dashboard for analyzing academic transcripts, featuring automated data scraping, GPA/IPS calculation, and progress tracking.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Streamlit</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Plotly</span>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="https://github.com/irpan06/KRS-Automation" target="_blank" class="experience-card">
-                <div class="experience-content">
-                    <div class="project-thumbnail">
-                        <img src="assets/tampilan-awal.jpg" alt="KRS Automation Thumbnail">
-                    </div>
-                    <p class="experience-date">August 2023</p>
-                    <h3>KRS Course Enrollment Automation</h3>
-                    <p class="experience-company">Personal Project</p>
-                    <p class="experience-details">
-                        Designed and implemented a Python script leveraging Selenium to automate course enrollment (KRS), ensuring 99% accuracy and eliminating manual data entry errors.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Selenium</span>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="https://github.com/irpan06/anki-note-converter" target="_blank" class="experience-card">
-                <div class="experience-content">
-                    <div class="project-thumbnail">
-                        <img src="assets/anki-thumbnail.png" alt="Anki Converter Thumbnail">
-                    </div>
-                    <p class="experience-date">September 2025</p>
-                    <h3>Anki Note Converter</h3>
-                    <p class="experience-company">Personal Project</p>
-                    <p class="experience-details">
-                        A Python-based tool that transforms my personal Markdown notes into Anki flashcards automatically. Powered by the Groq API for AI-driven question–answer generation and integrated with AnkiConnect for seamless import, this project helps streamline my learning process.
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Groq API</span>
-                        <span class="tech-tag">Automation</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </section>
-<section class="skills" id="skills">
-    <h2 class="heading">My <span>Skills</span></h2>
-
-    <div class="skill-categories-container">
-        <div class="skill-category-box">
-            <h3>Programming & Tools</h3>
-            <div class="tags-container">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">TensorFlow</span>
-                <span class="skill-tag">Scikit-learn</span>
-                <span class="skill-tag">Matlab/Octave</span>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Linux/Windows</span>
-                <span class="skill-tag">Selenium</span>
-                <span class="skill-tag">Ms Office</span>
-                <span class="skill-tag">Google Workspace</span>
-            </div>
-        </div>
-
-        <div class="skill-category-box">
-            <h3>Data Analysis & Visualization</h3>
-            <div class="tags-container">
-                <span class="skill-tag">Data Cleaning</span>
-                <span class="skill-tag">Preprocessing</span>
-                <span class="skill-tag">Exploratory Analysis</span>
-                <span class="skill-tag">Matplotlib</span>
-                <span class="skill-tag">Seaborn</span>
-                <span class="skill-tag">Plotly</span>
-                <span class="skill-tag">Streamlit</span>
-                <span class="skill-tag">Tableau</span>
-                <span class="skill-tag">Power BI</span>
-            </div>
-        </div>
-
-        <div class="skill-category-box">
-            <h3>ML & AI</h3>
-            <div class="tags-container">
-                <span class="skill-tag">Supervised Learning</span>
-                <span class="skill-tag">Unsupervised Learning</span>
-                <span class="skill-tag">Deep Learning</span>
-                <span class="skill-tag">Model Evaluation</span>
-                <span class="skill-tag">Regression</span>
-                <span class="skill-tag">Classification</span>
-                <span class="skill-tag">Clustering</span>
-            </div>
-        </div>
+    <div class="controls">
+        <button class="toggle-btn" id="langToggle">[ Lang: EN ]</button>
+        <button class="toggle-btn" id="themeToggle">[ Theme: Dark ]</button>
     </div>
-</section>
 
-    <section class="education" id="education">
-    <h2 class="heading">My <span>Education</span></h2>
-
-    <div class="education-container">
-        <div class="education-card">
-            <div class="education-content">
-                <p class="education-year">2021 - 2025</p>
-                <h3>Bachelor of Physics</h3>
-                <p class="university-name">University of Airlangga, Surabaya</p>
-                <p class="education-details">
-                    Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects.
-                </p>
-            </div>
+    <header id="home">
+        <h1>Irvan</h1>
+        <div class="subtitle" id="subtitleText"
+             data-en="Data Enthusiast / Problem Solver"
+             data-id="Penggiat Data / Problem Solver">
+            Data Enthusiast / Problem Solver
         </div>
-    </div>
-</section>
+        
+        <p class="bio" id="bioText" 
+           data-en="An individual with a background in Physics (Airlangga University), skilled in processing, analyzing, and visualizing data to generate valuable insights. I am deeply interested in exploring IT fields, occasionally delving into cybersecurity and developing automation programs."
+           data-id="Individu dengan latar belakang Fisika (Universitas Airlangga), memiliki keahlian dalam memproses, menganalisis, dan memvisualisasikan data untuk menghasilkan wawasan yang berharga. Saya sangat tertarik mengeksplorasi bidang IT, sesekali mendalami keamanan siber dan mengembangkan program otomasi.">
+            An individual with a background in Physics (Airlangga University), skilled in processing, analyzing, and visualizing data to generate valuable insights. I am deeply interested in exploring IT fields, occasionally delving into cybersecurity and developing automation programs.
+        </p>
 
-<section class="experience" id="experience">
-    <h2 class="heading">My <span>Experience</span></h2>
-
-    <div class="education-container">
-        <div class="education-card">
-            <div class="education-content">
-                <p class="education-year">February 2024 - June 2024</p>
-                <h3>Machine Learning Cohort</h3>
-                <p class="university-name">Bangkit Academy</p>
-                <p class="education-details">
-                    Gained a solid understanding of machine learning, including supervised & unsupervised learning, deep learning, and implemented models using Python, TensorFlow, and scikit-learn.
-                </p>
-            </div>
-        </a>
-    </div>
-</section>
-            
-    <footer class="footer">
         <div class="social-icons">
             <a href="https://linkedin.com/in/irvandddi/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
             <a href="https://github.com/irpan06" target="_blank"><i class="fa-brands fa-github"></i></a>
             <a href="https://wa.me/6283849288147" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
-        <p class="copyright">&copy; 2025 Irvan. All Rights Reserved.</p>
-    </footer>
-<script>
-    // --- 1. Sticky Header and Active Link Scrolling ---
-    let sections = document.querySelectorAll('section');
-    let navLinks = document.querySelectorAll('header nav a');
-    let header = document.querySelector('header');
 
-    window.onscroll = () => {
-        // Active link logic
-        sections.forEach(sec => {
-            let top = window.scrollY;
-            let offset = sec.offsetTop - 150;
-            let height = sec.offsetHeight;
-            let id = sec.getAttribute('id');
+        <div class="nav-links">
+            <a href="#projects" data-en="/projects" data-id="/proyek">/projects</a>
+            <a href="#experience" data-en="/experience" data-id="/pengalaman">/experience</a>
+            <a href="#education" data-en="/education" data-id="/pendidikan">/education</a>
+        </div>
+    </header>
+
+    <section id="projects">
+        <div class="section-title" data-en="Latest Projects" data-id="Proyek Terbaru">Latest Projects</div>
+        <div class="list-container">
             
-            if (top >= offset && top < offset + height) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                });
-                
-                // Menambahkan sorotan ke link yang cocok
-                let activeLink = document.querySelector('header nav a[href="#' + id + '"]');
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            };
+            <a href="https://github.com/irpan06/RetailSales-Analysis" target="_blank" class="list-item">
+                <div class="item-left">
+                    <span class="item-date">Sep.2025</span>
+                    <span class="item-title">Retail Sales Analysis</span>
+                </div>
+                <span class="item-category">SQL / Data Analysis</span>
+            </a>
+
+            <a href="https://github.com/irpan06/anki-note-converter" target="_blank" class="list-item">
+                <div class="item-left">
+                    <span class="item-date">Sep.2025</span>
+                    <span class="item-title">Anki Note Converter (AI-driven)</span>
+                </div>
+                <span class="item-category">Python / Automation</span>
+            </a>
+
+            <a href="https://github.com/irpan06/Deep-Learning-For-CWDOT-Reconstruction" target="_blank" class="list-item">
+                <div class="item-left">
+                    <span class="item-date">Aug.2025</span>
+                    <span class="item-title">CNN-UNET for CWDOT Reconstruction</span>
+                </div>
+                <span class="item-category">Deep Learning</span>
+            </a>
+
+            <a href="https://github.com/irpan06/Dashboard-Nilai" target="_blank" class="list-item">
+                <div class="item-left">
+                    <span class="item-date">Aug.2025</span>
+                    <span class="item-title">Academic Performance Analysis Dashboard</span>
+                </div>
+                <span class="item-category">Streamlit / Python</span>
+            </a>
+            
+            <a href="https://github.com/irpan06/KRS-Automation" target="_blank" class="list-item">
+                <div class="item-left">
+                    <span class="item-date">Aug.2023</span>
+                    <span class="item-title">KRS Course Enrollment Automation</span>
+                </div>
+                <span class="item-category">Selenium / Automation</span>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-title" data-en="Experience" data-id="Pengalaman">Experience</div>
+        <div class="list-container">
+            <div class="info-block">
+                <div class="info-header">
+                    <div class="info-title">Machine Learning Cohort</div>
+                    <div class="info-meta">Feb.2024 - Jun.2024</div>
+                </div>
+                <div class="info-meta" style="margin-bottom: 8px;">Bangkit Academy</div>
+                <div class="info-desc" data-en="Gained a solid understanding of machine learning, including supervised & unsupervised learning, deep learning, and implemented models using Python, TensorFlow, and scikit-learn." data-id="Memperoleh pemahaman kuat tentang machine learning, termasuk supervised & unsupervised learning, deep learning, serta mengimplementasikan model menggunakan Python, TensorFlow, dan scikit-learn.">
+                    Gained a solid understanding of machine learning, including supervised & unsupervised learning, deep learning, and implemented models using Python, TensorFlow, and scikit-learn.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-title" data-en="Education" data-id="Pendidikan">Education</div>
+        <div class="list-container">
+            <div class="info-block">
+                <div class="info-header">
+                    <div class="info-title">Bachelor of Physics</div>
+                    <div class="info-meta">2021 - 2025</div>
+                </div>
+                <div class="info-meta" style="margin-bottom: 8px;">Airlangga University, Surabaya</div>
+                <div class="info-desc" data-en="Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects." data-id="Mengembangkan kemampuan pemecahan masalah dan analitis yang kuat melalui pendekatan kuantitatif, pemodelan matematika, dan eksperimen komputasional dalam penelitian dan proyek akademik.">
+                    Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div id="footerText1">© 2026 Irvan</div>
+        <div id="footerText2" data-en="Minimalist Log." data-id="Log Minimalis.">Minimalist Log.</div>
+    </footer>
+
+    <!-- Logika Interaksi tetap berada di HTML -->
+    <script>
+        // Logika Toggle Tema
+        const themeToggleBtn = document.getElementById('themeToggle');
+        let isDark = true;
+        
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            isDark = !isDark;
+            themeToggleBtn.textContent = isDark ? '[ Theme: Dark ]' : '[ Theme: Light ]';
         });
 
-        // Sticky header logic
-        header.classList.toggle('sticky', window.scrollY > 0);
-    };
+        // Logika Toggle Bahasa
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = 'en'; 
+        const translatableElements = document.querySelectorAll('[data-id][data-en]');
 
-    // --- 2. Typing Animation Logic ---
-    const typingSpan = document.getElementById('typing-span');
-    const textsToType = ["Data Enthusiast", "ML Enthusiast", "Problem Solver", "Analyst"];
-    
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function type() {
-        if (typingSpan) {
-            const currentText = textsToType[textIndex];
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'id' : 'en';
+            langToggleBtn.textContent = currentLang === 'en' ? '[ Lang: EN ]' : '[ Lang: ID ]';
             
-            if (isDeleting) {
-                typingSpan.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingSpan.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentText.length) {
-                isDeleting = true;
-                setTimeout(type, 2000); 
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % textsToType.length;
-                setTimeout(type, 50);
-            } else {
-                const typingSpeed = isDeleting ? 50 : 50;
-                setTimeout(type, typingSpeed);
-            }
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        if (typingSpan) {
-            setTimeout(type, 200);
-        }
-    });
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const container = document.querySelector(".projects-container");
-    if (!container) return;
-
-    // Ambil semua project card
-    const projects = Array.from(container.querySelectorAll(".experience-card"));
-
-    // Parse tanggal dari elemen .experience-date
-    projects.sort((a, b) => {
-        const dateA = new Date(a.querySelector(".experience-date").innerText);
-        const dateB = new Date(b.querySelector(".experience-date").innerText);
-        return dateB - dateA; // terbaru ke lama
-    });
-
-    // Hapus isi container dan tambahkan kembali sesuai urutan
-    container.innerHTML = "";
-    projects.forEach(p => container.appendChild(p));
-});
-</script>
-
+            translatableElements.forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLang}`);
+            });
+        });
+    </script>
 </body>
-
 </html>
