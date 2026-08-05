@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Job Analytics Platform | Muhamad Irvandi</title>
+
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var urlTheme = params.get('theme');
+            var savedTheme = localStorage.getItem('theme');
+            var theme = (urlTheme === 'dark' || urlTheme === 'light')
+                ? urlTheme
+                : (savedTheme || 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <!-- Menggunakan Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+
+    <div class="container">
+        <!-- Header Controls (Back, Lang, Theme) -->
+        <div class="top-controls">
+            <a href="index.html?section=projects" class="back-link">
+                <i data-lucide="arrow-left" style="width: 16px;"></i> 
+                <span data-en="Back to Portfolio" data-id="Kembali ke Portfolio">Kembali ke Portfolio</span>
+            </a>
+            <div style="display: flex; gap: 10px;">
+                <button class="toggle-btn" id="langToggle">[EN]</button>
+                <button class="toggle-btn" id="themeToggle">[Dark]</button>
+            </div>
+        </div>
+
+        <!-- Header Proyek -->
+        <header>
+            <h1 class="hero-title">Data Job Analytics Platform</h1>
+            <p class="hero-subtitle" 
+               data-en="Transforming raw job posting data into production-grade business insights using the Medallion architecture." 
+               data-id="Mengubah data lowongan pekerjaan mentah menjadi wawasan bisnis skala produksi menggunakan arsitektur Medallion.">
+               Mengubah data lowongan pekerjaan mentah menjadi wawasan bisnis skala produksi menggunakan arsitektur Medallion.
+            </p>
+            
+            <div class="tech-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Google BigQuery</span>
+                <span class="tag">dbt</span>
+                <span class="tag">Looker Studio</span>
+                <span class="tag">Jupyter</span>
+            </div>
+        </header>
+
+        <!-- Latar Belakang -->
+        <section class="content-section">
+            <h2 data-en="Background & Objectives" data-id="Latar Belakang & Tujuan">Latar Belakang & Tujuan</h2>
+            <p data-en="This project is an end-to-end ELT (Extract, Load, Transform) pipeline implementation designed to transform raw job market data into a modern analytical data warehouse, and present business insights through interactive dashboards. The comprehensive dataset used is sourced from Luke Barousse's curated collection." 
+               data-id="Proyek ini merupakan implementasi pipeline ELT (Extract, Load, Transform) end-to-end yang dirancang untuk mengubah data lowongan kerja mentah menjadi data warehouse analitik modern, serta menyajikan wawasan bisnis melalui dashboard interaktif. Dataset komprehensif yang digunakan bersumber dari hasil kurasi Luke Barousse.">
+               Proyek ini merupakan implementasi <em>pipeline</em> ELT (Extract, Load, Transform) <em>end-to-end</em> yang dirancang untuk mengubah data lowongan kerja mentah menjadi <em>data warehouse</em> analitik modern, serta menyajikan wawasan bisnis melalui <em>dashboard</em> interaktif[cite: 5]. Dataset komprehensif yang digunakan bersumber dari hasil kurasi Luke Barousse[cite: 4].
+            </p>
+            <p data-en="The main objective of this project is to design a data foundation using the ELT paradigm, implement Star Schema modeling within the Medallion Architecture, automate transformations with dbt, and generate dynamic BI dashboards." 
+               data-id="Tujuan utama proyek ini adalah merancang fondasi data menggunakan paradigma ELT, menerapkan pemodelan Star Schema dalam Medallion Architecture, mengotomatisasi transformasi dengan dbt, dan menghasilkan dashboard BI yang dinamis.">
+               Tujuan utama proyek ini adalah merancang fondasi data menggunakan paradigma ELT, menerapkan pemodelan <em>Star Schema</em> dalam <em>Medallion Architecture</em>, mengotomatisasi transformasi dengan dbt, dan menghasilkan <em>dashboard</em> BI yang dinamis[cite: 5].
+            </p>
+        </section>
+
+        <!-- Arsitektur & Engineering -->
+        <section class="content-section">
+            <h2 data-en="Technical Approach: Data Engineering" data-id="Pendekatan Teknis: Rekayasa Data">Pendekatan Teknis: Rekayasa Data</h2>
+            <p data-en="In the Data Engineering phase, I adopted a decoupled architecture. Python was utilized purely as a reliable tool for extraction and ingestion of raw operational data, while heavy analytical workloads (OLAP) were completely offloaded to Google BigQuery." 
+               data-id="Dalam fase Rekayasa Data, saya mengadopsi arsitektur yang terpisah (decoupled architecture). Python murni digunakan sebagai alat tepercaya untuk ekstraksi dan pemuatan (ingestion) data operasional mentah, sementara beban kerja analitik berat (OLAP) diserahkan sepenuhnya ke Google BigQuery.">
+               Dalam fase Rekayasa Data, saya mengadopsi arsitektur yang terpisah (<em>decoupled architecture</em>). Python murni digunakan sebagai alat tepercaya untuk ekstraksi dan pemuatan (<em>ingestion</em>) data operasional mentah, sementara beban kerja analitik berat (OLAP) diserahkan sepenuhnya ke Google BigQuery[cite: 4].
+            </p>
+            <p data-en="The data was processed through a Medallion Architecture (Bronze for raw data, Silver for standardization, and Gold for aggregation)." 
+               data-id="Data diproses melewati Medallion Architecture (Bronze untuk data mentah, Silver untuk standarisasi, dan Gold untuk agregasi).">
+               Data diproses melewati <em>Medallion Architecture</em> (Bronze untuk data mentah, Silver untuk standarisasi, dan Gold untuk agregasi)[cite: 4].
+            </p>
+
+            <div class="highlight-box">
+                <h3><i data-lucide="wrench"></i> <span data-en="Technical Challenges & Solutions" data-id="Tantangan Teknis & Solusi">Tantangan Teknis & Solusi</span></h3>
+                <ul>
+                    <li data-en="High-Speed Deduplication: Because the scraped dataset lacks reliable primary keys, I implemented a 64-bit integer hash method using the FARM_FINGERPRINT() function to achieve fast and memory-efficient deduplication." 
+                        data-id="Deduplikasi Berkecepatan Tinggi: Karena dataset scraped tidak memiliki primary key yang andal, saya mengimplementasikan metode hash integer 64-bit menggunakan fungsi FARM_FINGERPRINT() untuk melakukan deduplikasi yang cepat dan hemat memori.">
+                        <strong>Deduplikasi Berkecepatan Tinggi:</strong> Karena dataset <em>scraped</em> tidak memiliki <em>primary key</em> yang andal, saya mengimplementasikan metode <em>hash integer</em> 64-bit menggunakan fungsi <code>FARM_FINGERPRINT()</code> untuk melakukan deduplikasi yang cepat dan hemat memori[cite: 4].
+                    </li>
+                    <li data-en="Complex Star Schema Modeling: Skill attributes initially formatted as Python string arrays were parsed using BigQuery's native UNNEST(SPLIT()) functions, then restructured into a Star Schema using a Bridge Table to resolve many-to-many relationships without causing redundancy." 
+                        data-id="Pemodelan Skema Star yang Rumit: Atribut keahlian yang awalnya berbentuk string array Python dipisahkan menggunakan fungsi bawaan BigQuery UNNEST(SPLIT()), lalu direstrukturisasi menjadi Star Schema menggunakan Bridge Table untuk menyelesaikan masalah relasi many-to-many tanpa menyebabkan redundansi.">
+                        <strong>Pemodelan Skema Star yang Rumit:</strong> Atribut keahlian yang awalnya berbentuk <em>string array</em> Python dipisahkan menggunakan fungsi bawaan BigQuery <code>UNNEST(SPLIT())</code>, lalu direstrukturisasi menjadi <em>Star Schema</em> menggunakan <em>Bridge Table</em> untuk menyelesaikan masalah relasi <em>many-to-many</em> tanpa menyebabkan redundansi[cite: 4].
+                    </li>
+                    <li data-en="Production-Grade Orchestration: The entire logical transformation process was modularly managed by dbt, which also handled data quality testing and compute cost optimization through incremental materializations." 
+                        data-id="Orkestrasi Skala Produksi: Seluruh proses transformasi logis dikelola secara modular oleh dbt, yang juga menangani pengujian kualitas data serta optimalisasi biaya komputasi melalui materialisasi inkremental.">
+                        <strong>Orkestrasi Skala Produksi:</strong> Seluruh proses transformasi logis dikelola secara modular oleh dbt, yang juga menangani pengujian kualitas data serta optimalisasi biaya komputasi melalui materialisasi inkremental[cite: 4].
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Analitik & Wawasan -->
+        <section class="content-section">
+            <h2 data-en="Analytics & Business Insights" data-id="Analitik & Wawasan Bisnis">Analitik & Wawasan Bisnis</h2>
+            <p data-en="The Analytics phase utilized the refined data in BigQuery's Gold Layer (mart_gold). This ensures high accuracy and performance when supplying data to the interactive executive dashboard built with Looker Studio." 
+               data-id="Fase Analitik memanfaatkan data yang telah disempurnakan di lapisan Gold Layer (mart_gold) dari BigQuery. Hal ini memastikan tingkat akurasi dan performa yang tinggi saat menyuplai data ke dashboard eksekutif interaktif yang dibangun dengan Looker Studio.">
+               Fase Analitik memanfaatkan data yang telah disempurnakan di lapisan <em>Gold Layer</em> (<code>mart_gold</code>) dari BigQuery[cite: 3]. Hal ini memastikan tingkat akurasi dan performa yang tinggi saat menyuplai data ke <em>dashboard</em> eksekutif interaktif yang dibangun dengan Looker Studio[cite: 3, 5].
+            </p>
+            
+            <p data-en="Beyond monitoring standard KPIs, I conducted programmatic deep-dive analyses using Jupyter Notebook and SQL (such as Window Functions and CTEs) to answer specific business case studies, including:" 
+               data-id="Di luar pemantauan KPI standar, saya melakukan analisis mendalam secara terprogram menggunakan Jupyter Notebook dan SQL (seperti Window Functions dan CTE) untuk menjawab studi kasus bisnis spesifik, di antaranya:">
+               Di luar pemantauan KPI standar, saya melakukan analisis mendalam secara terprogram menggunakan Jupyter Notebook dan SQL (seperti <em>Window Functions</em> dan <em>CTE</em>) untuk menjawab studi kasus bisnis spesifik[cite: 3, 5], di antaranya:
+            </p>
+            <ul>
+                <li data-en="The Remote Work Premium: Analyzing the correlation between work-from-home (WFH) status, health insurance availability, and average salary offered." 
+                    data-id="The Remote Work Premium: Menganalisis korelasi antara status bekerja dari rumah (WFH), ketersediaan asuransi kesehatan, dan rata-rata gaji yang ditawarkan.">
+                    <strong>The Remote Work Premium:</strong> Menganalisis korelasi antara status bekerja dari rumah (WFH), ketersediaan asuransi kesehatan, dan rata-rata gaji yang ditawarkan[cite: 3, 5].
+                </li>
+                <li data-en="Skill-Based Hiring Trends: Evaluating the market shift where a percentage of high-paying roles are moving away from mandatory university degree requirements." 
+                    data-id="Tren Perekrutan Berbasis Keahlian: Mengevaluasi pergeseran tren pasar di mana persentase peran dengan bayaran tinggi kini mulai meninggalkan syarat wajib gelar universitas.">
+                    <strong>Tren Perekrutan Berbasis Keahlian:</strong> Mengevaluasi pergeseran tren pasar di mana persentase peran dengan bayaran tinggi kini mulai meninggalkan syarat wajib gelar universitas[cite: 3, 5].
+                </li>
+                <li data-en="Skill Valuation Mapping: Mapping the intersection between the most highly demanded skills in the market and the highest financial compensation ranges." 
+                    data-id="Pemetaan Kuadran Valuasi Keahlian: Memetakan titik temu antara keahlian yang paling sering dicari di pasar dengan rentang kompensasi finansial tertinggi.">
+                    <strong>Pemetaan Kuadran Valuasi Keahlian:</strong> Memetakan titik temu antara keahlian yang paling sering dicari di pasar dengan rentang kompensasi finansial tertinggi[cite: 3, 5].
+                </li>
+            </ul>
+        </section>
+
+        <!-- Tautan Aksi -->
+        <div class="action-links">
+            <a href="https://github.com/irpan06/Data-Job-Analytics-Platform" target="_blank" class="btn">
+                <i data-lucide="github"></i> <span data-en="GitHub Repository" data-id="Repositori GitHub">Repositori GitHub</span>
+            </a>
+            <a href="https://datastudio.google.com/reporting/b2364af9-a2b7-4e2c-ab2b-57ea9d8e1fd7" target="_blank" class="btn">
+                <i data-lucide="line-chart"></i> <span data-en="View Dashboard" data-id="Lihat Dashboard">Lihat Dashboard</span>
+            </a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

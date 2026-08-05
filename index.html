@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +8,21 @@
 
     <script>
         (function () {
-            var saved = localStorage.getItem('theme');
-            var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            var params = new URLSearchParams(window.location.search);
+
+            // --- Tema: prioritaskan parameter URL (dari navigasi antar halaman),
+            // lalu localStorage, baru preferensi sistem ---
+            var urlTheme = params.get('theme');
+            var savedTheme = localStorage.getItem('theme');
+            var theme = (urlTheme === 'dark' || urlTheme === 'light')
+                ? urlTheme
+                : (savedTheme || 'light');
             document.documentElement.setAttribute('data-theme', theme);
+
+            // --- Splash screen hanya tampil sekali per sesi browser ---
+            if (sessionStorage.getItem('introShown')) {
+                document.documentElement.classList.add('no-intro');
+            }
         })();
     </script>
 
@@ -103,6 +115,7 @@
                 <div class="project-grid">
 
                     <article class="project-card" data-category="data">
+                        <a href="project-data-analytics.html" class="card-cover-link" aria-label="Data Job Analytics Platform — View Details"></a>
                         <div class="project-header">
                             <h3 class="project-title">Data Job Analytics Platform</h3>
                             <span class="project-year">2026</span>
@@ -269,186 +282,6 @@
         </main>
     </div>
 
-    <script>
-        lucide.createIcons();
-
-        // --- Intro screen + typing subtitle ---
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('intro-screen').classList.add('hidden');
-                setTimeout(typeSubtitle, 500);
-            }, 1600);
-        });
-
-        let subtitleTyped = false;
-        function typeSubtitle() {
-            if (subtitleTyped) return;
-            subtitleTyped = true;
-            const el = document.getElementById('subtitleText');
-            const text = el.getAttribute('data-' + currentLang);
-            el.textContent = '';
-            let i = 0;
-            (function step() {
-                if (i < text.length) {
-                    el.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(step, 45);
-                }
-            })();
-        }
-
-        // --- Tab switching ---
-        const navButtons = document.querySelectorAll('.nav-item');
-        const tabSections = document.querySelectorAll('.tab-section');
-        let projectAnimated = false;
-
-        navButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                navButtons.forEach(btn => btn.classList.remove('active'));
-                tabSections.forEach(section => section.classList.remove('active-tab'));
-
-                button.classList.add('active');
-                const targetId = button.getAttribute('data-target');
-                document.getElementById(targetId).classList.add('active-tab');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-
-                if (targetId === 'projects' && !projectAnimated) {
-                    projectAnimated = true;
-                    const total = document.querySelectorAll('#projects .project-card').length;
-                    animateValue('project-counter', 0, total, 700);
-                }
-            });
-        });
-
-        function animateValue(id, start, end, duration) {
-            const obj = document.getElementById(id);
-            if (!obj) return;
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.textContent = Math.floor(progress * (end - start) + start);
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                } else {
-                    obj.textContent = end;
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-
-        // --- Project filtering ---
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active-filter'));
-                btn.classList.add('active-filter');
-
-                const filterValue = btn.getAttribute('data-filter');
-                let visibleCount = 0;
-
-                projectCards.forEach(card => {
-                    const cardCategory = card.getAttribute('data-category');
-                    if (filterValue === 'all' || cardCategory === filterValue) {
-                        card.classList.remove('hidden-project');
-                        visibleCount++;
-                    } else {
-                        card.classList.add('hidden-project');
-                    }
-                });
-
-                const counterEl = document.getElementById('project-counter');
-                if (counterEl) {
-                    const currentVal = parseInt(counterEl.textContent) || 0;
-                    animateValue('project-counter', currentVal, visibleCount, 400);
-                }
-            });
-        });
-
-        // --- Language toggle ---
-
-        let currentLang = 'en';
-        const langToggleBtn = document.getElementById('langToggle');
-        const translatableElements = document.querySelectorAll('[data-id][data-en]');
-
-        langToggleBtn.addEventListener('click', () => {
-            // Tukar bahasa
-            currentLang = currentLang === 'en' ? 'id' : 'en';
-            
-            // PERBAIKAN: Ubah penempatan '[EN]' dan '[ID]' agar label sesuai dengan bahasa yang sedang aktif
-            langToggleBtn.textContent = currentLang === 'en' ? '[EN]' : '[ID]';
-
-            translatableElements.forEach(el => {
-                if (el.id === 'subtitleText' && subtitleTyped === false) return;
-                el.textContent = el.getAttribute('data-' + currentLang);
-            });
-        });
-
-        // --- Theme toggle ---
-        const themeToggleBtn = document.getElementById('themeToggle');
-        function reflectTheme() {
-            const theme = document.documentElement.getAttribute('data-theme');
-            themeToggleBtn.textContent = theme === 'dark' ? '[Dark]' : '[Light]';
-        }
-        reflectTheme();
-
-        themeToggleBtn.addEventListener('click', () => {
-            const current = document.documentElement.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            reflectTheme();
-        });
-
-        // --- Wheel Scroll Section Switching ---
-        const sectionsOrder = ['about', 'projects', 'experience', 'education'];
-        let isScrollThrottled = false;
-
-        window.addEventListener('wheel', (event) => {
-            // 1. Cek apakah kursor sedang berada di dalam container project-grid
-            if (event.target.closest('.project-grid')) {
-                // Jika ya, hentikan fungsi ini dan biarkan user men-scroll list project
-                return; 
-            }
-
-            // 2. Mencegah perpindahan section terlalu cepat (throttling)
-            if (isScrollThrottled) return;
-
-            // 3. Dapatkan section yang sedang aktif
-            const activeNav = document.querySelector('.nav-item.active');
-            const currentTarget = activeNav.getAttribute('data-target');
-            const currentIndex = sectionsOrder.indexOf(currentTarget);
-
-            let nextIndex = currentIndex;
-
-            // 4. Deteksi arah scroll mouse (Bawah = positif, Atas = negatif)
-            if (event.deltaY > 0) {
-                nextIndex++; // Scroll ke bawah, lanjut ke section berikutnya
-            } else if (event.deltaY < 0) {
-                nextIndex--; // Scroll ke atas, kembali ke section sebelumnya
-            }
-
-            // 5. Eksekusi perpindahan jika index valid
-            if (nextIndex !== currentIndex && nextIndex >= 0 && nextIndex < sectionsOrder.length) {
-                isScrollThrottled = true;
-                
-                const nextSectionId = sectionsOrder[nextIndex];
-                const nextNavBtn = document.querySelector(`.nav-item[data-target="${nextSectionId}"]`);
-                
-                // Gunakan fungsi klik bawaan yang sudah Anda buat sebelumnya
-                if (nextNavBtn) {
-                    nextNavBtn.click(); 
-                }
-
-                // Beri jeda 800ms sebelum user bisa berpindah section lagi menggunakan scroll
-                setTimeout(() => {
-                    isScrollThrottled = false;
-                }, 800); 
-            }
-        });
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
