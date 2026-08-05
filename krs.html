@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRS Course Enrollment Automation | Muhamad Irvandi</title>
+
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var urlTheme = params.get('theme');
+            var savedTheme = localStorage.getItem('theme');
+            var theme = (urlTheme === 'dark' || urlTheme === 'light')
+                ? urlTheme
+                : (savedTheme || 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <!-- Menggunakan Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Controls (Back, Lang, Theme) -->
+        <div class="top-controls">
+            <a href="index.html?section=projects" class="back-link">
+                <i data-lucide="arrow-left" style="width: 16px;"></i> 
+                <span data-en="Back to Portfolio" data-id="Kembali ke Portfolio">Kembali ke Portfolio</span>
+            </a>
+            <div style="display: flex; gap: 10px;">
+                <button class="toggle-btn" id="langToggle">[EN]</button>
+                <button class="toggle-btn" id="themeToggle">[Dark]</button>
+            </div>
+        </div>
+
+        <!-- Header Proyek -->
+        <header>
+            <h1 class="hero-title">KRS Course Enrollment Automation</h1>
+            <p class="hero-subtitle" 
+               data-en="A script to automate Study Plan Card (KRS) enrollment at Universitas Airlangga using Python and Selenium." 
+               data-id="Skrip untuk mengotomatisasi pengisian Kartu Rencana Studi (KRS) di Universitas Airlangga menggunakan Python dan Selenium.">
+               Skrip untuk mengotomatisasi pengisian Kartu Rencana Studi (KRS) di Universitas Airlangga menggunakan Python dan Selenium[cite: 6].
+            </p>
+            
+            <div class="tech-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Selenium</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Numpy</span>
+                <span class="tag">Automation</span>
+            </div>
+        </header>
+
+        <!-- Latar Belakang -->
+        <section class="content-section">
+            <h2 data-en="Background & Objectives" data-id="Latar Belakang & Tujuan">Latar Belakang & Tujuan</h2>
+            <p data-en="This project is designed to help Universitas Airlangga students automate the process of filling out their Study Plan Card (KRS) quickly and efficiently." 
+               data-id="Proyek ini dirancang untuk membantu mahasiswa Universitas Airlangga mengotomatisasi proses pengisian Kartu Rencana Studi (KRS) secara cepat dan efisien.">
+               Proyek ini dirancang untuk membantu mahasiswa Universitas Airlangga mengotomatisasi proses pengisian Kartu Rencana Studi (KRS) secara cepat dan efisien[cite: 6].
+            </p>
+            <p data-en="The script utilizes Python and Selenium to interact with the student portal, aiming to secure courses during high-traffic enrollment periods by offering both manual and automatic execution modes." 
+               data-id="Skrip ini memanfaatkan Python dan Selenium untuk berinteraksi dengan portal mahasiswa, yang bertujuan untuk mengamankan kelas mata kuliah selama periode pengisian KRS yang padat dengan menawarkan mode eksekusi manual dan otomatis.">
+               Skrip ini memanfaatkan Python dan Selenium untuk berinteraksi dengan portal mahasiswa, yang bertujuan untuk mengamankan kelas mata kuliah selama periode pengisian KRS yang padat dengan menawarkan mode eksekusi manual dan otomatis[cite: 6].
+            </p>
+        </section>
+
+        <!-- Arsitektur & Engineering -->
+        <section class="content-section">
+            <h2 data-en="Technical Approach & Features" data-id="Pendekatan Teknis & Fitur">Pendekatan Teknis & Fitur</h2>
+            <p data-en="The program is built using Python, leveraging the Selenium library along with ChromeDriver to automate browser interactions. It also utilizes Pandas and Numpy for handling background data efficiently." 
+               data-id="Program ini dibangun menggunakan Python, memanfaatkan pustaka Selenium bersama dengan ChromeDriver untuk mengotomatisasi interaksi peramban (browser). Program ini juga memanfaatkan Pandas dan Numpy untuk menangani data latar belakang secara efisien.">
+               Program ini dibangun menggunakan Python, memanfaatkan pustaka Selenium bersama dengan ChromeDriver untuk mengotomatisasi interaksi peramban (<em>browser</em>)[cite: 6]. Program ini juga memanfaatkan Pandas dan Numpy untuk menangani data latar belakang secara efisien[cite: 6].
+            </p>
+
+            <div class="highlight-box">
+                <h3><i data-lucide="wrench"></i> <span data-en="Core Automation Features" data-id="Fitur Otomatisasi Utama">Fitur Otomatisasi Utama</span></h3>
+                <ul>
+                    <li data-en="Automatic Login & Validation: Features automatic login to the Universitas Airlangga student portal and validates users via a Google Spreadsheet." 
+                        data-id="Login & Validasi Otomatis: Memiliki fitur login otomatis ke portal mahasiswa Universitas Airlangga dan memvalidasi pengguna melalui Google Spreadsheet.">
+                        <strong>Login & Validasi Otomatis:</strong> Memiliki fitur <em>login</em> otomatis ke portal mahasiswa Universitas Airlangga dan memvalidasi pengguna melalui Google Spreadsheet[cite: 6].
+                    </li>
+                    <li data-en="Manual Mode: Executes the enrollment process at a specified, exact time (hours, minutes, and seconds) when the KRS registration officially opens." 
+                        data-id="Mode Manual: Mengeksekusi proses pendaftaran pada waktu yang spesifik dan tepat (jam, menit, dan detik) saat registrasi KRS resmi dibuka.">
+                        <strong>Mode Manual:</strong> Mengeksekusi proses pendaftaran pada waktu yang spesifik dan tepat (jam, menit, dan detik) saat registrasi KRS resmi dibuka[cite: 6].
+                    </li>
+                    <li data-en="Automatic Mode: Periodically checks and loops the enrollment process until all targeted courses are successfully registered." 
+                        data-id="Mode Otomatis: Memeriksa secara berkala dan mengulang proses pendaftaran hingga semua mata kuliah yang ditargetkan berhasil didaftarkan.">
+                        <strong>Mode Otomatis:</strong> Memeriksa secara berkala dan mengulang proses pendaftaran hingga semua mata kuliah yang ditargetkan berhasil didaftarkan[cite: 6].
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Analitik & Wawasan -->
+        <section class="content-section">
+            <h2 data-en="Usage & Configuration" data-id="Penggunaan & Konfigurasi">Penggunaan & Konfigurasi</h2>
+            <p data-en="The script is designed to be highly configurable through external text files, allowing students to prepare their targets before the enrollment period begins:" 
+               data-id="Skrip ini dirancang agar sangat mudah dikonfigurasi melalui file teks eksternal, memungkinkan mahasiswa mempersiapkan target mereka sebelum masa pendaftaran dimulai:">
+               Skrip ini dirancang agar sangat mudah dikonfigurasi melalui <em>file</em> teks eksternal, memungkinkan mahasiswa mempersiapkan target mereka sebelum masa pendaftaran dimulai[cite: 6]:
+            </p>
+            <ul>
+                <li data-en="Users simply input their credentials and target courses into specific files: nim.txt, pw.txt, matkul.txt, and kelas.txt." 
+                    data-id="Pengguna hanya perlu memasukkan kredensial dan mata kuliah target mereka ke dalam file spesifik: nim.txt, pw.txt, matkul.txt, dan kelas.txt.">
+                    Pengguna hanya perlu memasukkan kredensial dan mata kuliah target mereka ke dalam <em>file</em> spesifik: <code>nim.txt</code>, <code>pw.txt</code>, <code>matkul.txt</code>, dan <code>kelas.txt</code>[cite: 6].
+                </li>
+                <li data-en="The program provides clear status output (success or failure) for each enrollment attempt." 
+                    data-id="Program memberikan output status yang jelas (berhasil atau gagal) untuk setiap percobaan pendaftaran.">
+                    Program memberikan <em>output</em> status yang jelas (berhasil atau gagal) untuk setiap percobaan pendaftaran[cite: 6].
+                </li>
+                <li data-en="Video demonstrations for both Manual and Automatic modes have been recorded and documented on YouTube to guide new users through the execution process." 
+                    data-id="Demonstrasi video untuk mode Manual maupun Otomatis telah direkam dan didokumentasikan di YouTube untuk memandu pengguna baru melalui proses eksekusi.">
+                    Demonstrasi video untuk mode Manual maupun Otomatis telah direkam dan didokumentasikan di YouTube untuk memandu pengguna baru melalui proses eksekusi[cite: 6].
+                </li>
+            </ul>
+            <p data-en="Disclaimer: This script is created strictly for educational and learning purposes and should be used wisely in accordance with university academic regulations." 
+               data-id="Peringatan: Skrip ini dibuat secara ketat hanya untuk tujuan pendidikan dan pembelajaran, serta harus digunakan secara bijak sesuai dengan peraturan akademik universitas.">
+               <em>Peringatan:</em> Skrip ini dibuat secara ketat hanya untuk tujuan pendidikan dan pembelajaran, serta harus digunakan secara bijak sesuai dengan peraturan akademik universitas[cite: 6].
+            </p>
+        </section>
+
+        <!-- Tautan Aksi -->
+        <div class="action-links">
+            <a href="https://github.com/irpan06/KRS-Automation.git" target="_blank" class="btn">
+                <i data-lucide="github"></i> <span data-en="GitHub Repository" data-id="Repositori GitHub">Repositori GitHub</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=vcDb0vNcduY" target="_blank" class="btn">
+                <i data-lucide="youtube"></i> <span data-en="Watch Demo" data-id="Lihat Demo">Lihat Demo</span>
+            </a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Inisialisasi ikon Lucide
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>

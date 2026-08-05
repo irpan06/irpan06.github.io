@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Project Duration Estimation | Muhamad Irvandi</title>
+
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var urlTheme = params.get('theme');
+            var savedTheme = localStorage.getItem('theme');
+            var theme = (urlTheme === 'dark' || urlTheme === 'light')
+                ? urlTheme
+                : (savedTheme || 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <!-- Menggunakan Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Controls (Back, Lang, Theme) -->
+        <div class="top-controls">
+            <a href="index.html?section=projects" class="back-link">
+                <i data-lucide="arrow-left" style="width: 16px;"></i> 
+                <span data-en="Back to Portfolio" data-id="Kembali ke Portfolio">Kembali ke Portfolio</span>
+            </a>
+            <div style="display: flex; gap: 10px;">
+                <button class="toggle-btn" id="langToggle">[EN]</button>
+                <button class="toggle-btn" id="themeToggle">[Dark]</button>
+            </div>
+        </div>
+
+        <!-- Header Proyek -->
+        <header>
+            <h1 class="hero-title">Construction Project Duration Estimation and Business Impact Analysis</h1>
+            <p class="hero-subtitle" 
+               data-en="Analyzing the decline in company revenue by investigating project delays, building predictive models, and developing interactive dashboards." 
+               data-id="Menganalisis penurunan pendapatan perusahaan dengan menginvestigasi penundaan proyek, membangun model prediktif, dan mengembangkan dashboard interaktif.">
+               Menganalisis penurunan pendapatan perusahaan dengan menginvestigasi penundaan proyek, membangun model prediktif, dan mengembangkan <em>dashboard</em> interaktif[cite: 3].
+            </p>
+            
+            <div class="tech-tags">
+                <span class="tag">Python</span>
+                <span class="tag">CatBoost</span>
+                <span class="tag">Power BI</span>
+                <span class="tag">EDA</span>
+                <span class="tag">Machine Learning</span>
+            </div>
+        </header>
+
+        <!-- Latar Belakang -->
+        <section class="content-section">
+            <h2 data-en="Background & Objectives" data-id="Latar Belakang & Tujuan">Latar Belakang & Tujuan</h2>
+            <p data-en="This project analyzes the decline in company revenue during 2024 within a construction business context. Exploratory and predictive analyses revealed that project delays in prior years may have contributed to a decrease in new project acquisition, reducing overall revenue." 
+               data-id="Proyek ini menganalisis penurunan pendapatan perusahaan selama tahun 2024 dalam konteks bisnis konstruksi. Analisis eksploratif dan prediktif mengungkapkan bahwa penundaan proyek di tahun-tahun sebelumnya mungkin telah berkontribusi pada penurunan akuisisi proyek baru, yang pada akhirnya mengurangi pendapatan keseluruhan.">
+               Proyek ini menganalisis penurunan pendapatan perusahaan selama tahun 2024 dalam konteks bisnis konstruksi[cite: 3]. Analisis eksploratif dan prediktif mengungkapkan bahwa penundaan proyek di tahun-tahun sebelumnya mungkin telah berkontribusi pada penurunan akuisisi proyek baru, yang pada akhirnya mengurangi pendapatan keseluruhan[cite: 3].
+            </p>
+            <p data-en="The main objective is to investigate the relationship between project delays and next-year project volume, build a predictive model to estimate project durations more realistically, and develop an interactive dashboard for project monitoring and decision support." 
+               data-id="Tujuan utamanya adalah menyelidiki hubungan antara penundaan proyek dan volume proyek tahun berikutnya, membangun model prediktif untuk memperkirakan durasi proyek secara lebih realistis, dan mengembangkan dashboard interaktif untuk pemantauan proyek serta dukungan keputusan.">
+               Tujuan utamanya adalah menyelidiki hubungan antara penundaan proyek dan volume proyek tahun berikutnya, membangun model prediktif untuk memperkirakan durasi proyek secara lebih realistis, dan mengembangkan <em>dashboard</em> interaktif untuk pemantauan proyek serta dukungan keputusan[cite: 3].
+            </p>
+        </section>
+
+        <!-- Arsitektur & Engineering -->
+        <section class="content-section">
+            <h2 data-en="Technical Approach: Methodology & Analytics" data-id="Pendekatan Teknis: Metodologi & Analitik">Pendekatan Teknis: Metodologi & Analitik</h2>
+            <p data-en="The project followed a structured analytics workflow starting with Business Analysis and Exploratory Data Analysis (EDA). Thorough EDA was performed to handle heavy right-skew in duration using log-transformations and IQR-based filtering to stabilize the target variable." 
+               data-id="Proyek ini mengikuti alur kerja analitik terstruktur yang dimulai dengan Analisis Bisnis dan Exploratory Data Analysis (EDA). EDA menyeluruh dilakukan untuk menangani kemiringan ke kanan (right-skew) yang ekstrim pada variabel durasi menggunakan transformasi logaritma dan penyaringan outlier berbasis IQR untuk menstabilkan variabel target.">
+               Proyek ini mengikuti alur kerja analitik terstruktur yang dimulai dengan Analisis Bisnis dan <em>Exploratory Data Analysis (EDA)</em>[cite: 3]. EDA menyeluruh dilakukan untuk menangani kemiringan ke kanan (<em>right-skew</em>) yang ekstrim pada variabel durasi menggunakan transformasi logaritma dan penyaringan <em>outlier</em> berbasis IQR untuk menstabilkan variabel target[cite: 3].
+            </p>
+            <p data-en="Hypothesis testing through correlation analysis showed a moderate negative correlation (r ≈ -0.5) between prior-year delays and next-year project counts, supporting the initial business hypothesis." 
+               data-id="Pengujian hipotesis melalui analisis korelasi menunjukkan korelasi negatif moderat (r ≈ -0.5) antara penundaan di tahun sebelumnya dan jumlah proyek di tahun berikutnya, mendukung hipotesis bisnis awal.">
+               Pengujian hipotesis melalui analisis korelasi menunjukkan korelasi negatif moderat (r ≈ -0.5) antara penundaan di tahun sebelumnya dan jumlah proyek di tahun berikutnya, mendukung hipotesis bisnis awal[cite: 3].
+            </p>
+
+            <div class="highlight-box">
+                <h3><i data-lucide="wrench"></i> <span data-en="Model Development & Performance" data-id="Pengembangan & Performa Model">Pengembangan & Performa Model</span></h3>
+                <ul>
+                    <li data-en="CatBoost Regressor: Utilized for its capability to handle mixed categorical and numeric data. Input features included district, build_id, type, phase, and log_budget to predict the log_duration target." 
+                        data-id="CatBoost Regressor: Digunakan karena kemampuannya menangani campuran data kategorikal dan numerik. Fitur input meliputi distrik, build_id, tipe, fase, dan log_budget untuk memprediksi target log_duration.">
+                        <strong>CatBoost Regressor:</strong> Digunakan karena kemampuannya menangani campuran data kategorikal dan numerik[cite: 3]. Fitur input meliputi <code>district</code>, <code>build_id</code>, <code>type</code>, <code>phase</code>, dan <code>log_budget</code> untuk memprediksi target <code>log_duration</code>[cite: 3].
+                    </li>
+                    <li data-en="Performance Metrics: The predictive model achieved a Root Mean Square Error (RMSE) of 92, an R² of 0.40, and a Mean Absolute Percentage Error (MAPE) of 61%." 
+                        data-id="Metrik Performa: Model prediktif mencapai Root Mean Square Error (RMSE) sebesar 92, R² sebesar 0.40, dan Mean Absolute Percentage Error (MAPE) sebesar 61%.">
+                        <strong>Metrik Performa:</strong> Model prediktif mencapai <em>Root Mean Square Error</em> (RMSE) sebesar 92, R&sup2; sebesar 0.40, dan <em>Mean Absolute Percentage Error</em> (MAPE) sebesar 61%[cite: 3].
+                    </li>
+                    <li data-en="Key Feature Driver: The log_budget variable was identified as the most influential feature in the model's predictions." 
+                        data-id="Fitur Penggerak Utama: Variabel log_budget diidentifikasi sebagai fitur yang paling berpengaruh dalam prediksi model.">
+                        <strong>Fitur Penggerak Utama:</strong> Variabel <code>log_budget</code> diidentifikasi sebagai fitur yang paling berpengaruh dalam prediksi model[cite: 3].
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Analitik & Wawasan -->
+        <section class="content-section">
+            <h2 data-en="Results & Business Recommendations" data-id="Hasil & Rekomendasi Bisnis">Hasil & Rekomendasi Bisnis</h2>
+            <p data-en="The analysis delivered actionable insights and resulted in the creation of an interactive dashboard visualizing total revenue, total projects, project distributions by various dimensions, and average project duration and budget trends." 
+               data-id="Analisis ini memberikan wawasan yang dapat ditindaklanjuti dan menghasilkan pembuatan dashboard interaktif yang memvisualisasikan total pendapatan, total proyek, distribusi proyek berdasarkan berbagai dimensi, serta tren rata-rata durasi proyek dan anggaran.">
+               Analisis ini memberikan wawasan yang dapat ditindaklanjuti dan menghasilkan pembuatan <em>dashboard</em> interaktif yang memvisualisasikan total pendapatan, total proyek, distribusi proyek berdasarkan berbagai dimensi, serta tren rata-rata durasi proyek dan anggaran[cite: 3].
+            </p>
+            <p data-en="Based on the findings, the following business recommendations were formulated:" 
+               data-id="Berdasarkan temuan tersebut, rekomendasi bisnis berikut dirumuskan:">
+               Berdasarkan temuan tersebut, rekomendasi bisnis berikut dirumuskan:
+            </p>
+            <ul>
+                <li data-en="Enhance Data Collection: Capture project complexity indicators (area, materials), record team and contractor details, and include external factors such as weather or permit delays." 
+                    data-id="Tingkatkan Pengumpulan Data: Menangkap indikator kompleksitas proyek (area, material), mencatat detail tim dan kontraktor, serta memasukkan faktor eksternal seperti cuaca atau penundaan izin.">
+                    <strong>Tingkatkan Pengumpulan Data:</strong> Menangkap indikator kompleksitas proyek (area, material), mencatat detail tim dan kontraktor, serta memasukkan faktor eksternal seperti cuaca atau penundaan izin[cite: 3].
+                </li>
+                <li data-en="Operationalize Predictive Modeling: Use duration predictions during the bidding and scheduling phases, and integrate the dashboard into internal project management workflows." 
+                    data-id="Operasionalisasi Pemodelan Prediktif: Menggunakan prediksi durasi selama fase penawaran dan penjadwalan, serta mengintegrasikan dashboard ke dalam alur kerja manajemen proyek internal.">
+                    <strong>Operasionalisasi Pemodelan Prediktif:</strong> Menggunakan prediksi durasi selama fase penawaran dan penjadwalan, serta mengintegrasikan <em>dashboard</em> ke dalam alur kerja manajemen proyek internal[cite: 3].
+                </li>
+                <li data-en="Continuous Monitoring: Track delay trends consistently and retrain the machine learning model with updated project data to maintain prediction accuracy." 
+                    data-id="Pemantauan Berkelanjutan: Melacak tren penundaan secara konsisten dan melatih ulang model machine learning dengan data proyek yang diperbarui untuk mempertahankan akurasi prediksi.">
+                    <strong>Pemantauan Berkelanjutan:</strong> Melacak tren penundaan secara konsisten dan melatih ulang model <em>machine learning</em> dengan data proyek yang diperbarui untuk mempertahankan akurasi prediksi[cite: 3].
+                </li>
+            </ul>
+        </section>
+
+        <!-- Tautan Aksi -->
+        <div class="action-links">
+            <a href="https://github.com/irpan06" target="_blank" class="btn">
+                <i data-lucide="github"></i> <span data-en="GitHub Profile" data-id="Profil GitHub">Profil GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/irvandddi/" target="_blank" class="btn">
+                <i data-lucide="linkedin"></i> <span data-en="LinkedIn Profile" data-id="Profil LinkedIn">Profil LinkedIn</span>
+            </a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Inisialisasi ikon Lucide
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>

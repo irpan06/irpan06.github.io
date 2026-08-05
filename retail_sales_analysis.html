@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail Sales Analysis | Muhamad Irvandi</title>
+
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var urlTheme = params.get('theme');
+            var savedTheme = localStorage.getItem('theme');
+            var theme = (urlTheme === 'dark' || urlTheme === 'light')
+                ? urlTheme
+                : (savedTheme || 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <!-- Menggunakan Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Controls (Back, Lang, Theme) -->
+        <div class="top-controls">
+            <a href="index.html?section=projects" class="back-link">
+                <i data-lucide="arrow-left" style="width: 16px;"></i> 
+                <span data-en="Back to Portfolio" data-id="Kembali ke Portfolio">Kembali ke Portfolio</span>
+            </a>
+            <div style="display: flex; gap: 10px;">
+                <button class="toggle-btn" id="langToggle">[EN]</button>
+                <button class="toggle-btn" id="themeToggle">[Dark]</button>
+            </div>
+        </div>
+
+        <!-- Header Proyek -->
+        <header>
+            <h1 class="hero-title">Retail Sales Analysis</h1>
+            <p class="hero-subtitle" 
+               data-en="Conducting comprehensive analysis on retail sales datasets using SQL, covering Exploratory Data Analysis (EDA) and Advanced Data Analysis (ADA)." 
+               data-id="Melakukan analisis komprehensif pada dataset penjualan ritel menggunakan SQL, mencakup Exploratory Data Analysis (EDA) dan Advanced Data Analysis (ADA).">
+               Melakukan analisis komprehensif pada dataset penjualan ritel menggunakan SQL, mencakup Exploratory Data Analysis (EDA) dan Advanced Data Analysis (ADA).
+            </p>
+            
+            <div class="tech-tags">
+                <span class="tag">SQL</span>
+                <span class="tag">MySQL / MariaDB</span>
+                <span class="tag">RFM Segmentation</span>
+                <span class="tag">Cohort Analysis</span>
+                <span class="tag">EDA</span>
+            </div>
+        </header>
+
+        <!-- Latar Belakang -->
+        <section class="content-section">
+            <h2 data-en="Background & Objectives" data-id="Latar Belakang & Tujuan">Latar Belakang & Tujuan</h2>
+            <p data-en="This project aims to analyze a Retail Sales dataset using SQL to uncover business metrics and customer behaviors. The analysis is logically divided into two main parts to ensure a thorough understanding of the data." 
+               data-id="Proyek ini bertujuan untuk menganalisis dataset Penjualan Ritel menggunakan SQL guna mengungkap metrik bisnis dan perilaku pelanggan. Analisis ini dibagi secara logis menjadi dua bagian utama untuk memastikan pemahaman data yang menyeluruh.">
+               Proyek ini bertujuan untuk menganalisis dataset Penjualan Ritel menggunakan SQL guna mengungkap metrik bisnis dan perilaku pelanggan. Analisis ini dibagi secara logis menjadi dua bagian utama untuk memastikan pemahaman data yang menyeluruh.
+            </p>
+            <p data-en="The first part is Exploratory Data Analysis (EDA), which focuses on exploring dimensions, date ranges, and foundational business metrics such as total sales, total customers, and revenue generated per category. The second part is Advanced Data Analysis (ADA), designed to derive deeper insights into customer behavior and profitability." 
+               data-id="Bagian pertama adalah Exploratory Data Analysis (EDA), yang berfokus pada eksplorasi dimensi, rentang tanggal, dan metrik bisnis dasar seperti total penjualan, total pelanggan, dan pendapatan yang dihasilkan per kategori. Bagian kedua adalah Advanced Data Analysis (ADA), yang dirancang untuk mendapatkan wawasan yang lebih mendalam mengenai perilaku dan profitabilitas pelanggan.">
+               Bagian pertama adalah Exploratory Data Analysis (EDA), yang berfokus pada eksplorasi dimensi, rentang tanggal, dan metrik bisnis dasar seperti total penjualan, total pelanggan, dan pendapatan yang dihasilkan per kategori. Bagian kedua adalah Advanced Data Analysis (ADA), yang dirancang untuk mendapatkan wawasan yang lebih mendalam mengenai perilaku dan profitabilitas pelanggan.
+            </p>
+        </section>
+
+        <!-- Arsitektur & Engineering -->
+        <section class="content-section">
+            <h2 data-en="Technical Approach: Advanced SQL Analytics" data-id="Pendekatan Teknis: Analitik SQL Lanjutan">Pendekatan Teknis: Analitik SQL Lanjutan</h2>
+            <p data-en="The analysis was executed using MySQL / MariaDB databases. Complex SQL queries were developed leveraging Aggregate Functions, Window Functions (such as NTILE), Common Table Expressions (CTEs), and advanced Date Functions to properly structure and segment the data." 
+               data-id="Analisis dieksekusi menggunakan database MySQL / MariaDB. Kueri SQL kompleks dikembangkan dengan memanfaatkan Aggregate Functions, Window Functions (seperti NTILE), Common Table Expressions (CTE), dan Date Functions lanjutan untuk menyusun dan menyegmentasi data secara tepat.">
+               Analisis dieksekusi menggunakan database MySQL / MariaDB. Kueri SQL kompleks dikembangkan dengan memanfaatkan Aggregate Functions, Window Functions (seperti NTILE), Common Table Expressions (CTE), dan Date Functions lanjutan untuk menyusun dan menyegmentasi data secara tepat.
+            </p>
+
+            <div class="highlight-box">
+                <h3><i data-lucide="wrench"></i> <span data-en="Key Analytical Methodologies" data-id="Metodologi Analitik Utama">Metodologi Analitik Utama</span></h3>
+                <ul>
+                    <li data-en="Profitability Analysis: Calculated total revenue, Cost of Goods Sold (COGS), profit margins, margin percentages, and transaction counts categorized by product type." 
+                        data-id="Analisis Profitabilitas: Menghitung total pendapatan, Harga Pokok Penjualan (HPP), margin keuntungan, persentase margin, dan jumlah transaksi yang dikategorikan berdasarkan jenis produk.">
+                        <strong>Analisis Profitabilitas:</strong> Menghitung total pendapatan, Harga Pokok Penjualan (HPP), margin keuntungan, persentase margin, dan jumlah transaksi yang dikategorikan berdasarkan jenis produk.
+                    </li>
+                    <li data-en="RFM Segmentation: Implemented a robust customer segmentation model based on Recency, Frequency, and Monetary value. Customers were scored and classified into distinct segments such as Champion, Loyal, Potential, At Risk, and Lost." 
+                        data-id="Segmentasi RFM: Mengimplementasikan model segmentasi pelanggan yang tangguh berdasarkan nilai Recency, Frequency, dan Monetary. Pelanggan diberi skor dan diklasifikasikan ke dalam segmen berbeda seperti Champion, Loyal, Potential, At Risk, dan Lost.">
+                        <strong>Segmentasi RFM:</strong> Mengimplementasikan model segmentasi pelanggan yang tangguh berdasarkan nilai Recency, Frequency, dan Monetary. Pelanggan diberi skor dan diklasifikasikan ke dalam segmen berbeda seperti Champion, Loyal, Potential, At Risk, dan Lost.
+                    </li>
+                    <li data-en="Cohort Retention Analysis: Grouped customers into cohorts based on their initial purchase month and measured monthly customer retention rates over time to track long-term loyalty." 
+                        data-id="Analisis Retensi Kohort: Mengelompokkan pelanggan ke dalam kohort berdasarkan bulan pembelian awal mereka dan mengukur tingkat retensi pelanggan bulanan dari waktu ke waktu untuk melacak loyalitas jangka panjang.">
+                        <strong>Analisis Retensi Kohort:</strong> Mengelompokkan pelanggan ke dalam kohort berdasarkan bulan pembelian awal mereka dan mengukur tingkat retensi pelanggan bulanan dari waktu ke waktu untuk melacak loyalitas jangka panjang.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Analitik & Wawasan -->
+        <section class="content-section">
+            <h2 data-en="Key Insights & Findings" data-id="Wawasan & Temuan Utama">Wawasan & Temuan Utama</h2>
+            <p data-en="Through rigorous exploratory and advanced data analysis, the project uncovered several actionable insights regarding product performance and customer dynamics:" 
+               data-id="Melalui analisis data eksploratif dan lanjutan yang ketat, proyek ini mengungkap beberapa wawasan yang dapat ditindaklanjuti mengenai performa produk dan dinamika pelanggan:">
+               Melalui analisis data eksploratif dan lanjutan yang ketat, proyek ini mengungkap beberapa wawasan yang dapat ditindaklanjuti mengenai performa produk dan dinamika pelanggan:
+            </p>
+            <ul>
+                <li data-en="Identification of best-selling product categories and detailed profitability assessments across different product lines." 
+                    data-id="Identifikasi kategori produk terlaris dan penilaian profitabilitas terperinci di berbagai lini produk.">
+                    Identifikasi kategori produk terlaris dan penilaian profitabilitas terperinci di berbagai lini produk.
+                </li>
+                <li data-en="Effective customer segmentation revealing distinct purchasing patterns and opportunities for targeted marketing." 
+                    data-id="Segmentasi pelanggan yang efektif mengungkapkan pola pembelian yang khas dan peluang untuk pemasaran yang ditargetkan.">
+                    Segmentasi pelanggan yang efektif mengungkapkan pola pembelian yang khas dan peluang untuk pemasaran yang ditargetkan.
+                </li>
+                <li data-en="Detection of repeat customers, loyalty trends, and concrete customer retention rates through historical cohort analysis." 
+                    data-id="Deteksi pelanggan berulang, tren loyalitas, dan tingkat retensi pelanggan yang konkret melalui analisis kohort historis.">
+                    Deteksi pelanggan berulang, tren loyalitas, dan tingkat retensi pelanggan yang konkret melalui analisis kohort historis.
+                </li>
+            </ul>
+        </section>
+
+        <!-- Tautan Aksi -->
+        <div class="action-links">
+            <a href="https://github.com/irpan06" target="_blank" class="btn">
+                <i data-lucide="github"></i> <span data-en="GitHub Profile" data-id="Profil GitHub">Profil GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/irvandddi/" target="_blank" class="btn">
+                <i data-lucide="linkedin"></i> <span data-en="LinkedIn Profile" data-id="Profil LinkedIn">Profil LinkedIn</span>
+            </a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Inisialisasi ikon Lucide
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>

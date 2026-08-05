@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNN-UNET CW-DOT Reconstruction | Muhamad Irvandi</title>
+
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var urlTheme = params.get('theme');
+            var savedTheme = localStorage.getItem('theme');
+            var theme = (urlTheme === 'dark' || urlTheme === 'light')
+                ? urlTheme
+                : (savedTheme || 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <!-- Menggunakan Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Controls (Back, Lang, Theme) -->
+        <div class="top-controls">
+            <a href="index.html?section=projects" class="back-link">
+                <i data-lucide="arrow-left" style="width: 16px;"></i> 
+                <span data-en="Back to Portfolio" data-id="Kembali ke Portfolio">Kembali ke Portfolio</span>
+            </a>
+            <div style="display: flex; gap: 10px;">
+                <button class="toggle-btn" id="langToggle">[EN]</button>
+                <button class="toggle-btn" id="themeToggle">[Dark]</button>
+            </div>
+        </div>
+
+        <!-- Header Proyek -->
+        <header>
+            <h1 class="hero-title">CNN-UNET for Reconstruction in CW-DOT</h1>
+            <p class="hero-subtitle" 
+               data-en="Developing a deep learning reconstruction method for the Continuous-Wave Diffuse Optical Tomography (CW-DOT) system." 
+               data-id="Mengembangkan metode rekonstruksi deep learning untuk sistem Continuous-Wave Diffuse Optical Tomography (CW-DOT).">
+               Mengembangkan metode rekonstruksi <em>deep learning</em> untuk sistem <em>Continuous-Wave Diffuse Optical Tomography</em> (CW-DOT)[cite: 4].
+            </p>
+            
+            <div class="tech-tags">
+                <span class="tag">Deep Learning</span>
+                <span class="tag">CNN-UNET</span>
+                <span class="tag">Python</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Jupyter</span>
+            </div>
+        </header>
+
+        <!-- Latar Belakang -->
+        <section class="content-section">
+            <h2 data-en="Background & Objectives" data-id="Latar Belakang & Tujuan">Latar Belakang & Tujuan</h2>
+            <p data-en="This project is part of an undergraduate thesis at the Department of Physics, Universitas Airlangga. The research focuses on developing an advanced reconstruction method for the Continuous-Wave Diffuse Optical Tomography (CW-DOT) system leveraging deep learning technologies." 
+               data-id="Proyek ini merupakan bagian dari tugas akhir sarjana (skripsi) di Departemen Fisika, Universitas Airlangga. Penelitian ini berfokus pada pengembangan metode rekonstruksi lanjutan untuk sistem Continuous-Wave Diffuse Optical Tomography (CW-DOT) dengan memanfaatkan teknologi deep learning.">
+               Proyek ini merupakan bagian dari tugas akhir sarjana (skripsi) di Departemen Fisika, Universitas Airlangga[cite: 4]. Penelitian ini berfokus pada pengembangan metode rekonstruksi lanjutan untuk sistem <em>Continuous-Wave Diffuse Optical Tomography</em> (CW-DOT) dengan memanfaatkan teknologi <em>deep learning</em>[cite: 4].
+            </p>
+            <p data-en="The primary objective is to replace or improve upon conventional reconstruction methods (like LSL) by training a model that directly maps intensity distributions to precise reconstructed images." 
+               data-id="Tujuan utamanya adalah menggantikan atau memperbaiki metode rekonstruksi konvensional (seperti LSL) dengan melatih model yang secara langsung memetakan distribusi intensitas menjadi gambar rekonstruksi yang presisi.">
+               Tujuan utamanya adalah menggantikan atau memperbaiki metode rekonstruksi konvensional (seperti LSL) dengan melatih model yang secara langsung memetakan distribusi intensitas menjadi gambar rekonstruksi yang presisi[cite: 4].
+            </p>
+        </section>
+
+        <!-- Arsitektur & Engineering -->
+        <section class="content-section">
+            <h2 data-en="Methodology & Technical Approach" data-id="Metodologi & Pendekatan Teknis">Metodologi & Pendekatan Teknis</h2>
+            <p data-en="The methodology revolves around an end-to-end deep learning workflow designed specifically for image reconstruction tasks within the CW-DOT system. The input is structured as an intensity distribution in an image format, and the output is expected to be reconstructed images that closely resemble the ground-truth object." 
+               data-id="Metodologi ini berpusat pada alur kerja deep learning end-to-end yang dirancang khusus untuk tugas rekonstruksi gambar di dalam sistem CW-DOT. Input disusun sebagai distribusi intensitas dalam format gambar, dan output yang diharapkan adalah gambar rekonstruksi yang sangat menyerupai objek ground-truth.">
+               Metodologi ini berpusat pada alur kerja <em>deep learning end-to-end</em> yang dirancang khusus untuk tugas rekonstruksi gambar di dalam sistem CW-DOT[cite: 4]. <em>Input</em> disusun sebagai distribusi intensitas dalam format gambar, dan <em>output</em> yang diharapkan adalah gambar rekonstruksi yang sangat menyerupai objek <em>ground-truth</em>[cite: 4].
+            </p>
+
+            <div class="highlight-box">
+                <h3><i data-lucide="wrench"></i> <span data-en="Workflow & Model Details" data-id="Alur Kerja & Detail Model">Alur Kerja & Detail Model</span></h3>
+                <ul>
+                    <li data-en="Preprocessing: The intensity data undergoes normalization before being split into dedicated training and testing sets." 
+                        data-id="Preprocessing: Data intensitas melalui proses normalisasi sebelum dibagi menjadi set pelatihan (training) dan pengujian (testing).">
+                        <strong>Preprocessing:</strong> Data intensitas melalui proses normalisasi sebelum dibagi menjadi set pelatihan (<em>training</em>) dan pengujian (<em>testing</em>)[cite: 4].
+                    </li>
+                    <li data-en="Model Architecture: A CNN-UNET deep learning architecture is implemented to directly learn the complex mapping from input intensities to reconstructed images." 
+                        data-id="Arsitektur Model: Arsitektur deep learning CNN-UNET diimplementasikan untuk mempelajari pemetaan kompleks secara langsung dari intensitas input ke gambar rekonstruksi.">
+                        <strong>Arsitektur Model:</strong> Arsitektur <em>deep learning</em> CNN-UNET diimplementasikan untuk mempelajari pemetaan kompleks secara langsung dari intensitas <em>input</em> ke gambar rekonstruksi[cite: 4].
+                    </li>
+                    <li data-en="Training & Loss Function: The network is trained by utilizing the Binary Cross Entropy (BCE) loss function to optimize the model's weights." 
+                        data-id="Pelatihan & Fungsi Kerugian (Loss Function): Jaringan saraf dilatih dengan menggunakan fungsi kerugian Binary Cross Entropy (BCE) untuk mengoptimalkan bobot model.">
+                        <strong>Pelatihan & Fungsi Kerugian (Loss Function):</strong> Jaringan dilatih dengan menggunakan fungsi kerugian <em>Binary Cross Entropy</em> (BCE) untuk mengoptimalkan bobot model[cite: 4].
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Analitik & Wawasan -->
+        <section class="content-section">
+            <h2 data-en="Evaluation & Demonstration Results" data-id="Evaluasi & Hasil Demonstrasi">Evaluasi & Hasil Demonstrasi</h2>
+            <p data-en="Model performance is rigorously measured using established computer vision metrics: Mean Absolute Error (MAE) and the Dice Similarity Coefficient (DSC)." 
+               data-id="Performa model diukur secara ketat menggunakan metrik computer vision yang sudah terstandarisasi: Mean Absolute Error (MAE) dan Dice Similarity Coefficient (DSC).">
+               Performa model diukur secara ketat menggunakan metrik <em>computer vision</em> yang sudah terstandarisasi: <em>Mean Absolute Error</em> (MAE) dan <em>Dice Similarity Coefficient</em> (DSC)[cite: 4].
+            </p>
+            <ul>
+                <li data-en="Visual Demonstration: Results clearly show a significant visual improvement when comparing the conventional reconstruction method (LSL) with the proposed CNN-UNET model." 
+                    data-id="Demonstrasi Visual: Hasil secara jelas menunjukkan peningkatan visual yang signifikan saat membandingkan metode rekonstruksi konvensional (LSL) dengan model CNN-UNET yang diusulkan.">
+                    <strong>Demonstrasi Visual:</strong> Hasil secara jelas menunjukkan peningkatan visual yang signifikan saat membandingkan metode rekonstruksi konvensional (LSL) dengan model CNN-UNET yang diusulkan[cite: 4].
+                </li>
+                <li data-en="High-Fidelity Reconstruction: The CNN-UNET model successfully produces reconstructed images that are visibly closer and more accurate relative to the ground-truth object." 
+                    data-id="Rekonstruksi Akurasi Tinggi: Model CNN-UNET berhasil menghasilkan gambar rekonstruksi yang secara visual lebih dekat dan lebih akurat relatif terhadap objek ground-truth.">
+                    <strong>Rekonstruksi Akurasi Tinggi:</strong> Model CNN-UNET berhasil menghasilkan gambar rekonstruksi yang secara visual lebih dekat dan lebih akurat relatif terhadap objek <em>ground-truth</em>[cite: 4].
+                </li>
+            </ul>
+            <p data-en="Acknowledgements: Numerical simulation for this research was based on software developed by Ukhrowiyah (2018), with supervision from Dr. Nuril Ukhrowiyah, M.Si, and Yhosep Gita Yhun Yhuwana, S.Si., M.T." 
+               data-id="Ucapan Terima Kasih: Simulasi numerik untuk penelitian ini didasarkan pada perangkat lunak yang dikembangkan oleh Ukhrowiyah (2018), dengan bimbingan dari Dr. Nuril Ukhrowiyah, M.Si, dan Yhosep Gita Yhun Yhuwana, S.Si., M.T.">
+               <em>Ucapan Terima Kasih:</em> Simulasi numerik untuk penelitian ini didasarkan pada perangkat lunak yang dikembangkan oleh Ukhrowiyah (2018), dengan bimbingan dari Dr. Nuril Ukhrowiyah, M.Si, dan Yhosep Gita Yhun Yhuwana, S.Si., M.T[cite: 4].
+            </p>
+        </section>
+
+        <!-- Tautan Aksi -->
+        <div class="action-links">
+            <a href="https://github.com/irpan06" target="_blank" class="btn">
+                <i data-lucide="github"></i> <span data-en="GitHub Profile" data-id="Profil GitHub">Profil GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/irvandddi/" target="_blank" class="btn">
+                <i data-lucide="linkedin"></i> <span data-en="LinkedIn Profile" data-id="Profil LinkedIn">Profil LinkedIn</span>
+            </a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Inisialisasi ikon Lucide
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>

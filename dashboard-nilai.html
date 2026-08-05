@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Performance Analysis Dashboard | Muhamad Irvandi</title>
+
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var urlTheme = params.get('theme');
+            var savedTheme = localStorage.getItem('theme');
+            var theme = (urlTheme === 'dark' || urlTheme === 'light')
+                ? urlTheme
+                : (savedTheme || 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <!-- Menggunakan Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Controls (Back, Lang, Theme) -->
+        <div class="top-controls">
+            <a href="index.html?section=projects" class="back-link">
+                <i data-lucide="arrow-left" style="width: 16px;"></i> 
+                <span data-en="Back to Portfolio" data-id="Kembali ke Portfolio">Kembali ke Portfolio</span>
+            </a>
+            <div style="display: flex; gap: 10px;">
+                <button class="toggle-btn" id="langToggle">[EN]</button>
+                <button class="toggle-btn" id="themeToggle">[Dark]</button>
+            </div>
+        </div>
+
+        <!-- Header Proyek -->
+        <header>
+            <h1 class="hero-title">Academic Performance Analysis Dashboard</h1>
+            <p class="hero-subtitle" 
+               data-en="An interactive Streamlit-based application for analyzing student transcripts at Universitas Airlangga (UNAIR), featuring GPA tracking and grade simulation." 
+               data-id="Aplikasi interaktif berbasis Streamlit untuk menganalisis transkrip mahasiswa di Universitas Airlangga (UNAIR), dilengkapi pelacakan IPK dan simulasi nilai.">
+               Aplikasi interaktif berbasis Streamlit untuk menganalisis transkrip mahasiswa di Universitas Airlangga (UNAIR), dilengkapi pelacakan IPK dan simulasi nilai[cite: 5].
+            </p>
+            
+            <div class="tech-tags">
+                <span class="tag">Streamlit</span>
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Web Scraping</span>
+                <span class="tag">Plotly</span>
+            </div>
+        </header>
+
+        <!-- Latar Belakang -->
+        <section class="content-section">
+            <h2 data-en="Background & Objectives" data-id="Latar Belakang & Tujuan">Latar Belakang & Tujuan</h2>
+            <p data-en="This project is an interactive Streamlit-based application designed to analyze student transcripts at Universitas Airlangga (UNAIR). It was originally developed specifically for the Physics Program, but the curriculum matching logic can be easily adapted for other programs or universities." 
+               data-id="Proyek ini adalah aplikasi interaktif berbasis Streamlit yang dirancang untuk menganalisis transkrip mahasiswa di Universitas Airlangga (UNAIR). Aplikasi ini awalnya dikembangkan khusus untuk Program Studi Fisika, namun logika pencocokan kurikulumnya dapat dengan mudah diadaptasi untuk program studi atau universitas lain.">
+               Proyek ini adalah aplikasi interaktif berbasis Streamlit yang dirancang untuk menganalisis transkrip mahasiswa di Universitas Airlangga (UNAIR)[cite: 5]. Aplikasi ini awalnya dikembangkan khusus untuk Program Studi Fisika, namun logika pencocokan kurikulumnya dapat dengan mudah diadaptasi untuk program studi atau universitas lain[cite: 5].
+            </p>
+            <p data-en="The main objective is to provide a comprehensive dashboard that features GPA and Semester GPA visualizations, grade distributions per semester, credit progress tracking for mandatory and elective courses, and a list of uncompleted courses." 
+               data-id="Tujuan utamanya adalah menyediakan dashboard komprehensif yang menampilkan visualisasi IPK dan IPS (Indeks Prestasi Semester), distribusi nilai per semester, pelacakan kemajuan SKS untuk mata kuliah wajib dan pilihan (KBK), serta daftar mata kuliah yang belum diselesaikan.">
+               Tujuan utamanya adalah menyediakan <em>dashboard</em> komprehensif yang menampilkan visualisasi IPK dan IPS (Indeks Prestasi Semester), distribusi nilai per semester, pelacakan kemajuan SKS untuk mata kuliah wajib dan pilihan (KBK), serta daftar mata kuliah yang belum diselesaikan[cite: 5].
+            </p>
+        </section>
+
+        <!-- Arsitektur & Engineering -->
+        <section class="content-section">
+            <h2 data-en="Technical Approach: Data Processing & Automation" data-id="Pendekatan Teknis: Pemrosesan Data & Otomatisasi">Pendekatan Teknis: Pemrosesan Data & Otomatisasi</h2>
+            <p data-en="The application is built with the Python stack for robust data processing, visualization, and automation. It utilizes Requests and BeautifulSoup to log into the UNAIR academic portal and seamlessly scrape transcript data." 
+               data-id="Aplikasi ini dibangun menggunakan stack Python untuk pemrosesan data, visualisasi, dan otomatisasi yang tangguh. Aplikasi ini memanfaatkan pustaka Requests dan BeautifulSoup untuk login ke portal akademik UNAIR dan melakukan scraping data transkrip secara mulus.">
+               Aplikasi ini dibangun menggunakan <em>stack</em> Python untuk pemrosesan data, visualisasi, dan otomatisasi yang tangguh[cite: 5]. Aplikasi ini memanfaatkan pustaka Requests dan BeautifulSoup untuk <em>login</em> ke portal akademik UNAIR dan melakukan <em>scraping</em> data transkrip secara mulus[cite: 5].
+            </p>
+            <p data-en="Once the data is retrieved, Pandas handles the transcript cleaning and GPA/SGPA calculations, while Difflib (SequenceMatcher) is used to accurately match scraped course names with the UNAIR curriculum stored in Excel files." 
+               data-id="Setelah data diambil, Pandas menangani pembersihan transkrip dan perhitungan IPK/IPS, sementara Difflib (SequenceMatcher) digunakan untuk mencocokkan nama mata kuliah hasil scraping dengan kurikulum UNAIR yang disimpan dalam file Excel secara akurat.">
+               Setelah data diambil, Pandas menangani pembersihan transkrip dan perhitungan IPK/IPS, sementara Difflib (SequenceMatcher) digunakan untuk mencocokkan nama mata kuliah hasil <em>scraping</em> dengan kurikulum UNAIR yang disimpan dalam <em>file</em> Excel secara akurat[cite: 5].
+            </p>
+
+            <div class="highlight-box">
+                <h3><i data-lucide="wrench"></i> <span data-en="Implementation Details" data-id="Detail Implementasi">Detail Implementasi</span></h3>
+                <ul>
+                    <li data-en="Scraping & Parsing: Transcript data is retrieved using the Requests library and parsed structurally using BeautifulSoup." 
+                        data-id="Scraping & Parsing: Data transkrip diambil menggunakan pustaka Requests dan diparsing secara terstruktur menggunakan BeautifulSoup.">
+                        <strong>Scraping & Parsing:</strong> Data transkrip diambil menggunakan pustaka Requests dan diparsing secara terstruktur menggunakan BeautifulSoup[cite: 5].
+                    </li>
+                    <li data-en="Interactive Simulation: Integrated st-aggrid to provide interactive tables where users can adjust their grades to simulate and predict future GPA outcomes." 
+                        data-id="Simulasi Interaktif: Mengintegrasikan st-aggrid untuk menyediakan tabel interaktif di mana pengguna dapat menyesuaikan nilai mereka guna menyimulasikan dan memprediksi hasil IPK di masa depan.">
+                        <strong>Simulasi Interaktif:</strong> Mengintegrasikan <code>st-aggrid</code> untuk menyediakan tabel interaktif di mana pengguna dapat menyesuaikan nilai mereka guna menyimulasikan dan memprediksi hasil IPK di masa depan[cite: 5].
+                    </li>
+                    <li data-en="Curriculum Customization: The curriculum matching logic relies on Excel files (e.g., mk_wajib.xlsx), making the system highly adaptable for other universities just by replacing these files." 
+                        data-id="Kustomisasi Kurikulum: Logika pencocokan kurikulum bergantung pada file Excel (seperti mk_wajib.xlsx), membuat sistem ini sangat mudah beradaptasi untuk universitas lain hanya dengan mengganti file-file tersebut.">
+                        <strong>Kustomisasi Kurikulum:</strong> Logika pencocokan kurikulum bergantung pada <em>file</em> Excel (seperti <code>mk_wajib.xlsx</code>), membuat sistem ini sangat mudah beradaptasi untuk universitas lain hanya dengan mengganti <em>file-file</em> tersebut[cite: 5].
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Analitik & Wawasan -->
+        <section class="content-section">
+            <h2 data-en="Features & Visualizations" data-id="Fitur & Visualisasi">Fitur & Visualisasi</h2>
+            <p data-en="The presentation layer of the dashboard focuses on interactive visual insights and data export capabilities:" 
+               data-id="Lapisan presentasi dari dashboard ini berfokus pada wawasan visual interaktif dan kemampuan ekspor data:">
+               Lapisan presentasi dari <em>dashboard</em> ini berfokus pada wawasan visual interaktif dan kemampuan ekspor data:
+            </p>
+            <ul>
+                <li data-en="Dynamic Charts: Employed Matplotlib and Plotly to generate interactive grade distribution graphs, SGPA charts, and GPA donut charts based on the processed data." 
+                    data-id="Bagan Dinamis: Menggunakan Matplotlib dan Plotly untuk menghasilkan grafik distribusi nilai interaktif, bagan IPS, dan diagram donat IPK berdasarkan data yang telah diproses.">
+                    <strong>Bagan Dinamis:</strong> Menggunakan Matplotlib dan Plotly untuk menghasilkan grafik distribusi nilai interaktif, bagan IPS, dan diagram donat IPK berdasarkan data yang telah diproses[cite: 5].
+                </li>
+                <li data-en="Data Export: Integrated OpenPyXL to allow users to export their processed transcript data directly into an Excel format for personal record-keeping." 
+                    data-id="Ekspor Data: Mengintegrasikan OpenPyXL untuk memungkinkan pengguna mengekspor data transkrip yang telah diproses langsung ke dalam format Excel untuk pengarsipan pribadi.">
+                    <strong>Ekspor Data:</strong> Mengintegrasikan OpenPyXL untuk memungkinkan pengguna mengekspor data transkrip yang telah diproses langsung ke dalam format Excel untuk pengarsipan pribadi[cite: 5].
+                </li>
+                <li data-en="Cloud Deployment: The entire application is hosted online and accessible to the public via Streamlit Cloud." 
+                    data-id="Penerapan Cloud: Seluruh aplikasi di-hosting secara online dan dapat diakses oleh publik melalui Streamlit Cloud.">
+                    <strong>Penerapan Cloud:</strong> Seluruh aplikasi di-<em>hosting</em> secara <em>online</em> dan dapat diakses oleh publik melalui Streamlit Cloud[cite: 5].
+                </li>
+            </ul>
+        </section>
+
+        <!-- Tautan Aksi -->
+        <div class="action-links">
+            <a href="https://dashboard-nilai.streamlit.app/" target="_blank" class="btn">
+                <i data-lucide="external-link"></i> <span data-en="Try Online Demo" data-id="Coba Demo Online">Coba Demo Online</span>
+            </a>
+            <a href="https://github.com/irpan06" target="_blank" class="btn">
+                <i data-lucide="github"></i> <span data-en="GitHub Profile" data-id="Profil GitHub">Profil GitHub</span>
+            </a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Inisialisasi ikon Lucide
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
