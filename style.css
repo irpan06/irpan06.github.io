@@ -320,8 +320,8 @@ html.no-intro #intro-screen {
 .project-scroll {
     max-height: 70vh;
     overflow-y: auto;
-    padding-right: 100px;
-    margin-right: -100px;    
+    padding-right: 28px;
+    margin-right: -28px;
 }
 
 .project-scroll::-webkit-scrollbar {
@@ -343,8 +343,8 @@ html.no-intro #intro-screen {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px 30px;
+    grid-template-columns: repeat(3, 1fr); /* Ubah nilai 2 menjadi 3 */
+    gap: 24px; /* Perkecil sedikit jarak gap dari 30px menjadi 24px agar lebih padat */
 }
 
 .project-card {
@@ -360,7 +360,7 @@ html.no-intro #intro-screen {
 
 .project-thumb {
     position: relative;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9; /* Ubah dari 4 / 3 menjadi 16 / 9 */
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid var(--border-color);
