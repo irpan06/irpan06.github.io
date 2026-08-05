@@ -1,462 +1,422 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhamad Irvandi</title>
+    <title>Muhamad Irvandi | Portfolio</title>
     <link rel="icon" type="image/x-icon" href="assets/icon.png">
-    <!-- Font Awesome untuk ikon sosial media -->
+
+    <script>
+        (function () {
+            var saved = localStorage.getItem('theme');
+            var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <!-- Menggunakan Font Inter sebagai font utama -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Menautkan file CSS eksternal -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Intro Screen / Splash Screen -->
+    <!-- Intro Screen -->
     <div id="intro-screen">
         <div class="intro-text">
             <span class="intro-name">Muhamad Irvandi</span>
-            <span class="intro-portfolio">Portofolio</span>
+            <span class="intro-portfolio">Portfolio</span>
         </div>
     </div>
 
-    <!-- Sidebar Kiri Tetap -->
-    <aside id="sidebar">
-        <nav class="sidebar-nav">
-            <a onclick="openTab(0)" class="nav-link active" id="btn-0" data-en="/info" data-id="/info">/info</a>
-            <a onclick="openTab(1)" class="nav-link" id="btn-1" data-en="/project" data-id="/proyek">/project</a>
-            <a onclick="openTab(2)" class="nav-link" id="btn-2" data-en="/experience" data-id="/pengalaman">/experience</a>
-            <a onclick="openTab(3)" class="nav-link" id="btn-3" data-en="/education" data-id="/pendidikan">/education</a>
-            <a onclick="openTab(4)" class="nav-link" id="btn-4" data-en="/skill" data-id="/keahlian">/skill</a>
-        </nav>
-        
-        <div class="controls">
-            <button class="toggle-btn" id="langToggle">[EN]</button>
-            <button class="toggle-btn" id="themeToggle">[Dark]</button>
-        </div>
-    </aside>
-
-    <!-- Area Konten Utama -->
-    <main id="content">
-        
-        <!-- TAB 0: HOME -->
-        <header id="tab-0" class="tab-section active-tab">
-            <h1>Muhamad Irvandi</h1>
-            <div class="subtitle" style="display: flex; align-items: center; margin-bottom: 20px;">
-                <span id="subtitleText" data-en="Data Enthusiast | Systems Thinker" data-id="Data Enthusiast | Systems Thinker"></span>
-                <span class="blinking-cursor" style="margin-left: 8px;">█</span>
+    <div class="layout-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <h1 class="name">Muhamad Irvandi</h1>
+                <p class="title">
+                    <span id="subtitleText" data-en="Data Enthusiast" data-id="Data Enthusiast"></span>
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/irpan06" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://wa.me/6283849288147" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:irvandim20@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+                </div>
             </div>
+
+            <nav class="nav-links">
+                <button class="nav-item active" data-target="about">
+                    <i data-lucide="user"></i>
+                    <span data-en="About" data-id="Tentang">About</span>
+                </button>
+                <button class="nav-item" data-target="projects">
+                    <i data-lucide="briefcase"></i>
+                    <span data-en="Projects" data-id="Proyek">Projects</span>
+                </button>
+                <button class="nav-item" data-target="experience">
+                    <i data-lucide="history"></i>
+                    <span data-en="Experience" data-id="Pengalaman">Experience</span>
+                </button>
+                <button class="nav-item" data-target="education">
+                    <i data-lucide="graduation-cap"></i>
+                    <span data-en="Education" data-id="Pendidikan">Education</span>
+                </button>
+            </nav>
+
+            <div class="controls">
+                <button class="toggle-btn" id="langToggle">[EN]</button>
+                <button class="toggle-btn" id="themeToggle">[Dark]</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- TAB: About -->
+            <section id="about" class="tab-section active-tab">
+                <h2 class="section-header" data-en="About" data-id="Tentang">About</h2>
+                <div class="bio-text">
+                    <p data-en="I am a technically obsessed data enthusiast with an innate drive to understand how systems work from the inside out. Professionally dedicated to data engineering, with a passion for tackling complex architectural challenges in data pipelines, complemented by a sharp eye for analytics."
+                       data-id="Saya seorang data enthusiast yang sangat berorientasi pada aspek teknis, dengan rasa ingin tahu mendalam tentang cara kerja sebuah sistem. Berfokus secara profesional pada data engineering, antusias merancang solusi atas tantangan arsitektur data pipeline yang rumit, serta diimbangi dengan wawasan analitis.">
+                        I am a technically obsessed data enthusiast with an innate drive to understand how systems work from the inside out. Professionally dedicated to data engineering, with a passion for tackling complex architectural challenges in data pipelines, complemented by a sharp eye for analytics.
+                    </p>
+                </div>
+            </section>
+
+            <!-- TAB: Projects -->
+            <section id="projects" class="tab-section">
+                <h2 class="section-header">
+                    <span data-en="Projects" data-id="Proyek">Projects</span>
+                    <span class="counter">[<span id="project-counter">0</span>]</span>
+                </h2>
+
+                <div class="project-filters">
+                    <button class="filter-btn active-filter" data-filter="all" data-en="[ All ]" data-id="[ Semua ]">[ All ]</button>
+                    <button class="filter-btn" data-filter="data" data-en="[ Data & ML ]" data-id="[ Data & ML ]">[ Data & ML ]</button>
+                    <button class="filter-btn" data-filter="automation" data-en="[ Automation ]" data-id="[ Otomasi ]">[ Automation ]</button>
+                </div>
+
+                <div class="project-grid">
+
+                    <article class="project-card" data-category="data">
+                        <div class="project-header">
+                            <h3 class="project-title">Data Job Analytics Platform (Local)</h3>
+                            <span class="project-year">Jul 2026</span>
+                        </div>
+                        <p class="project-desc" data-en="An end-to-end local data pipeline analyzing job market trends, using ClickHouse for fast analytical queries and dbt for transformation."
+                           data-id="Pipeline data lokal end-to-end untuk menganalisis tren pasar kerja, menggunakan ClickHouse untuk query analitik cepat dan dbt untuk transformasi data.">
+                            An end-to-end local data pipeline analyzing job market trends, using ClickHouse for fast analytical queries and dbt for transformation.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">ClickHouse</span>
+                            <span class="tag">dbt</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/irpan06/DataJobAnalytics_Clickhouse" target="_blank" class="project-link">
+                                <i data-lucide="github"></i> <span data-en="Repository" data-id="Repositori">Repository</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="data">
+                        <div class="project-header">
+                            <h3 class="project-title">Data Job Analytics Platform (Cloud)</h3>
+                            <span class="project-year">Jul 2026</span>
+                        </div>
+                        <p class="project-desc" data-en="Cloud version of the job market analytics pipeline, migrated to BigQuery for scalable warehousing and modeled with dbt."
+                           data-id="Versi cloud dari pipeline analitik pasar kerja, dimigrasikan ke BigQuery untuk warehousing yang lebih skalabel dan dimodelkan dengan dbt.">
+                            Cloud version of the job market analytics pipeline, migrated to BigQuery for scalable warehousing and modeled with dbt.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">BigQuery</span>
+                            <span class="tag">dbt</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/irpan06/DataJobAnalytics" target="_blank" class="project-link">
+                                <i data-lucide="github"></i> <span data-en="Repository" data-id="Repositori">Repository</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="data">
+                        <div class="project-header">
+                            <h3 class="project-title">Retail Sales Analysis</h3>
+                            <span class="project-year">Sep 2025</span>
+                        </div>
+                        <p class="project-desc" data-en="Sales trend analysis and an interactive dashboard to support data-driven retail business decisions."
+                           data-id="Analisis tren penjualan dan dashboard interaktif untuk mendukung keputusan bisnis retail berbasis data.">
+                            Sales trend analysis and an interactive dashboard to support data-driven retail business decisions.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">Power BI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/irpan06/RetailSales-Analysis" target="_blank" class="project-link">
+                                <i data-lucide="github"></i> <span data-en="Repository" data-id="Repositori">Repository</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="data">
+                        <div class="project-header">
+                            <h3 class="project-title">CNN-UNET for CWDOT</h3>
+                            <span class="project-year">Aug 2025</span>
+                        </div>
+                        <p class="project-desc" data-en="A deep learning model using a CNN-UNet architecture for signal/image reconstruction tasks."
+                           data-id="Model deep learning dengan arsitektur CNN-UNet untuk tugas rekonstruksi sinyal/citra.">
+                            A deep learning model using a CNN-UNet architecture for signal/image reconstruction tasks.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">Deep Learning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/irpan06/Deep-Learning-For-CWDOT-Reconstruction" target="_blank" class="project-link">
+                                <i data-lucide="github"></i> <span data-en="Repository" data-id="Repositori">Repository</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="data">
+                        <div class="project-header">
+                            <h3 class="project-title">Academic Performance Dashboard</h3>
+                            <span class="project-year">Aug 2025</span>
+                        </div>
+                        <p class="project-desc" data-en="An interactive dashboard to analyze and visualize student academic performance data."
+                           data-id="Dashboard interaktif untuk menganalisis dan memvisualisasikan data performa akademik mahasiswa.">
+                            An interactive dashboard to analyze and visualize student academic performance data.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Streamlit</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/irpan06/Dashboard-Nilai" target="_blank" class="project-link">
+                                <i data-lucide="github"></i> <span data-en="Repository" data-id="Repositori">Repository</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="automation">
+                        <div class="project-header">
+                            <h3 class="project-title">Anki Note Converter</h3>
+                            <span class="project-year">Sep 2025</span>
+                        </div>
+                        <p class="project-desc" data-en="An AI-assisted tool that converts study material into structured Anki flashcards automatically."
+                           data-id="Tool berbasis AI yang mengubah materi belajar menjadi flashcard Anki terstruktur secara otomatis.">
+                            An AI-assisted tool that converts study material into structured Anki flashcards automatically.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/irpan06/anki-note-converter" target="_blank" class="project-link">
+                                <i data-lucide="github"></i> <span data-en="Repository" data-id="Repositori">Repository</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="automation">
+                        <div class="project-header">
+                            <h3 class="project-title">KRS Enrollment Bot</h3>
+                            <span class="project-year">Aug 2023</span>
+                        </div>
+                        <p class="project-desc" data-en="A Selenium-based script automating university course enrollment during high-traffic registration periods."
+                           data-id="Script berbasis Selenium untuk mengotomasi pendaftaran mata kuliah saat periode KRS dengan trafik tinggi.">
+                            A Selenium-based script automating university course enrollment during high-traffic registration periods.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Selenium</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/irpan06/KRS-Automation" target="_blank" class="project-link">
+                                <i data-lucide="github"></i> <span data-en="Repository" data-id="Repositori">Repository</span>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- TAB: Experience -->
+            <section id="experience" class="tab-section">
+                <h2 class="section-header" data-en="Experience" data-id="Pengalaman">Experience</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content">
+                            <h3>Machine Learning Cohort</h3>
+                            <div class="timeline-subtitle">Bangkit Academy</div>
+                            <p class="timeline-desc" data-en="Gained a solid understanding of machine learning, including supervised & unsupervised learning and deep learning, and implemented models using Python, TensorFlow, and scikit-learn."
+                               data-id="Menguasai konsep machine learning secara komprehensif, mulai dari supervised/unsupervised learning hingga deep learning, serta mengimplementasikan model fungsional menggunakan Python, TensorFlow, dan scikit-learn.">
+                                Gained a solid understanding of machine learning, including supervised & unsupervised learning and deep learning, and implemented models using Python, TensorFlow, and scikit-learn.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
-            <p class="bio" id="bioText" 
-               data-en="A technically obsessed data enthusiast with an innate drive to understand how systems work from the inside out. Professionally dedicated to data engineering, with a passion for tackling complex architectural challenges in data pipelines, complemented by a sharp eye for analytics."
-               data-id="Seorang data enthusiast yang sangat berorientasi dengan aspek teknis dengan rasa ingin tahu mendalam tentang memahami cara kerja sistem. Berfokus secara profesional pada data engineering, antusias dalam merancang solusi atas tantangan arsitektur data pipelines yang rumit, serta diimbangi dengan wawasan analitis.">
-                A technically obsessed data enthusiast with an innate drive to understand how systems work from the inside out. Professionally dedicated to data engineering, with a passion for tackling complex architectural challenges in data pipelines, complemented by a sharp eye for analytics.
-            </p>
+            <!-- TAB: Education -->
+            <section id="education" class="tab-section">
+                <h2 class="section-header" data-en="Education" data-id="Pendidikan">Education</h2>
 
-            <div class="social-icons">
-                <a href="https://github.com/irpan06" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://medium.com/@irvandim20" target="_blank"><i class="fa-brands fa-medium"></i></a>
-                <a href="https://wa.me/6283849288147" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="mailto:irvandim20@gmail.com" target="_blank"><i class="fa-regular fa-envelope"></i></a>
-            </div>
-        </header>
-
-        <!-- TAB 1: PROJECTS (Dikelompokkan dengan Kategori Data & Automation) -->
-        <section id="tab-1" class="tab-section">
-            <div class="section-title">
-                <span data-en="Projects" data-id="Proyek">Projects</span>
-                <span style="text-transform: none; font-size: 0.9rem; margin-left: 8px; color: var(--text-title); font-weight: bold;">[<span id="project-counter">0</span>]</span>
-            </div>
-            
-            <!-- Tombol Filter bergaya terminal murni tanpa kotak abu-abu -->
-            <div class="project-filters">
-                <button class="filter-btn active-filter" onclick="filterProjects('all')">[all]</button>
-                <button class="filter-btn" onclick="filterProjects('data')">[data]</button>
-                <button class="filter-btn" onclick="filterProjects('automation')">[automation]</button>
-            </div>
-            
-            <div class="list-container">
-                
-                <!-- Kategori: Data & ML -->
-                <a href="https://github.com/irpan06/DataJobAnalytics_Clickhouse" target="_blank" class="list-item" data-category="data">
-                    <div class="item-left">
-                        <span class="item-date">Jul.2026</span>
-                        <span class="item-title">Data Job Analytics Platform (Local)</span>
-                    </div>
-                    <span class="item-category">ClickHouse | dbt</span>
-                </a>
-
-                <a href="https://github.com/irpan06/DataJobAnalytics" target="_blank" class="list-item" data-category="data">
-                    <div class="item-left">
-                        <span class="item-date">Jul.2026</span>
-                        <span class="item-title">Data Job Analytics Platform (Cloud)</span>
-                    </div>
-                    <span class="item-category">BigQuery | dbt</span>
-                </a>
-
-                <a href="https://github.com/irpan06/RetailSales-Analysis" target="_blank" class="list-item" data-category="data">
-                    <div class="item-left">
-                        <span class="item-date">Sep.2025</span>
-                        <span class="item-title">Retail Sales Analysis</span>
-                    </div>
-                    <span class="item-category">SQL | PowerBI</span>
-                </a>
-
-                <a href="https://github.com/irpan06/Deep-Learning-For-CWDOT-Reconstruction" target="_blank" class="list-item" data-category="data">
-                    <div class="item-left">
-                        <span class="item-date">Aug.2025</span>
-                        <span class="item-title">CNN-UNET for CWDOT Reconstruction</span>
-                    </div>
-                    <span class="item-category">Tensorflow | Deep Learning</span>
-                </a>
-
-                <a href="https://github.com/irpan06/Dashboard-Nilai" target="_blank" class="list-item" data-category="data">
-                    <div class="item-left">
-                        <span class="item-date">Aug.2025</span>
-                        <span class="item-title">Academic Performance Analysis Dashboard</span>
-                    </div>
-                    <span class="item-category">Python | Streamlit</span>
-                </a>
-
-                <!-- Kategori: Automation -->
-                <a href="https://github.com/irpan06/anki-note-converter" target="_blank" class="list-item" data-category="automation">
-                    <div class="item-left">
-                        <span class="item-date">Sep.2025</span>
-                        <span class="item-title">Anki Note Converter (AI-driven)</span>
-                    </div>
-                    <span class="item-category">Python</span>
-                </a>
-                
-                <a href="https://github.com/irpan06/KRS-Automation" target="_blank" class="list-item" data-category="automation">
-                    <div class="item-left">
-                        <span class="item-date">Aug.2023</span>
-                        <span class="item-title">KRS Course Enrollment Automation</span>
-                    </div>
-                    <span class="item-category">Python | Selenium</span>
-                </a>
-
-            </div>
-        </section>
-
-        <!-- TAB 2: EXPERIENCE -->
-        <section id="tab-2" class="tab-section">
-            <div class="section-title" data-en="Experience" data-id="Pengalaman">Experience</div>
-            <div class="list-container">
-                <div class="info-block">
-                    <div class="info-header">
-                        <div class="info-title">Machine Learning Cohort</div>
-                        <div class="info-meta">2024</div>
-                    </div>
-                    <div class="info-meta" style="margin-bottom: 8px;">[Bangkit Academy]</div>
-                    <div class="info-desc" data-en="Gained a solid understanding of machine learning, including supervised & unsupervised learning, deep learning, and implemented models using Python, TensorFlow, and scikit-learn." data-id="Menguasai konsep Machine Learning secara komprehensif, mulai dari supervised/unsupervised learning hingga deep learning, serta mengimplementasikan model fungsional menggunakan Python, TensorFlow, dan scikit-learn.">
-                        Gained a solid understanding of machine learning, including supervised & unsupervised learning, deep learning, and implemented models using Python, TensorFlow, and scikit-learn.
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021 — 2025</div>
+                        <div class="timeline-content">
+                            <h3 data-en="Bachelor of Physics, Computational Physics" data-id="Sarjana Fisika, Fisika Komputasi">Bachelor of Physics, Computational Physics</h3>
+                            <div class="timeline-subtitle" data-en="Airlangga University, Surabaya" data-id="Universitas Airlangga, Surabaya">Airlangga University, Surabaya</div>
+                            <p class="timeline-desc" data-en="Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects."
+                               data-id="Mengembangkan kemampuan pemecahan masalah dan analitis yang kuat melalui pendekatan kuantitatif, pemodelan matematika, dan eksperimen komputasional dalam penelitian dan proyek akademik.">
+                                Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                </div>
+            </section>
+
+            <div class="page-footer">
+                <div>© 2026 Muhamad Irvandi</div>
             </div>
-        </section>
 
-        <!-- TAB 3: EDUCATION -->
-        <section id="tab-3" class="tab-section">
-            <div class="section-title" data-en="Education" data-id="Pendidikan">Education</div>
-            <div class="list-container">
-                <div class="info-block">
-                    <div class="info-header">
-                        <div class="info-title" data-en="Bachelor of Physics, Computational Physics" data-id="Sarjana Fisika, Fisika Komputasi">Bachelor of Physics</div>
-                        <div class="info-meta">2021 - 2025</div>
-                    </div>
-                    <div class="info-meta" data-en="Airlangga University, Surabaya" data-id="Universitas Airlangga, Surabaya" style="margin-bottom: 8px;">Airlangga University, Surabaya</div>
-                    <div class="info-desc" data-en="Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects." data-id="Mengembangkan kemampuan pemecahan masalah dan analitis yang kuat melalui pendekatan kuantitatif, pemodelan matematika, dan eksperimen komputasional dalam penelitian dan proyek akademik.">
-                        Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects.
-                    </div>
-                </div>
-                </div>
-            </div>
-        </section>
-        <!-- TAB: SKILLS (REPO STRUCTURE) -->
-        <section id="tab-4" class="tab-section">
-            <div class="section-title" data-en="Skills" data-id="Keahlian">Skills</div>
-            
-            <!-- CSS Khusus untuk meratakan Tree Structure -->
-            <style>
-                .blinking-cursor {
-                    font-weight: bold;
-                    color: var(--text-main);
-                    animation: blink 1s step-end infinite;
-                }
-                @keyframes blink {
-                    0%, 100% { opacity: 1; }
-                    50% { opacity: 0; }
-                }
-                .tree-row {
-                    display: flex;
-                    flex-wrap: wrap;
-                    align-items: center;
-                }
-                .tree-node {
-                    width: 270px; /* Lebar dikunci agar komentar sejajar */
-                    flex-shrink: 0;
-                    color: var(--text-main);
-                }
-                .tree-comment {
-                    color: var(--text-muted);
-                    font-size: 0.8rem;
-                }
-                @media (max-width: 600px) {
-                    .tree-node { width: 100%; }
-                    .tree-comment { padding-left: 45px; margin-bottom: 5px; }
-                }
-            </style>
-
-            <div class="list-container" style="font-size: 0.88rem; line-height: 1.8;">
-                <p style="color: var(--text-muted); margin-bottom: 15px;">root@irvan:~/portfolio/skills$ <span id="typewriter-text" style="color: var(--text-main);"></span><span class="blinking-cursor">█</span></p>
-                
-                <div id="tree-content" style="opacity: 0; transition: opacity 0.4s ease;">
-                    <div style="color: var(--text-title); font-weight: bold;">skills</div>
-                <div style="padding-left: 20px;">
-                    
-                    <div class="tree-row">
-                        <span class="tree-node">├── <span style="color: #888;">data-engineering/</span></span>
-                    </div>
-                    <div class="tree-row">
-                        <span class="tree-node">│   ├── databases/</span>
-                        <span class="tree-comment"># PostgreSQL, MySQL, ClickHouse</span>
-                    </div>
-                    <div class="tree-row">
-                        <span class="tree-node">│   ├── data-warehouse/</span>
-                        <span class="tree-comment"># Google BigQuery</span>
-                    </div>
-                    <div class="tree-row">
-                        <span class="tree-node">│   └── transformation/</span>
-                        <span class="tree-comment"># dbt, SQL</span>
-                    </div>
-
-                    <div class="tree-row">
-                        <span class="tree-node">├── <span style="color: #888;">analytics-and-bi/</span></span>
-                    </div>
-                    <div class="tree-row">
-                        <span class="tree-node">│   ├── data-wrangling.py</span>
-                        <span class="tree-comment"># Pandas, NumPy, Excel</span>
-                    </div>
-                    <div class="tree-row">
-                        <span class="tree-node">│   ├── visualization.py</span>
-                        <span class="tree-comment"># Matplotlib, Seaborn</span>
-                    </div>
-                    <div class="tree-row">
-                        <span class="tree-node">│   └── dashboards/</span>
-                        <span class="tree-comment"># Power BI, Looker Studio</span>
-                    </div>
-
-                    <div class="tree-row">
-                        <span class="tree-node">├── <span style="color: #888;">machine-learning/</span></span>
-                    </div>
-                    <div class="tree-row">
-                        <span class="tree-node">│   └── deep-learning.py</span>
-                        <span class="tree-comment"># TensorFlow</span>
-                    </div>
-
-                    <div class="tree-row">
-                        <span class="tree-node">├── <span style="color: #888;">automation/</span></span>
-                    </div>
-                    <div class="tree-row">
-                        <span class="tree-node">│   └── web-scraping.py</span>
-                        <span class="tree-comment"># Selenium</span>
-                    </div>
-
-                    <div class="tree-row">
-                        <span class="tree-node">└── <span style="color: #888;">foundations/</span></span>
-                    </div>
-                    <div class="tree-row">
-                        <span class="tree-node">    ├── core-script.py</span>
-                        <span class="tree-comment"># Python</span>
-                    </div>
-                    <div class="tree-row">
-                        <span class="tree-node">    └── computational.m</span>
-                        <span class="tree-comment"># MATLAB</span>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <div class="footer-container">
-            <div id="footerText1">© 2026 Muhamad Irvandi</div>
-        </div>
-
-    </main>
+        </main>
+    </div>
 
     <script>
+        lucide.createIcons();
+
+        // --- Intro screen + typing subtitle ---
         window.addEventListener('load', () => {
             setTimeout(() => {
-                const introScreen = document.getElementById('intro-screen');
-                introScreen.classList.add('hidden');
-                
-                // Animasi ngetik subtitle di tab /info
-                setTimeout(() => {
-                    const subtitleEl = document.getElementById('subtitleText');
-                    // Ambil teks sesuai bahasa yang aktif
-                    const textToType = subtitleEl.getAttribute('data-' + currentLang);
-                    let i = 0;
-                    
-                    function typeSubtitle() {
-                        if (i < textToType.length) {
-                            subtitleEl.innerHTML += textToType.charAt(i);
-                            i++;
-                            setTimeout(typeSubtitle, 70); // Kecepatan ketikan
-                        }
-                    }
-                    typeSubtitle();
-                }, 600); // Jeda setelah splash screen memudar
-
-            }, 3000); 
+                document.getElementById('intro-screen').classList.add('hidden');
+                setTimeout(typeSubtitle, 500);
+            }, 1600);
         });
 
-        let currentTabIndex = 0;
-        const totalTabs = 5;
-        let isAnimating = false;
-        let projectAnimated = false;
-        let skillsAnimated = false;
-
-        function openTab(index) {
-            if (index < 0 || index >= totalTabs || isAnimating) return;
-            
-            isAnimating = true;
-            currentTabIndex = index;
-
-            const listContainer = document.querySelector("#tab-" + index + " .list-container");
-            if (listContainer) {
-                listContainer.scrollTop = 0;
-            }
-            const tabContents = document.getElementsByClassName("tab-section");
-            for (let i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active-tab");
-            }
-
-            const navLinks = document.getElementsByClassName("nav-link");
-            for (let i = 0; i < navLinks.length; i++) {
-                navLinks[i].classList.remove("active");
-            }
-
-            document.getElementById("tab-" + index).classList.add("active-tab");
-            document.getElementById("btn-" + index).classList.add("active");
-            
-            // Animasi counter berjalan ketika tab project (indeks 1) dibuka pertama kali
-            if (index === 1 && !projectAnimated) {
-                const totalProjects = document.querySelectorAll('#tab-1 .list-item').length;
-                animateValue("project-counter", 0, totalProjects, 1000); 
-                projectAnimated = true; 
-            }
-
-            // Animasi ngetik di tab skills (indeks 4)
-            if (index === 4 && !skillsAnimated) {
-                skillsAnimated = true;
-                const textToType = "tree -a";
-                const typingElement = document.getElementById("typewriter-text");
-                const treeContent = document.getElementById("tree-content");
-                let charIndex = 0;
-                
-                function typeWriter() {
-                    if (charIndex < textToType.length) {
-                        typingElement.innerHTML += textToType.charAt(charIndex);
-                        charIndex++;
-                        setTimeout(typeWriter, 120); // Kecepatan ngetik
-                    } else {
-                        // Munculkan hasil tree setelah ngetik selesai
-                        setTimeout(() => {
-                            treeContent.style.opacity = "1";
-                        }, 300);
-                    }
+        let subtitleTyped = false;
+        function typeSubtitle() {
+            if (subtitleTyped) return;
+            subtitleTyped = true;
+            const el = document.getElementById('subtitleText');
+            const text = el.getAttribute('data-' + currentLang);
+            el.textContent = '';
+            let i = 0;
+            (function step() {
+                if (i < text.length) {
+                    el.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(step, 45);
                 }
-                
-                // Mulai ngetik setelah delay transisi tab
-                setTimeout(typeWriter, 400);
-            }
-
-            setTimeout(() => {
-                isAnimating = false;
-            }, 300); 
+            })();
         }
 
-        window.addEventListener('wheel', (event) => {
-            if (isAnimating) return;
+        // --- Tab switching ---
+        const navButtons = document.querySelectorAll('.nav-item');
+        const tabSections = document.querySelectorAll('.tab-section');
+        let projectAnimated = false;
 
-            // Isolasi Kursor: Cek apakah mouse berada di atas elemen scrollable
-            const isHoveringList = event.target.closest('.list-container');
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                tabSections.forEach(section => section.classList.remove('active-tab'));
 
-            if (isHoveringList) {
-                return; // Matikan pindah tab, biarkan scroll menggulir tabel saja
-            }
+                button.classList.add('active');
+                const targetId = button.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active-tab');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            if (event.deltaY > 0) {
-                openTab(currentTabIndex + 1);
-            } else if (event.deltaY < 0) {
-                openTab(currentTabIndex - 1);
-            }
-        });
-
-        const themeToggleBtn = document.getElementById('themeToggle');
-        let isDark = true;
-        
-        themeToggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light-theme');
-            isDark = !isDark;
-            themeToggleBtn.textContent = isDark ? '[Dark]' : '[Light]';
-        });
-
-        const langToggleBtn = document.getElementById('langToggle');
-        let currentLang = 'en'; 
-        const translatableElements = document.querySelectorAll('[data-id][data-en]');
-
-        langToggleBtn.addEventListener('click', () => {
-            currentLang = currentLang === 'en' ? 'id' : 'en';
-            langToggleBtn.textContent = currentLang === 'en' ? '[EN]' : '[ID]';
-            
-            translatableElements.forEach(el => {
-                el.textContent = el.getAttribute(`data-${currentLang}`);
+                if (targetId === 'projects' && !projectAnimated) {
+                    projectAnimated = true;
+                    const total = document.querySelectorAll('#projects .project-card').length;
+                    animateValue('project-counter', 0, total, 700);
+                }
             });
         });
 
-        // --- Fungsi Animasi Angka ---
         function animateValue(id, start, end, duration) {
             const obj = document.getElementById(id);
+            if (!obj) return;
             let startTimestamp = null;
             const step = (timestamp) => {
                 if (!startTimestamp) startTimestamp = timestamp;
                 const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start);
+                obj.textContent = Math.floor(progress * (end - start) + start);
                 if (progress < 1) {
                     window.requestAnimationFrame(step);
                 } else {
-                    obj.innerHTML = end; // Memastikan angka terakhir presisi
+                    obj.textContent = end;
                 }
             };
             window.requestAnimationFrame(step);
         }
 
-        // --- Logika Filter Proyek ---
-        function filterProjects(category) {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            filterBtns.forEach(btn => btn.classList.remove('active-filter'));
-            event.target.classList.add('active-filter');
+        // --- Project filtering ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
 
-            const projects = document.querySelectorAll('#tab-1 .list-item');
-            let visibleCount = 0;
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active-filter'));
+                btn.classList.add('active-filter');
 
-            projects.forEach(project => {
-                if (category === 'all' || project.getAttribute('data-category') === category) {
-                    project.classList.remove('hidden-project');
-                    visibleCount++;
-                } else {
-                    project.classList.add('hidden-project');
+                const filterValue = btn.getAttribute('data-filter');
+                let visibleCount = 0;
+
+                projectCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (filterValue === 'all' || cardCategory === filterValue) {
+                        card.classList.remove('hidden-project');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden-project');
+                    }
+                });
+
+                const counterEl = document.getElementById('project-counter');
+                if (counterEl) {
+                    const currentVal = parseInt(counterEl.textContent) || 0;
+                    animateValue('project-counter', currentVal, visibleCount, 400);
                 }
             });
+        });
 
-            // Animasi angka dinamis sesuai jumlah filter
-            const counterEl = document.getElementById('project-counter');
-            const currentVal = parseInt(counterEl.innerText) || 0;
-            animateValue('project-counter', currentVal, visibleCount, 500); // 500ms
+        // --- Language toggle ---
+        let currentLang = 'en';
+        const langToggleBtn = document.getElementById('langToggle');
+        const translatableElements = document.querySelectorAll('[data-id][data-en]');
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'id' : 'en';
+            langToggleBtn.textContent = currentLang === 'en' ? '[ID]' : '[EN]';
+
+            translatableElements.forEach(el => {
+                if (el.id === 'subtitleText' && subtitleTyped === false) return;
+                el.textContent = el.getAttribute('data-' + currentLang);
+            });
+        });
+
+        // --- Theme toggle ---
+        const themeToggleBtn = document.getElementById('themeToggle');
+        function reflectTheme() {
+            const theme = document.documentElement.getAttribute('data-theme');
+            themeToggleBtn.textContent = theme === 'dark' ? '[Dark]' : '[Light]';
         }
+        reflectTheme();
+
+        themeToggleBtn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            reflectTheme();
+        });
     </script>
 </body>
 </html>
