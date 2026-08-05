@@ -66,7 +66,7 @@ function initTheme() {
 
     function reflectTheme() {
         const theme = document.documentElement.getAttribute('data-theme');
-        themeToggleBtn.textContent = theme === 'dark' ? '[Dark]' : '[Light]';
+        themeToggleBtn.textContent = theme === 'dark' ? 'Dark' : 'Light';
     }
     reflectTheme();
 
@@ -104,7 +104,7 @@ function applyLanguage(lang) {
 
     const langToggleBtn = document.getElementById('langToggle');
     if (langToggleBtn) {
-        langToggleBtn.textContent = lang === 'en' ? '[EN]' : '[ID]';
+        langToggleBtn.textContent = lang === 'en' ? 'EN' : 'ID';
     }
 }
 

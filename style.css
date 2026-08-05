@@ -12,7 +12,9 @@
     --accent: #e0e0e0;
     --border-color: #2a2a2a;
     --hover-bg: #1c1c1c;
-    --card-bg: transparent; 
+    --card-bg: transparent;
+    --contrast-bg: #fdfdfc; /* Background terang untuk dark mode */
+    --contrast-text: #1a1a1a;
 }
 
 :root[data-theme="light"] {
@@ -24,6 +26,8 @@
     --border-color: #eaeaea;
     --hover-bg: #f5f5f5;
     --card-bg: transparent;
+    --contrast-bg: #121212; /* Background gelap untuk light mode */
+    --contrast-text: #f0f0f0;
 }
 
 * {
@@ -211,19 +215,20 @@ html.no-intro #intro-screen {
 .toggle-btn {
     background: transparent;
     border: 1px solid var(--border-color);
-    color: var(--text-tertiary);
+    color: var(--text-secondary); 
     font-family: inherit;
-    font-size: 0.75rem;
-    letter-spacing: 0.03em;
+    font-size: 0.8rem;
+    font-weight: 500;
     cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: all 0.2s ease;
+    padding: 6px 14px;
+    border-radius: 8px; /* Membuat ujung tombol membulat cantik */
+    transition: all 0.3s ease;
 }
 
 .toggle-btn:hover {
     color: var(--text-primary);
-    border-color: var(--text-tertiary);
+    border-color: var(--text-secondary);
+    background-color: var(--hover-bg); /* Tambahan efek hover background */
 }
 
 /* --- MAIN CONTENT --- */
@@ -288,32 +293,38 @@ html.no-intro #intro-screen {
 }
 
 /* --- Project Filters --- */
+
 .project-filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
     margin-bottom: 28px;
 }
 
 .filter-btn {
     background: transparent;
-    border: none;
+    border: 1px solid var(--border-color);
     color: var(--text-secondary);
-    padding: 0;
-    font-size: 0.9rem;
+    padding: 6px 18px;
+    border-radius: 99px; /* Membuat bentuk oval/kapsul modern */
+    font-size: 0.85rem;
     font-family: inherit;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .filter-btn:hover {
     color: var(--text-primary);
+    border-color: var(--text-tertiary);
+    background-color: var(--hover-bg);
 }
 
 .filter-btn.active-filter {
-    color: var(--text-primary);
-    font-weight: 600;
+    color: var(--bg-color); 
+    background-color: var(--text-primary); /* Warna solid saat aktif */
+    border-color: var(--text-primary);
+    font-weight: 500;
 }
 
 /* --- Projects --- */
