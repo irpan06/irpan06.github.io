@@ -118,7 +118,7 @@ html.no-intro #intro-screen {
     display: grid;
     grid-template-columns: 290px 1fr;
     min-height: 100vh;
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -232,7 +232,7 @@ html.no-intro #intro-screen {
     flex-direction: column; 
     min-height: 100vh;
     padding: 64px 64px 0 64px; 
-    max-width: 800px;
+    max-width: 1040px;
 }
 
 .tab-section {
@@ -279,6 +279,7 @@ html.no-intro #intro-screen {
     line-height: 1.8;
     color: var(--text-secondary);
     font-weight: 400;
+    max-width: 640px;
 }
 
 .bio-text strong {
@@ -316,134 +317,120 @@ html.no-intro #intro-screen {
 }
 
 /* --- Projects --- */
-/* .project-grid { */
-/*     display: grid; */
-/*     gap: 20px; */
-/* } */
-/* --- Projects --- */
-
-/* --- Projects --- */
-.project-grid {
-    display: grid;
-    gap: 20px;
-    max-height: 65vh;
+.project-scroll {
+    max-height: 70vh;
     overflow-y: auto;
-    padding: 4px 15px 4px 4px; 
+    padding-right: 100px;
+    margin-right: -100px;    
 }
 
-
-.project-grid::-webkit-scrollbar {
+.project-scroll::-webkit-scrollbar {
     width: 6px;
 }
-.project-grid::-webkit-scrollbar-track {
+
+.project-scroll::-webkit-scrollbar-track {
     background: transparent;
 }
-.project-grid::-webkit-scrollbar-thumb {
+
+.project-scroll::-webkit-scrollbar-thumb {
     background-color: var(--border-color);
     border-radius: 10px;
+}
+
+.project-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-tertiary);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 30px;
 }
 
 .project-card {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 24px;
-    border-radius: 8px; /* Lebih halus, modern */
-    border: 1px solid var(--border-color);
-    background-color: var(--card-bg);
-    transition: all 0.25s ease;
-    position: relative;
-}
-
-.card-cover-link {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    cursor: pointer;
-}
-
-.card-cover-link:focus-visible {
-    outline: 2px solid var(--text-tertiary);
-    outline-offset: -2px;
-    border-radius: 8px;
+    color: inherit;
+    text-decoration: none;
 }
 
 .project-card.hidden-project {
     display: none;
 }
 
-.project-card:hover {
-    border-color: var(--text-tertiary);
-    background-color: var(--hover-bg);
-    transform: translateY(-2px);
-}
-
-.project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.project-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-}
-
-.project-year {
-    font-size: 0.85rem;
-    color: var(--text-tertiary);
-    white-space: nowrap;
-    padding-top: 3px;
-}
-
-.project-desc {
-    font-size: 0.92rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 4px;
-}
-
-.tag {
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    border-radius: 20px; /* Bentuk pill standar */
-    background-color: transparent;
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-}
-
-.project-links {
-    margin-top: 6px;
-    display: flex;
-    gap: 16px;
+.project-thumb {
     position: relative;
-    z-index: 2;
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background-color: var(--hover-bg);
 }
 
-.project-link {
-    font-size: 0.85rem;
-    font-weight: 500;
+.project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.45s ease, transform 0.45s ease;
+}
+
+.project-card:hover .project-thumb img {
+    transform: scale(1.045);
+}
+
+/* Light theme: full color at rest, grayscale on hover */
+:root[data-theme="light"] .project-thumb img {
+    filter: grayscale(0) contrast(0.96);
+}
+
+:root[data-theme="light"] .project-card:hover .project-thumb img {
+    filter: grayscale(1) contrast(0.96);
+}
+
+/* Dark theme: grayscale at rest, full color on hover */
+:root[data-theme="dark"] .project-thumb img {
+    filter: grayscale(1) contrast(0.96);
+}
+
+:root[data-theme="dark"] .project-card:hover .project-thumb img {
+    filter: grayscale(0) contrast(0.96);
+}
+
+.project-card:focus-visible .project-thumb {
+    outline: 2px solid var(--text-tertiary);
+    outline-offset: 2px;
+}
+
+.thumb-overlay {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
-    gap: 6px;
-    color: var(--text-primary);
+    justify-content: center;
+    padding: 20px;
+    background: rgba(8,8,8,0.55);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.project-link svg {
-    width: 14px;
-    height: 14px;
+.project-card:hover .thumb-overlay,
+.project-card:focus-visible .thumb-overlay {
+    opacity: 1;
 }
 
-.project-link:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+.thumb-overlay .project-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #ffffff;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* --- Experience & Education Timeline --- */
@@ -488,6 +475,7 @@ html.no-intro #intro-screen {
     font-size: 0.95rem;
     line-height: 1.65;
     color: var(--text-secondary);
+    max-width: 620px;
 }
 
 /* --- Footer --- */
@@ -564,6 +552,15 @@ header {
     color: var(--text-secondary);
     margin-bottom: 22px;
     max-width: 680px;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
 }
 
 .tech-tags {

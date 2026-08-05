@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTabSwitching();
     initSectionFromUrl();
     initProjectFiltering();
-    initWheelScroll();
+    // initWheelScroll(); // dinonaktifkan: perpindahan tab sekarang hanya lewat klik menu
 });
 
 function getUrlParam(name) {
