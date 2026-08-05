@@ -371,11 +371,12 @@ html.no-intro #intro-screen {
 
 .project-thumb {
     position: relative;
-    aspect-ratio: 16 / 9; /* Ubah dari 4 / 3 menjadi 16 / 9 */
+    aspect-ratio: 16 / 9;
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(135, 135, 135, 0.35); /* Garis batas tipis yang terlihat jelas di tema terang maupun gelap */
     background-color: var(--hover-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Bayangan sangat halus untuk "mengangkat" card dari background */
 }
 
 .project-thumb img {
