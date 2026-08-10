@@ -36,6 +36,21 @@
     padding: 0;
 }
 
+/* --- Transisi tema: elemen tanpa transition sendiri ikut memudar halus
+   saat data-theme berubah. Elemen yang sudah punya transition spesifik
+   (mis. hover project thumbnail) tidak terganggu karena selector class
+   selalu lebih spesifik daripada selector universal ini. --- */
+*, *::before, *::after {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -48,13 +63,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-y: scroll;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
     color: inherit;
     text-decoration: none;
-    transition: color 0.2s ease;
 }
 
 /* --- INTRO SCREEN --- */
@@ -130,14 +143,11 @@ html.no-intro #intro-screen {
     padding: 60px 40px;
     position: sticky;
     top: 0;
-    height: 100vh;
+    align-self: start;
     display: flex;
     flex-direction: column;
+    gap: 24px;
     border-right: 1px solid var(--border-color);
-}
-
-.profile-section {
-    margin-bottom: 40px;
 }
 
 .name {
@@ -168,50 +178,7 @@ html.no-intro #intro-screen {
     color: var(--text-primary);
 }
 
-.nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex-grow: 1;
-}
-
-.nav-item {
-    font-family: inherit;
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 9px 12px;
-    margin-left: -12px;
-    border-radius: 6px; 
-    transition: all 0.2s ease;
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    text-align: left;
-    width: 100%;
-}
-
-.nav-item:hover, .nav-item.active {
-    color: var(--text-primary);
-    background-color: var(--hover-bg);
-}
-
-.nav-item svg {
-    width: 17px;
-    height: 17px;
-    stroke-width: 1.6;
-    flex-shrink: 0;
-}
-
-.controls {
-    display: flex;
-    gap: 10px;
-    margin-top: 24px;
-}
-
+/* .toggle-btn dipakai oleh halaman detail project (top-controls) */
 .toggle-btn {
     background: transparent;
     border: 1px solid var(--border-color);
@@ -221,14 +188,98 @@ html.no-intro #intro-screen {
     font-weight: 500;
     cursor: pointer;
     padding: 6px 14px;
-    border-radius: 8px; /* Membuat ujung tombol membulat cantik */
+    border-radius: 8px;
     transition: all 0.3s ease;
 }
 
 .toggle-btn:hover {
     color: var(--text-primary);
     border-color: var(--text-secondary);
-    background-color: var(--hover-bg); /* Tambahan efek hover background */
+    background-color: var(--hover-bg);
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.lang-toggle {
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    padding: 4px 1px;
+    position: relative;
+}
+
+.lang-toggle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    height: 1px;
+    background-color: var(--text-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.lang-toggle:hover {
+    color: var(--text-primary);
+}
+
+.lang-toggle:hover::after {
+    transform: scaleX(1);
+}
+
+.controls-divider {
+    width: 1px;
+    height: 14px;
+    background-color: var(--border-color);
+}
+
+.theme-toggle {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-left: -4px;
+    border-radius: 50%;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--text-primary);
+    background-color: var(--hover-bg);
+}
+
+.theme-toggle svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 1.6;
+    animation: theme-icon-pop 0.35s ease;
+}
+
+@keyframes theme-icon-pop {
+    0% {
+        transform: scale(0.5) rotate(-90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
 }
 
 /* --- MAIN CONTENT --- */
@@ -740,24 +791,8 @@ header {
         margin-top: 10px;
     }
 
-    .nav-links {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-top: 24px;
-    }
-
-    .nav-item {
-        padding: 7px 12px;
-        margin-left: 0;
-        width: auto;
-    }
-
     .controls {
-        position: absolute;
-        top: 28px;
-        right: 20px;
-        margin-top: 0;
+        margin-top: 4px;
     }
 
     .main-content {

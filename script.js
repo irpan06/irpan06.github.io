@@ -10,9 +10,8 @@
      dibawakan parameter ?theme=..&lang=.. sesuai kondisi terkini)
    - Intro screen & efek typing subtitle — hanya sekali per sesi browser
      (khusus index.html)
-   - Tab switching (khusus index.html)
    - Filter project (khusus index.html)
-   - Wheel scroll antar section (khusus index.html)
+   - Animasi counter jumlah project saat halaman dimuat (khusus index.html)
 
    Semua fitur di-guard (dicek elemennya dulu), jadi file ini
    aman dipakai di halaman mana pun meskipun elemennya tidak
@@ -41,10 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initLanguage();
     initInternalNavSync();
     initIntroScreen();
-    initTabSwitching();
-    initSectionFromUrl();
     initProjectFiltering();
-    // initWheelScroll(); // dinonaktifkan: perpindahan tab sekarang hanya lewat klik menu
+    initProjectCounter();
 });
 
 function getUrlParam(name) {
@@ -66,7 +63,16 @@ function initTheme() {
 
     function reflectTheme() {
         const theme = document.documentElement.getAttribute('data-theme');
-        themeToggleBtn.textContent = theme === 'dark' ? 'Dark' : 'Light';
+        const iconEl = themeToggleBtn.querySelector('[data-lucide]');
+        if (iconEl) {
+            // Tombol versi ikon (index.html): ikon mewakili tema yang
+            // sedang AKTIF sekarang — matahari saat terang, bulan saat gelap.
+            iconEl.setAttribute('data-lucide', theme === 'dark' ? 'moon' : 'sun');
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        } else {
+            // Tombol versi teks (halaman detail project)
+            themeToggleBtn.textContent = theme === 'dark' ? 'Dark' : 'Light';
+        }
     }
     reflectTheme();
 
@@ -196,31 +202,14 @@ function typeSubtitle() {
     })();
 }
 
-/* ================= TAB SWITCHING ================= */
-function initTabSwitching() {
-    const navButtons = document.querySelectorAll('.nav-item');
-    const tabSections = document.querySelectorAll('.tab-section');
-    if (!navButtons.length || !tabSections.length) return;
-
-    let projectAnimated = false;
-
-    navButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            navButtons.forEach(btn => btn.classList.remove('active'));
-            tabSections.forEach(section => section.classList.remove('active-tab'));
-
-            button.classList.add('active');
-            const targetId = button.getAttribute('data-target');
-            document.getElementById(targetId).classList.add('active-tab');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            if (targetId === 'projects' && !projectAnimated) {
-                projectAnimated = true;
-                const total = document.querySelectorAll('#projects .project-card').length;
-                animateValue('project-counter', 0, total, 700);
-            }
-        });
-    });
+/* ================= PROJECT COUNTER (dijalankan sekali saat halaman dimuat) ================= */
+// Dulu counter dianimasikan saat tab "Projects" diklik. Karena sekarang
+// Projects adalah satu-satunya section, animasi dijalankan langsung saat load.
+function initProjectCounter() {
+    const counterEl = document.getElementById('project-counter');
+    if (!counterEl) return;
+    const total = document.querySelectorAll('#projects .project-card').length;
+    animateValue('project-counter', 0, total, 700);
 }
 
 function animateValue(id, start, end, duration) {
@@ -238,19 +227,6 @@ function animateValue(id, start, end, duration) {
         }
     };
     window.requestAnimationFrame(step);
-}
-
-/* ================= BUKA TAB SESUAI PARAMETER URL ================= */
-// Dipakai saat kembali dari halaman detail project (mis. index.html?section=projects)
-// supaya langsung membuka tab yang relevan, bukan selalu default ke About.
-function initSectionFromUrl() {
-    const section = getUrlParam('section');
-    if (!section) return;
-
-    const targetBtn = document.querySelector(`.nav-item[data-target="${section}"]`);
-    if (targetBtn && !targetBtn.classList.contains('active')) {
-        targetBtn.click();
-    }
 }
 
 /* ================= PROJECT FILTERING ================= */
@@ -286,38 +262,3 @@ function initProjectFiltering() {
     });
 }
 
-/* ================= WHEEL SCROLL SECTION SWITCHING ================= */
-function initWheelScroll() {
-    const sectionsOrder = ['about', 'projects', 'experience', 'education'];
-    if (!document.querySelector('.nav-item')) return;
-
-    let isScrollThrottled = false;
-
-    window.addEventListener('wheel', (event) => {
-        if (event.target.closest('.project-grid')) return;
-        if (isScrollThrottled) return;
-
-        const activeNav = document.querySelector('.nav-item.active');
-        if (!activeNav) return;
-        const currentTarget = activeNav.getAttribute('data-target');
-        const currentIndex = sectionsOrder.indexOf(currentTarget);
-
-        let nextIndex = currentIndex;
-        if (event.deltaY > 0) {
-            nextIndex++;
-        } else if (event.deltaY < 0) {
-            nextIndex--;
-        }
-
-        if (nextIndex !== currentIndex && nextIndex >= 0 && nextIndex < sectionsOrder.length) {
-            isScrollThrottled = true;
-            const nextSectionId = sectionsOrder[nextIndex];
-            const nextNavBtn = document.querySelector(`.nav-item[data-target="${nextSectionId}"]`);
-            if (nextNavBtn) nextNavBtn.click();
-
-            setTimeout(() => {
-                isScrollThrottled = false;
-            }, 800);
-        }
-    });
-}

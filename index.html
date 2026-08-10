@@ -55,52 +55,25 @@
                 </p>
                 <div class="social-links">
                     <a href="https://github.com/irpan06" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://wa.me/6285179857311" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://wa.me/62085179857311" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                     <a href="mailto:irvandim20@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
                 </div>
             </div>
 
-            <nav class="nav-links">
-                <button class="nav-item active" data-target="about">
-                    <i data-lucide="user"></i>
-                    <span data-en="About" data-id="Tentang">About</span>
-                </button>
-                <button class="nav-item" data-target="projects">
-                    <i data-lucide="briefcase"></i>
-                    <span data-en="Projects" data-id="Proyek">Projects</span>
-                </button>
-                <button class="nav-item" data-target="experience">
-                    <i data-lucide="history"></i>
-                    <span data-en="Experience" data-id="Pengalaman">Experience</span>
-                </button>
-                <button class="nav-item" data-target="education">
-                    <i data-lucide="graduation-cap"></i>
-                    <span data-en="Education" data-id="Pendidikan">Education</span>
-                </button>
-            </nav>
-
             <div class="controls">
-                <button class="toggle-btn" id="langToggle">EN</button>
-                <button class="toggle-btn" id="themeToggle">Dark</button>
+                <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+                <span class="controls-divider"></span>
+                <button class="theme-toggle" id="themeToggle" aria-label="Switch theme">
+                    <i data-lucide="moon"></i>
+                </button>
             </div>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
 
-            <!-- TAB: About -->
-            <section id="about" class="tab-section active-tab">
-                <h2 class="section-header" data-en="About" data-id="Tentang">About</h2>
-                <div class="bio-text">
-                    <p data-en="I am a technically obsessed data enthusiast with an innate drive to understand how systems work from the inside out. Professionally dedicated to data engineering, with a passion for tackling complex architectural challenges in data pipelines, complemented by a sharp eye for analytics."
-                       data-id="Saya seorang data enthusiast yang sangat berorientasi pada aspek teknis, dengan rasa ingin tahu mendalam tentang cara kerja sebuah sistem. Berfokus secara profesional pada data engineering, antusias merancang solusi atas tantangan arsitektur data pipeline yang rumit, serta diimbangi dengan wawasan analitis.">
-                        I am a technically obsessed data enthusiast with an innate drive to understand how systems work from the inside out. Professionally dedicated to data engineering, with a passion for tackling complex architectural challenges in data pipelines, complemented by a sharp eye for analytics.
-                    </p>
-                </div>
-            </section>
-
-            <!-- TAB: Projects -->
-            <section id="projects" class="tab-section">
+            <!-- Projects -->
+            <section id="projects" class="tab-section active-tab">
                 <h2 class="section-header">
                     <span data-en="Projects" data-id="Proyek">Projects</span>
                     <span class="counter">[<span id="project-counter">0</span>]</span>
@@ -109,10 +82,7 @@
                 <div class="project-filters">
                     <button class="filter-btn active-filter" data-filter="all" data-en="All" data-id="Semua">All</button>
                     <button class="filter-btn" data-filter="data" data-en="Data" data-id="Data">Data</button>
-                    <button class="filter-btn" data-filter="automation" data-en="Automation" data-id="Otomasi">Automation</button>
-                </div>
-
-                <div class="project-scroll">
+                    <button class="filter-btn" data-filter="other" data-en="Other" data-id="Lainnya">Other</button>
                 <div class="project-grid">
 
                     <a href="projects/project-data-analytics.html" class="project-card" data-category="data">
@@ -160,7 +130,7 @@
                         </div>
                     </a>
 
-                    <a href="projects/krs.html" class="project-card" data-category="automation">
+                    <a href="projects/krs.html" class="project-card" data-category="other">
                         <div class="project-thumb">
                             <img src="assets/projects/krs-automation.svg" alt="KRS Enrollment Bot">
                             <div class="thumb-overlay">
@@ -170,58 +140,6 @@
                     </a>
 
                 </div>
-                </div>
-            </section>
-
-            <!-- TAB: Experience -->
-            <section id="experience" class="tab-section">
-                <h2 class="section-header" data-en="Experience" data-id="Pengalaman">Experience</h2>
-                
-                <div class="timeline">
-                    <!-- Pengalaman Baru: Springer Capital 2025 -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025</div>
-                        <div class="timeline-content">
-                            <h3>Data Engineer Intern</h3>
-                            <div class="timeline-subtitle">Springer Capital</div>
-                            <p class="timeline-desc" data-en="Assisted in designing and maintaining scalable ETL/ELT data pipelines, managing SQL/NoSQL databases, and implementing data quality checks. Collaborated with cross-functional teams using modern cloud technologies to process large datasets and turn raw data into actionable insights."
-                               data-id="Membantu merancang dan memelihara pipeline data ETL/ELT yang skalabel, mengelola database SQL/NoSQL, serta mengimplementasikan pengecekan kualitas data. Berkolaborasi dengan tim lintas fungsi menggunakan teknologi cloud modern untuk memproses dataset berskala besar dan mengubah data mentah menjadi insight bisnis yang berharga.">
-                                Assisted in designing and maintaining scalable ETL/ELT data pipelines, managing SQL/NoSQL databases, and implementing data quality checks. Collaborated with cross-functional teams using modern cloud technologies to process large datasets and turn raw data into actionable insights.
-                            </p>
-                        </div>
-                    </div>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024</div>
-                        <div class="timeline-content">
-                            <h3>Machine Learning Cohort</h3>
-                            <div class="timeline-subtitle">Bangkit Academy</div>
-                            <p class="timeline-desc" data-en="Gained a solid understanding of machine learning, including supervised & unsupervised learning and deep learning, and implemented models using Python, TensorFlow, and scikit-learn."
-                               data-id="Menguasai konsep machine learning secara komprehensif, mulai dari supervised/unsupervised learning hingga deep learning, serta mengimplementasikan model fungsional menggunakan Python, TensorFlow, dan scikit-learn.">
-                                Gained a solid understanding of machine learning, including supervised & unsupervised learning and deep learning, and implemented models using Python, TensorFlow, and scikit-learn.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- TAB: Education -->
-            <section id="education" class="tab-section">
-                <h2 class="section-header" data-en="Education" data-id="Pendidikan">Education</h2>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2021 — 2025</div>
-                        <div class="timeline-content">
-                            <h3 data-en="Bachelor of Physics, Computational Physics" data-id="Sarjana Fisika, Fisika Komputasi">Bachelor of Physics, Computational Physics</h3>
-                            <div class="timeline-subtitle" data-en="Airlangga University, Surabaya" data-id="Universitas Airlangga, Surabaya">Airlangga University, Surabaya</div>
-                            <p class="timeline-desc" data-en="Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects."
-                               data-id="Mengembangkan kemampuan pemecahan masalah dan analitis yang kuat melalui pendekatan kuantitatif, pemodelan matematika, dan eksperimen komputasional dalam penelitian dan proyek akademik.">
-                                Developed strong problem-solving and analytical skills through quantitative approaches, mathematical modeling, and computational experiments in both research and academic projects.
-                            </p>
-                        </div>
-                    </div>
                 </div>
             </section>
 
